@@ -8,7 +8,8 @@
     /* ==========================================================================
        CONFIGURATION
        ========================================================================== */
-    var FORMSPREE_URL = 'https://formsubmit.co/ajax/alternativa.iot@gmail.com';
+    var WEB3FORMS_KEY = '54f686dc-90b9-4756-820a-c561f1107609';
+    var WEB3FORMS_URL = 'https://api.web3forms.com/submit';
 
     /* ==========================================================================
        TRANSLATIONS
@@ -790,15 +791,14 @@
             submitBtn.disabled = true;
             showStatus(statusEl, t.form_sending, 'sending');
 
-            fetch(FORMSPREE_URL, {
+            fetch(WEB3FORMS_URL, {
                 method: 'POST',
                 body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
                     name: name,
                     email: email,
-                    subject: subject,
-                    message: message,
-                    _subject: 'SolarDiverter: ' + subject,
-                    _captcha: 'false'
+                    subject: 'SolarDiverter: ' + subject,
+                    message: message
                 }),
                 headers: {
                     'Accept': 'application/json',
