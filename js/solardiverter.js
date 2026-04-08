@@ -8,9 +8,7 @@
     /* ==========================================================================
        CONFIGURATION
        ========================================================================== */
-    // TODO: Substituir pelo seu Formspree form ID (registar grátis em https://formspree.io)
-    var FORMSPREE_ID = 'YOUR_FORM_ID';
-    var FORMSPREE_URL = 'https://formspree.io/f/' + FORMSPREE_ID;
+    var FORMSPREE_URL = 'https://formspree.io/alternativa.iot@gmail.com';
 
     /* ==========================================================================
        TRANSLATIONS
