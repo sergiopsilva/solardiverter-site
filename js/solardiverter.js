@@ -161,7 +161,7 @@
             footer_issues: 'Reportar Bug',
             footer_contact_title: 'Contacto',
             footer_rights: 'Todos os direitos reservados.',
-            donate_title: 'Gostas de usar o SolarDiverter e achás-lo rentável?',
+            donate_title: 'Costumas usar o SolarDiverter e consideras que compensa financeiramente?',
             donate_sub: 'O firmware é gratuito e desenvolvido no tempo livre. Se quiseres apoiar o projeto, considera fazer um donativo — qualquer valor ajuda a mantê-lo ativo.',
             donate_btn: 'Fazer Donativo',
             donate_footer: 'Apoiar o Projeto'
