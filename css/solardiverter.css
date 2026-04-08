@@ -1242,6 +1242,77 @@ html {
 }
 
 /* ==========================================================================
+   PLUG & PLAY CTA BANNER
+   ========================================================================== */
+.sd-plugplay-banner {
+    padding: 36px 0;
+}
+
+.sd-plugplay-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    background: linear-gradient(135deg, rgba(249,115,22,0.12) 0%, rgba(251,191,36,0.08) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: var(--sd-radius-lg);
+    padding: 28px 36px;
+}
+
+.sd-plugplay-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.sd-plugplay-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(249, 115, 22, 0.18);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sd-plugplay-icon .la {
+    font-size: 26px;
+    color: var(--sd-primary);
+}
+
+.sd-plugplay-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px;
+    line-height: 1.4;
+}
+
+.sd-plugplay-title em {
+    font-style: normal;
+    color: var(--sd-primary);
+}
+
+.sd-plugplay-sub {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .sd-plugplay-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+    }
+    .sd-plugplay-inner .sd-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
    CONTACT FORM
    ========================================================================== */
 .sd-contact-form {
