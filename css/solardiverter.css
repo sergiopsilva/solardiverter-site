@@ -723,71 +723,193 @@ html {
 /* ==========================================================================
    HARDWARE GRID
    ========================================================================== */
-.sd-hw-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 14px;
-}
+/* ==========================================================================
+   HARDWARE COMPATIBILITY
+   ========================================================================== */
 
-.sd-hw-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.sd-hw-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--sd-radius);
-    padding: 20px 12px 16px;
-    text-align: center;
-    transition: var(--sd-transition);
-    position: relative;
+    padding: 20px 32px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
 }
 
-.sd-hw-card:hover {
-    background: rgba(249, 115, 22, 0.08);
-    border-color: rgba(249, 115, 22, 0.3);
-    transform: translateY(-3px);
+.sd-hw-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
 }
 
-.sd-hw-badge {
-    position: absolute;
-    top: -8px;
-    right: 8px;
-    font-size: 9px;
+.sd-hw-stat-div {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sd-hw-stat-num {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--sd-white);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.sd-hw-stat-num.sd-hw-stat-ok {
+    color: #22c55e;
+}
+
+.sd-hw-stat-num.sd-hw-stat-new {
+    color: var(--sd-primary);
+}
+
+.sd-hw-stat-lbl {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 5px;
+}
+
+.sd-hw-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: start;
+}
+
+.sd-hw-panel {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--sd-radius-lg);
+    overflow: hidden;
+}
+
+.sd-hw-panel-tall {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+}
+
+.sd-hw-panel-hdr {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sd-hw-panel-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(249, 115, 22, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sd-hw-panel-icon .la {
+    font-size: 20px;
+    color: var(--sd-primary);
+}
+
+.sd-hw-panel-name {
+    display: block;
+    font-size: 14px;
     font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
+    color: var(--sd-white);
+    line-height: 1.2;
+}
+
+.sd-hw-panel-proto {
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 3px;
+}
+
+.sd-hw-list {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+}
+
+.sd-hw-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.2s;
+}
+
+.sd-hw-list li:last-child {
+    border-bottom: none;
+}
+
+.sd-hw-list li:hover {
+    background: rgba(249, 115, 22, 0.05);
 }
 
 .sd-hw-badge-ok {
-    background: var(--sd-green-bg);
-    color: var(--sd-green);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: 4px;
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .sd-hw-badge-new {
-    background: rgba(249, 115, 22, 0.85);
-    color: #fff;
-}
-
-.sd-hw-icon {
-    margin-bottom: 8px;
-}
-
-.sd-hw-icon .la {
-    font-size: 28px;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.sd-hw-name {
-    display: block;
-    color: var(--sd-white);
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.sd-hw-proto {
-    display: block;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 11px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 0;
+    border-radius: 4px;
+    background: rgba(249, 115, 22, 0.12);
+    color: var(--sd-primary);
     font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.3px;
+}
+
+.sd-hw-nm {
+    flex: 1;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+}
+
+.sd-hw-pr {
+    flex-shrink: 0;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: right;
 }
 
 /* ==========================================================================
@@ -1437,8 +1559,12 @@ html {
     .sd-section-title {
         font-size: 30px;
     }
-    .sd-hw-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    .sd-hw-panels {
+        grid-template-columns: 1fr;
+    }
+    .sd-hw-panel-tall {
+        grid-row: auto;
+        grid-column: auto;
     }
     .sd-navbar-toggle {
         display: flex;
@@ -1517,12 +1643,15 @@ html {
     .sd-math-question input {
         max-width: 100%;
     }
-    .sd-hw-grid {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-        gap: 10px;
+    .sd-hw-stats {
+        padding: 14px 16px;
+        width: 100%;
     }
-    .sd-hw-card {
-        padding: 16px 8px 12px;
+    .sd-hw-stat {
+        padding: 0 16px;
+    }
+    .sd-hw-stat-num {
+        font-size: 22px;
     }
     .sd-dl-cta {
         flex-direction: column;

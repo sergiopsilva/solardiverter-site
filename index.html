@@ -288,180 +288,91 @@
             <h2 class="sd-section-title" data-i18n="hw_title">Hardware Compatível</h2>
             <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 25 inversores e medidores diferentes</p>
         </div>
-        <div class="sd-hw-grid">
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
-                <span class="sd-hw-name">Shelly EM</span>
-                <span class="sd-hw-proto">HTTP</span>
+
+        <div class="sd-hw-stats">
+            <div class="sd-hw-stat">
+                <span class="sd-hw-stat-num sd-hw-stat-ok">9</span>
+                <span class="sd-hw-stat-lbl">testados</span>
             </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
-                <span class="sd-hw-name">Shelly 3EM</span>
-                <span class="sd-hw-proto">HTTP</span>
+            <div class="sd-hw-stat-div"></div>
+            <div class="sd-hw-stat">
+                <span class="sd-hw-stat-num sd-hw-stat-new">20</span>
+                <span class="sd-hw-stat-lbl">em breve</span>
             </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
-                <span class="sd-hw-name">Shelly Pro 3EM</span>
-                <span class="sd-hw-proto">HTTP/RPC</span>
+            <div class="sd-hw-stat-div"></div>
+            <div class="sd-hw-stat">
+                <span class="sd-hw-stat-num">29</span>
+                <span class="sd-hw-stat-lbl">total</span>
             </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
-                <span class="sd-hw-name">Shelly EM Gen3</span>
-                <span class="sd-hw-proto">HTTP/RPC</span>
+        </div>
+
+        <div class="sd-hw-panels">
+            <!-- Panel A: Smart Meters HTTP/RPC/SSE -->
+            <div class="sd-hw-panel">
+                <div class="sd-hw-panel-hdr">
+                    <span class="sd-hw-panel-icon"><i class="la la-plug"></i></span>
+                    <div class="sd-hw-panel-titles">
+                        <span class="sd-hw-panel-name">Smart Meters</span>
+                        <span class="sd-hw-panel-proto">HTTP · RPC · SSE</span>
+                    </div>
+                </div>
+                <ul class="sd-hw-list">
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Shelly EM</span><code class="sd-hw-pr">HTTP</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Shelly 3EM</span><code class="sd-hw-pr">HTTP</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Shelly EM Gen3</span><code class="sd-hw-pr">HTTP/RPC</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Shelly Pro 3EM</span><code class="sd-hw-pr">HTTP/RPC</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Shelly Pro EM 50</span><code class="sd-hw-pr">HTTP/RPC</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Onofre HAN</span><code class="sd-hw-pr">HTTP/SSE</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">EasyHAN / EDP</span><code class="sd-hw-pr">HTTP/SSE</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Enphase Envoy</span><code class="sd-hw-pr">HTTP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Fronius</span><code class="sd-hw-pr">Solar API</code></li>
+                </ul>
             </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">GoodWe ET/EH</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
+
+            <!-- Panel B: Inversores Solares — spans 2 rows -->
+            <div class="sd-hw-panel sd-hw-panel-tall">
+                <div class="sd-hw-panel-hdr">
+                    <span class="sd-hw-panel-icon"><i class="la la-solar-panel"></i></span>
+                    <div class="sd-hw-panel-titles">
+                        <span class="sd-hw-panel-name">Inversores Solares</span>
+                        <span class="sd-hw-panel-proto">Modbus TCP · Modbus RTU</span>
+                    </div>
+                </div>
+                <ul class="sd-hw-list">
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">GoodWe ET/EH</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Solax X1 WiFi</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Solax X1 RS485</span><code class="sd-hw-pr">Modbus RTU</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">Deye Hybrid</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Huawei SUN2000</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SolarEdge</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SMA Sunny Boy</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">FoxESS H1/H3</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Growatt SPH/TL</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Victron Cerbo</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Sigenergy</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Sungrow SH/SG</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Sofar / ZCS</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Solis / Ginlong</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Solplanet</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                </ul>
             </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Solax X1 WiFi</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Solax X1 RS485</span>
-                <span class="sd-hw-proto">Modbus RTU</span>
-            </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Fronius</span>
-                <span class="sd-hw-proto">HTTP/Solar API</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Huawei SUN2000</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">SolarEdge</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">SMA Sunny Boy</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">FoxESS H1/H3</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Growatt SPH/TL</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Victron Cerbo</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Sigenergy</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Deye Hybrid</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-broadcast-tower"></i></div>
-                <span class="sd-hw-name">Onofre HAN</span>
-                <span class="sd-hw-proto">HTTP/SSE</span>
-            </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-server"></i></div>
-                <span class="sd-hw-name">MQTT</span>
-                <span class="sd-hw-proto" data-i18n="hw_mqtt_custom">Custom Topics</span>
-            </div>
-            <div class="sd-hw-card sd-hw-tested">
-                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
-                <div class="sd-hw-icon"><i class="la la-microchip"></i></div>
-                <span class="sd-hw-name">FreeDS</span>
-                <span class="sd-hw-proto">HTTP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-tachometer-alt"></i></div>
-                <span class="sd-hw-name">SDM120 / DDS238</span>
-                <span class="sd-hw-proto">Modbus RTU</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Sungrow SH/SG</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Sofar / ZCS</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Solis / Ginlong</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Solplanet</span>
-                <span class="sd-hw-proto">Modbus TCP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
-                <span class="sd-hw-name">Enphase Envoy</span>
-                <span class="sd-hw-proto">HTTP</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-broadcast-tower"></i></div>
-                <span class="sd-hw-name">EasyHAN / EDP</span>
-                <span class="sd-hw-proto">HTTP/SSE</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
-                <span class="sd-hw-name">Shelly Pro EM 50</span>
-                <span class="sd-hw-proto">HTTP/RPC</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-tachometer-alt"></i></div>
-                <span class="sd-hw-name">SDM230 / SDM630</span>
-                <span class="sd-hw-proto">Modbus RTU</span>
-            </div>
-            <div class="sd-hw-card sd-hw-new">
-                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
-                <div class="sd-hw-icon"><i class="la la-microchip"></i></div>
-                <span class="sd-hw-name">FreePocket</span>
-                <span class="sd-hw-proto">HTTP</span>
+
+            <!-- Panel C: Modbus RTU meters + integrations -->
+            <div class="sd-hw-panel">
+                <div class="sd-hw-panel-hdr">
+                    <span class="sd-hw-panel-icon"><i class="la la-server"></i></span>
+                    <div class="sd-hw-panel-titles">
+                        <span class="sd-hw-panel-name">RTU &amp; Integrações</span>
+                        <span class="sd-hw-panel-proto">Modbus RTU · MQTT · HTTP</span>
+                    </div>
+                </div>
+                <ul class="sd-hw-list">
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SDM120 / DDS238</span><code class="sd-hw-pr">Modbus RTU</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SDM230 / SDM630</span><code class="sd-hw-pr">Modbus RTU</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">MQTT</span><code class="sd-hw-pr" data-i18n="hw_mqtt_custom">Custom Topics</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">FreeDS</span><code class="sd-hw-pr">HTTP</code></li>
+                    <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">FreePocket</span><code class="sd-hw-pr">HTTP</code></li>
+                </ul>
             </div>
         </div>
     </div>
