@@ -132,6 +132,16 @@ html {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .sd-navbar .container {
     display: flex;
     align-items: center;
@@ -1423,6 +1433,19 @@ html {
     .sd-hero {
         padding: 70px 0 60px;
         min-height: auto;
+    }
+    .sd-hero-content {
+        text-align: center;
+    }
+    .sd-hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sd-hero-buttons {
+        justify-content: center;
+    }
+    .sd-hero-stats {
+        justify-content: center;
     }
     .sd-hero-title-main {
         font-size: 44px;
