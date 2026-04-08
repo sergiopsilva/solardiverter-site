@@ -165,6 +165,8 @@
             donate_sub: 'O firmware é gratuito e desenvolvido no tempo livre. Se quiseres apoiar o projeto, considera fazer um donativo — qualquer valor ajuda a mantê-lo ativo.',
             donate_btn: 'Fazer Donativo',
             donate_footer: 'Apoiar o Projeto'
+        },
+        en: {
             ribbon_version: 'Version 1.0.3 - March 2026 · BETA',
             dl_beta_notice: '⚠️ Beta versions — tested but in active development. Use with caution and report any issues.',
             nav_features: 'Features',
@@ -314,6 +316,8 @@
             donate_sub: 'The firmware is free and developed in spare time. If you\'d like to support the project, consider making a donation — any amount helps keep it going.',
             donate_btn: 'Donate',
             donate_footer: 'Support the Project'
+        },
+        fr: {
             ribbon_version: 'Version 1.0.3 - Mars 2026 · BETA',
             dl_beta_notice: '⚠️ Versions en phase <strong>BETA</strong> — testées mais en développement actif. À utiliser avec précaution, signalez les erreurs.',
             nav_features: 'Fonctionnalités',
@@ -463,6 +467,8 @@
             donate_sub: 'Le firmware est gratuit et développé sur le temps libre. Si vous souhaitez soutenir le projet, pensez à faire un don — tout montant aide à le maintenir.',
             donate_btn: 'Faire un don',
             donate_footer: 'Soutenir le Projet'
+        },
+        es: {
             ribbon_version: 'Versión 1.0.3 - Marzo 2026 · BETA',
             dl_beta_notice: '⚠️ Versiones en fase <strong>BETA</strong> — probadas pero en desarrollo activo. Use con precaución y reporte errores.',
             nav_features: 'Características',
@@ -612,6 +618,8 @@
             donate_sub: 'El firmware es gratuito y desarrollado en tiempo libre. Si deseas apoyar el proyecto, considera hacer una donación — cualquier cantidad ayuda a mantenerlo.',
             donate_btn: 'Donar',
             donate_footer: 'Apoyar el Proyecto'
+        }
+    };
 
     /* ==========================================================================
        LANGUAGE SWITCHER
