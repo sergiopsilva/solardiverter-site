@@ -8,7 +8,7 @@
     /* ==========================================================================
        CONFIGURATION
        ========================================================================== */
-    var FORMSPREE_URL = 'https://formspree.io/alternativa.iot@gmail.com';
+    var FORMSPREE_URL = 'https://formsubmit.co/ajax/alternativa.iot@gmail.com';
 
     /* ==========================================================================
        TRANSLATIONS
@@ -790,20 +790,26 @@
             submitBtn.disabled = true;
             showStatus(statusEl, t.form_sending, 'sending');
 
-            var formData = new FormData(form);
-            formData.delete('sd_antispam');
-            formData.delete('_gotcha');
-            formData.delete('sd_timestamp');
-            // Remover honeypot #2 antes de enviar para o Formspree
-            formData.delete('website_url');
-
             fetch(FORMSPREE_URL, {
                 method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                    _subject: 'SolarDiverter: ' + subject,
+                    _captcha: 'false'
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             })
             .then(function (response) {
-                if (response.ok) {
+                return response.json();
+            })
+            .then(function (data) {
+                if (data.success === 'true' || data.success === true) {
                     showStatus(statusEl, t.form_success, 'success');
                     form.reset();
                     generateMathChallenge();
