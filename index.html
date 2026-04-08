@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarDiverter - AlternativaIOT</title>
+    <meta name="description" content="SolarDiverter - Desviador Inteligente de Energia Solar para ESP32. Gratuito, até 4 canais PWM, 25+ medidores suportados, MQTT, Home Assistant.">
+    <meta name="author" content="AlternativaIOT">
+    <meta name="keywords" content="solar diverter, ESP32, energy, solar, PWM, MQTT, home automation, AlternativaIOT, excedente solar, autoconsumo">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SolarDiverter - Desviador Inteligente de Energia Solar">
+    <meta property="og:description" content="Controlo universal e automático de excedentes solares. Compatível com +25 inversores · Home Assistant · MQTT">
+    <meta property="og:image" content="img/AlternativaIOT_logo.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/AlternativaIOT_logo.png">
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YcnS/1nGMV8hL+IFsEGc1b6v0c4k9z2cN1i" crossorigin="anonymous">
+
+    <!-- Line Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/lanern/line-awesome/css/line-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/solardiverter.css">
+</head>
+<body>
+
+<!-- Version Ribbon -->
+<div class="sd-version-ribbon">
+    <span class="sd-ribbon-sparkle">&#10024;</span>
+    <span data-i18n="ribbon_version">Versão 1.0.3 - Março 2026</span>
+    <span class="sd-ribbon-beta">&#9881; BETA</span>
+</div>
+
+<!-- Navigation -->
+<nav class="sd-navbar" id="sd-navbar">
+    <div class="container">
+        <a href="#home" class="sd-navbar-brand">
+            <img src="img/sd-icon.svg" alt="SolarDiverter" class="sd-navbar-logo">
+            <span class="sd-navbar-name">SolarDiverter</span>
+        </a>
+        <button class="sd-navbar-toggle" id="sd-nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="sd-navbar-links" id="sd-nav-links">
+            <a href="#features" data-i18n="nav_features">Funcionalidades</a>
+            <a href="#hardware" data-i18n="nav_hardware">Hardware</a>
+            <a href="#getting-started" data-i18n="nav_started">Instalação</a>
+            <a href="#downloads" data-i18n="nav_downloads">Transferências</a>
+            <a href="#contact" data-i18n="nav_contact">Contacto</a>
+            <div class="sd-nav-lang">
+                <button class="sd-lang-btn active" data-lang="pt">PT</button>
+                <button class="sd-lang-btn" data-lang="en">EN</button>
+                <button class="sd-lang-btn" data-lang="fr">FR</button>
+                <button class="sd-lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="sd-hero">
+    <div class="sd-hero-bg">
+        <div class="sd-hero-glow sd-glow-1"></div>
+        <div class="sd-hero-glow sd-glow-2"></div>
+        <div class="sd-hero-grid"></div>
+    </div>
+    <div class="container sd-hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="sd-hero-badge">
+                    <i class="la la-bolt"></i>
+                    <span data-i18n="hero_badge">Uso Livre &middot; ESP32</span>
+                </div>
+                <h1 class="sd-hero-title">
+                    <span class="sd-hero-title-main">SolarDiverter</span>
+                </h1>
+                <p class="sd-hero-subtitle" data-i18n="hero_subtitle">Desviador Inteligente de Energia Solar para ESP32</p>
+                <p class="sd-hero-desc" data-i18n="hero_desc">Controlo universal e automático de excedentes solares. Compatível com +25 inversores/medidores, Home Assistant e MQTT.</p>
+                <div class="sd-hero-buttons">
+                    <!-- TODO: Substituir "#" pelos links de download definitivos -->
+                    <a href="#downloads" class="sd-btn sd-btn-primary sd-btn-glow">
+                        <i class="la la-download"></i>
+                        <span data-i18n="hero_btn_download">Transferir Grátis</span>
+                    </a>
+                    <a href="#features" class="sd-btn sd-btn-ghost">
+                        <span data-i18n="hero_btn_features">Explorar Funcionalidades</span>
+                        <i class="la la-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="sd-hero-stats">
+                    <div class="sd-stat">
+                        <span class="sd-stat-value">25+</span>
+                        <span class="sd-stat-label" data-i18n="stat_inverters">INVERSORES</span>
+                    </div>
+                    <div class="sd-stat-divider"></div>
+                    <div class="sd-stat">
+                        <span class="sd-stat-value">v1.0.3</span>
+                        <span class="sd-stat-label" data-i18n="stat_version">ÚLTIMA VERSÃO</span>
+                    </div>
+                    <div class="sd-stat-divider"></div>
+                    <div class="sd-stat">
+                        <span class="sd-stat-value">4</span>
+                        <span class="sd-stat-label" data-i18n="stat_channels">CANAIS PWM</span>
+                    </div>
+                    <div class="sd-stat-divider"></div>
+                    <div class="sd-stat">
+                        <span class="sd-stat-value">100%</span>
+                        <span class="sd-stat-label" data-i18n="stat_free">GRATUITO</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="sd-hero-visual">
+                    <div class="sd-hero-brand">
+                        <div class="sd-hero-sun-wrap">
+                            <div class="sd-hero-sun-halo"></div>
+                            <div class="sd-hero-sun-halo sd-hero-sun-halo-2"></div>
+                            <svg class="sd-hero-sun-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                <defs>
+                                    <linearGradient id="sunG" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFD60A"/>
+                                        <stop offset="100%" stop-color="#FF6B00"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(45 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(90 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(135 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(180 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(225 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(270 50 50)"/>
+                                <rect x="47" y="5" width="6" height="17" rx="3" fill="url(#sunG)" transform="rotate(315 50 50)"/>
+                                <circle cx="50" cy="50" r="22" fill="url(#sunG)"/>
+                                <circle cx="43" cy="43" r="7" fill="white" opacity="0.18"/>
+                            </svg>
+                        </div>
+                        <div class="sd-hero-brand-name">SolarDiverter</div>
+                        <p class="sd-hero-brand-tagline">Controlador inteligente de desvio de energia solar para cargas resistivas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sd-scroll-indicator">
+        <span data-i18n="scroll_text">SCROLL</span>
+        <div class="sd-scroll-line"></div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="sd-section">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="features_tag">FUNCIONALIDADES</span>
+            <h2 class="sd-section-title" data-i18n="features_title">Novidades da Versão 1.0.3</h2>
+            <p class="sd-section-subtitle" data-i18n="features_subtitle">Lançada em Março de 2026</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-bolt"></i>
+                    </div>
+                    <h3 data-i18n="feat_pwm_title">4 Canais PWM</h3>
+                    <ul class="sd-feature-list">
+                        <li data-i18n="feat_pwm_1">Controlo independente por canal</li>
+                        <li data-i18n="feat_pwm_2">Rampa suave configurável</li>
+                        <li data-i18n="feat_pwm_3">Proteção térmica TRIAC</li>
+                        <li data-i18n="feat_pwm_4">Min/Max duty ajustável</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-thermometer-half"></i>
+                    </div>
+                    <h3 data-i18n="feat_temp_title">Controlo de Temperatura</h3>
+                    <ul class="sd-feature-list">
+                        <li data-i18n="feat_temp_1">4 sensores DS18B20</li>
+                        <li data-i18n="feat_temp_2">Histerese ajustável</li>
+                        <li data-i18n="feat_temp_3">Ativação automática</li>
+                        <li data-i18n="feat_temp_4">Proteção de TRIAC</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-home"></i>
+                    </div>
+                    <h3 data-i18n="feat_mqtt_title">Home Assistant</h3>
+                    <ul class="sd-feature-list">
+                        <li data-i18n="feat_mqtt_1">Integração MQTT completa</li>
+                        <li data-i18n="feat_mqtt_2">Tópicos configuráveis</li>
+                        <li data-i18n="feat_mqtt_3">Comandos remotos</li>
+                        <li data-i18n="feat_mqtt_4">Automatizações avançadas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-cog"></i>
+                    </div>
+                    <h3 data-i18n="feat_tech_title">Melhorias Técnicas</h3>
+                    <ul class="sd-feature-list">
+                        <li data-i18n="feat_tech_1">Peak Shaving integrado</li>
+                        <li data-i18n="feat_tech_2">PWM otimizado</li>
+                        <li data-i18n="feat_tech_3">Interface Web 6 idiomas</li>
+                        <li data-i18n="feat_tech_4">Display OLED suportado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extra features row -->
+        <div class="row g-4 mt-2">
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-wifi"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_wifi_title">WiFi Dual</h4>
+                        <p data-i18n="feat_wifi_desc">Rede principal + backup, modo AP para configuração, IP estático ou DHCP.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-clock"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_schedule_title">4 Agendamentos</h4>
+                        <p data-i18n="feat_schedule_desc">Programações com controlo de temperatura, dias da semana e PWM fixo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-shield-alt"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_safety_title">Proteções</h4>
+                        <p data-i18n="feat_safety_desc">Thermal cutoff, data timeout, proteção de fase e peak shaving automáticos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- New features row -->
+        <div class="row g-4 mt-2">
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-water"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_legionella_title">Anti-Legionella</h4>
+                        <p data-i18n="feat_legionella_desc">Temperatura mínima de segurança da água com histerese configurável.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-battery-full"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_battery_title">Prioridade Bateria</h4>
+                        <p data-i18n="feat_battery_desc">Modo prioridade bateria para inversores híbridos com threshold configurável.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card sd-feature-card-sm">
+                    <div class="sd-feature-icon-sm"><i class="la la-project-diagram"></i></div>
+                    <div>
+                        <h4 data-i18n="feat_phase_title">Proteção Trifásica</h4>
+                        <p data-i18n="feat_phase_desc">Limitação por fase do diverter, potência máxima por fase (3680W default).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hardware Compatible Section -->
+<section id="hardware" class="sd-section sd-section-dark">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="hw_tag">COMPATIBILIDADE</span>
+            <h2 class="sd-section-title" data-i18n="hw_title">Hardware Compatível</h2>
+            <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 25 inversores e medidores diferentes</p>
+        </div>
+        <div class="sd-hw-grid">
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
+                <span class="sd-hw-name">Shelly EM</span>
+                <span class="sd-hw-proto">HTTP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
+                <span class="sd-hw-name">Shelly 3EM</span>
+                <span class="sd-hw-proto">HTTP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
+                <span class="sd-hw-name">Shelly Pro 3EM</span>
+                <span class="sd-hw-proto">HTTP/RPC</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
+                <span class="sd-hw-name">Shelly EM Gen3</span>
+                <span class="sd-hw-proto">HTTP/RPC</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">GoodWe ET/EH</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Solax X1 WiFi</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Solax X1 RS485</span>
+                <span class="sd-hw-proto">Modbus RTU</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Fronius</span>
+                <span class="sd-hw-proto">HTTP/Solar API</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Huawei SUN2000</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">SolarEdge</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">SMA Sunny Boy</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">FoxESS H1/H3</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Growatt SPH/TL</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Victron Cerbo</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Sigenergy</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Deye Hybrid</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-broadcast-tower"></i></div>
+                <span class="sd-hw-name">Onofre HAN</span>
+                <span class="sd-hw-proto">HTTP/SSE</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-server"></i></div>
+                <span class="sd-hw-name">MQTT</span>
+                <span class="sd-hw-proto" data-i18n="hw_mqtt_custom">Custom Topics</span>
+            </div>
+            <div class="sd-hw-card sd-hw-tested">
+                <span class="sd-hw-badge sd-hw-badge-ok">&#10003;</span>
+                <div class="sd-hw-icon"><i class="la la-microchip"></i></div>
+                <span class="sd-hw-name">FreeDS</span>
+                <span class="sd-hw-proto">HTTP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-tachometer-alt"></i></div>
+                <span class="sd-hw-name">SDM120 / DDS238</span>
+                <span class="sd-hw-proto">Modbus RTU</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Sungrow SH/SG</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Sofar / ZCS</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Solis / Ginlong</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Solplanet</span>
+                <span class="sd-hw-proto">Modbus TCP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-solar-panel"></i></div>
+                <span class="sd-hw-name">Enphase Envoy</span>
+                <span class="sd-hw-proto">HTTP</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-broadcast-tower"></i></div>
+                <span class="sd-hw-name">EasyHAN / EDP</span>
+                <span class="sd-hw-proto">HTTP/SSE</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-plug"></i></div>
+                <span class="sd-hw-name">Shelly Pro EM 50</span>
+                <span class="sd-hw-proto">HTTP/RPC</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-tachometer-alt"></i></div>
+                <span class="sd-hw-name">SDM230 / SDM630</span>
+                <span class="sd-hw-proto">Modbus RTU</span>
+            </div>
+            <div class="sd-hw-card sd-hw-new">
+                <span class="sd-hw-badge sd-hw-badge-new">NEW</span>
+                <div class="sd-hw-icon"><i class="la la-microchip"></i></div>
+                <span class="sd-hw-name">FreePocket</span>
+                <span class="sd-hw-proto">HTTP</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pinout / Specs Section -->
+<section id="specs" class="sd-section">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="specs_tag">ESPECIFICAÇÕES</span>
+            <h2 class="sd-section-title" data-i18n="specs_title">Hardware ESP32</h2>
+            <p class="sd-section-subtitle" data-i18n="specs_subtitle">Baseado no ESP32-WROOM-32 / 32U</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="sd-spec-card">
+                    <h3><i class="la la-microchip"></i> <span data-i18n="hw_specs_title">Especificações</span></h3>
+                    <table class="sd-spec-table">
+                        <tr><td data-i18n="hw_mcu">Microcontrolador</td><td>ESP32-WROOM-32 / 32U</td></tr>
+                        <tr><td>Flash</td><td data-i18n="hw_flash">Mínimo 4MB</td></tr>
+                        <tr><td>RAM</td><td>320KB</td></tr>
+                        <tr><td data-i18n="hw_pwm">Saídas PWM</td><td data-i18n="hw_pwm_val">4 canais independentes</td></tr>
+                        <tr><td data-i18n="hw_sensors">Sensores</td><td data-i18n="hw_sensors_val">4x DS18B20 (OneWire)</td></tr>
+                        <tr><td>Display</td><td>OLED SSD1306 (I2C)</td></tr>
+                        <tr><td data-i18n="hw_comms">Comunicação</td><td>WiFi, MQTT, Modbus RTU/TCP</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="sd-spec-card">
+                    <h3><i class="la la-sitemap"></i> <span data-i18n="hw_pinout_title">Pinout GPIO</span></h3>
+                    <table class="sd-spec-table">
+                        <tr><td>PWM Canal 0</td><td>GPIO 25</td></tr>
+                        <tr><td>PWM Canal 1</td><td>GPIO 26</td></tr>
+                        <tr><td>PWM Canal 2</td><td>GPIO 33</td></tr>
+                        <tr><td>PWM Canal 3</td><td>GPIO 5</td></tr>
+                        <tr><td>OneWire (DS18B20)</td><td>GPIO 2</td></tr>
+                        <tr><td>OLED SDA / SCL</td><td>GPIO 4 / 15</td></tr>
+                        <tr><td>Modbus TX / RX</td><td>GPIO 17 / 16</td></tr>
+                        <tr><td data-i18n="hw_pin_button">Botão</td><td>GPIO 0</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Getting Started Section -->
+<section id="getting-started" class="sd-section sd-section-alt">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="started_tag">INSTALAÇÃO</span>
+            <h2 class="sd-section-title" data-i18n="started_title">Primeiros Passos</h2>
+            <p class="sd-section-subtitle" data-i18n="started_subtitle">Do flash ao funcionamento em minutos</p>
+        </div>
+        <div class="sd-steps">
+            <div class="sd-steps-line"></div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="sd-step-card">
+                        <div class="sd-step-num">1</div>
+                        <div class="sd-step-icon"><i class="la la-download"></i></div>
+                        <h3 data-i18n="step1_title">Flash do Firmware</h3>
+                        <p data-i18n="step1_desc">Alimente o ESP32 via USB. Use o Web Flasher ou os scripts incluídos para instalar o firmware.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sd-step-card">
+                        <div class="sd-step-num">2</div>
+                        <div class="sd-step-icon"><i class="la la-wifi"></i></div>
+                        <h3 data-i18n="step2_title">Ligar ao WiFi</h3>
+                        <p data-i18n="step2_desc">Ligue-se à rede WiFi "SolarDiverter-Setup" (sem password) e abra 192.168.4.1</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sd-step-card">
+                        <div class="sd-step-num">3</div>
+                        <div class="sd-step-icon"><i class="la la-sliders-h"></i></div>
+                        <h3 data-i18n="step3_title">Configurar</h3>
+                        <p data-i18n="step3_desc">Configure a rede WiFi doméstica, selecione o medidor de energia e ajuste a potência nominal.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sd-step-card">
+                        <div class="sd-step-num">4</div>
+                        <div class="sd-step-icon"><i class="la la-sun"></i></div>
+                        <h3 data-i18n="step4_title">Desviar Energia</h3>
+                        <p data-i18n="step4_desc">O sistema monitoriza o excedente solar e ajusta automaticamente a potência PWM em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sd-started-tip">
+            <div class="sd-tip-icon"><i class="la la-lightbulb"></i></div>
+            <div>
+                <strong data-i18n="tip_reset_title">Reset de Fábrica:</strong>
+                <span data-i18n="tip_reset_desc">Pressione o botão GPIO0 durante 10 segundos no arranque para repor as definições de fábrica.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Downloads Section -->
+<section id="downloads" class="sd-section sd-section-dark">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="dl_tag">TRANSFERÊNCIAS</span>
+            <h2 class="sd-section-title" data-i18n="dl_title">Pronto para Começar?</h2>
+            <p class="sd-section-subtitle" data-i18n="dl_subtitle">Descarregue a última versão e comece a gerir os seus excedentes solares.</p>
+        </div>
+
+        <!-- Version subtitle -->
+        <p class="sd-dl-compilations text-center" data-i18n="dl_subtitle">Descarregue a versão que melhor se adapta ao seu projeto. Ambas são gratuitas.</p>
+        <!-- Beta notice -->
+        <div class="sd-beta-notice text-center">
+            <i class="la la-flask"></i>
+            <span data-i18n="dl_beta_notice">⚠️ Versões em fase <strong>BETA</strong> — testadas mas em desenvolvimento ativo. Use com precaução e reporte erros.</span>
+        </div>
+
+        <!-- LITE vs PRO Cards -->
+        <!-- ============================================================
+             TODO: Substituir os "#" pelos links de download definitivos
+             ============================================================ -->
+        <div class="row g-4 justify-content-center">
+            <!-- LITE Card -->
+            <div class="col-lg-5 col-md-6">
+                <div class="sd-dl-card">
+                    <div class="sd-dl-card-badge sd-dl-badge-lite">LITE</div>
+                    <h3>SolarDiverter <span class="sd-version-tag">LITE</span></h3>
+                    <p class="sd-dl-version">v1.0.3 <span class="sd-beta-badge">BETA</span></p>
+                    <p class="sd-dl-desc" data-i18n="dl_lite_desc">Ideal para uma única carga resistiva. Interface completa com wizard de configuração e atualizações OTA.</p>
+                    <ul class="sd-dl-features">
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1pwm">1 Canal PWM</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_pwm80">PWM Auto: 80% máx.</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1schedule">1 Agendamento (sem temp.)</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">25+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_webfull">Interface Web completa + Wizard</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_ota">Atualizações OTA via WiFi</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_4pwm">4 Canais PWM</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_schedules">4 Agendamentos</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_phase">Phase Shift entre canais</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_phase_prot">Proteção de fase (Shelly 3EM)</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_modbus_adv">Modbus avançado (32 registos)</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_modbus_scanner">Modbus Scanner (auto-discovery)</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_modbus_json">Modbus Universal JSON</span></li>
+                    </ul>
+                    <div class="sd-dl-files">
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>firmware_lite.bin</span></div>
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>spiffs.bin</span></div>
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
+                    </div>
+                    <!-- TODO: link download LITE -->
+                    <a href="#" class="sd-btn sd-btn-outline-light sd-btn-block">
+                        <i class="la la-download"></i>
+                        <span data-i18n="dl_btn_lite">Transferir LITE (.zip)</span>
+                    </a>
+                </div>
+            </div>
+            <!-- PRO Card -->
+            <div class="col-lg-5 col-md-6">
+                <div class="sd-dl-card sd-dl-card-latest">
+                    <div class="sd-dl-card-badge" data-i18n="dl_recommended">Recomendado</div>
+                    <h3>SolarDiverter <span class="sd-version-tag">PRO</span></h3>
+                    <p class="sd-dl-version">v1.0.3 <span class="sd-beta-badge">BETA</span></p>
+                    <p class="sd-dl-desc" data-i18n="dl_pro_desc">Para múltiplas cargas com controlo avançado. Phase shift, Modbus estendido e partição expandida de 3MB.</p>
+                    <ul class="sd-dl-features">
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_4pwm">4 Canais PWM independentes</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">25+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_schedules">4 Agendamentos c/ temperatura</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_phase">Phase Shift entre canais</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_phase_prot">Proteção de fase (Shelly 3EM)</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_modbus_adv">Modbus avançado (32 registos, 32-bit)</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_modbus_scanner">Modbus Scanner (auto-discovery)</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_modbus_json">Modbus Universal JSON</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_partition">Partição expandida 3MB</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_ota">Atualizações OTA via WiFi</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_webfull">Wizard de configuração</span></li>
+                        <li class="sd-dl-feat-info"><i class="la la-key"></i> <span data-i18n="dl_pro_activation">Requer chave de ativação (Chip ID)</span></li>
+                    </ul>
+                    <div class="sd-dl-files">
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>firmware_pro.bin</span></div>
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>spiffs.bin</span></div>
+                        <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
+                    </div>
+                    <!-- TODO: link download PRO -->
+                    <a href="#" class="sd-btn sd-btn-primary sd-btn-block">
+                        <i class="la la-download"></i>
+                        <span data-i18n="dl_btn_pro">Transferir PRO (.zip)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation CTA -->
+        <div class="sd-dl-cta mt-4">
+            <a href="#contact" class="sd-btn sd-btn-ghost-light">
+                <i class="la la-book"></i>
+                <span data-i18n="dl_btn_docs">Ver Documentação</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact" class="sd-section">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="contact_tag">CONTACTO</span>
+            <h2 class="sd-section-title" data-i18n="contact_title">Fale Connosco</h2>
+            <p class="sd-section-subtitle" data-i18n="contact_subtitle">Tem dúvidas ou sugestões? Entre em contacto.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form id="sd-contact-form" class="sd-contact-form" method="post" novalidate>
+                    <input type="hidden" name="sd_timestamp" value="" id="sd-timestamp" />
+                    <!-- ================================================
+                         HONEYPOT ANTI-SPAM #1: campo _gotcha (Formspree)
+                         Invisível por CSS (.sd-hp-field). Bots preenchem
+                         automaticamente; humanos nunca o veem.
+                         ================================================ -->
+                    <div class="sd-hp-field" aria-hidden="true">
+                        <label for="sd_website">Website</label>
+                        <input type="text" name="_gotcha" id="sd_website" tabindex="-1" autocomplete="off" />
+                    </div>
+                    <!-- ================================================
+                         HONEYPOT ANTI-SPAM #2: campo website_url
+                         Campo adicional completamente invisível para o
+                         utilizador (position absolute fora do ecrã).
+                         Se estiver preenchido → envio bloqueado no JS.
+                         ================================================ -->
+                    <div class="sd-hp-field" aria-hidden="true">
+                        <label for="sd_website_url">URL</label>
+                        <input type="text" name="website_url" id="sd_website_url" tabindex="-1" autocomplete="off" />
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="sd-form-group">
+                                <label for="sd_name" data-i18n="form_name">Nome</label>
+                                <input type="text" id="sd_name" name="name" required data-i18n-placeholder="form_name_ph" placeholder="O seu nome" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="sd-form-group">
+                                <label for="sd_email" data-i18n="form_email">Email</label>
+                                <input type="email" id="sd_email" name="_replyto" required placeholder="email@exemplo.com" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-form-group">
+                        <label for="sd_subject" data-i18n="form_subject">Assunto</label>
+                        <select id="sd_subject" name="subject" required>
+                            <option value="" data-i18n="form_subject_select">-- Selecione --</option>
+                            <option value="support" data-i18n="form_subject_support">Suporte Técnico</option>
+                            <option value="bug" data-i18n="form_subject_bug">Reportar Problema</option>
+                            <option value="feature" data-i18n="form_subject_feature">Sugestão</option>
+                            <option value="purchase" data-i18n="form_subject_purchase">Compra / Encomenda</option>
+                            <option value="other" data-i18n="form_subject_other">Outro</option>
+                        </select>
+                    </div>
+                    <div class="sd-form-group">
+                        <label for="sd_message" data-i18n="form_message">Mensagem</label>
+                        <textarea id="sd_message" name="message" rows="5" required data-i18n-placeholder="form_message_ph" placeholder="Escreva a sua mensagem..."></textarea>
+                    </div>
+                    <div class="sd-form-group sd-antispam-challenge">
+                        <label id="sd-math-label" data-i18n="form_antispam">Verificação anti-spam</label>
+                        <div class="sd-math-question">
+                            <span id="sd-math-question-text"></span>
+                            <input type="number" id="sd_antispam" name="sd_antispam" required data-i18n-placeholder="form_antispam_ph" placeholder="Resposta" />
+                        </div>
+                    </div>
+                    <button type="submit" class="sd-btn sd-btn-primary sd-btn-block" id="sd-submit-btn">
+                        <i class="la la-paper-plane"></i> <span data-i18n="form_submit">Enviar Mensagem</span>
+                    </button>
+                    <div id="sd-form-status" class="sd-form-status" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="sd-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="sd-footer-brand">
+                    <img src="img/sd-icon.svg" alt="SolarDiverter" class="sd-footer-logo">
+                    <h4>SolarDiverter</h4>
+                    <p data-i18n="footer_desc">Desviador Inteligente de Energia Solar para ESP32 by AlternativaIOT.</p>
+                    <p class="sd-footer-brand-by"><span class="sd-footer-brand-name">AlternativaIOT</span><br><span data-i18n="footer_tagline">Soluções em eficiência energética e domótica</span></p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 data-i18n="footer_nav">Navegação</h5>
+                <ul class="sd-footer-links">
+                    <li><a href="#features" data-i18n="nav_features">Funcionalidades</a></li>
+                    <li><a href="#hardware" data-i18n="nav_hardware">Hardware</a></li>
+                    <li><a href="#getting-started" data-i18n="nav_started">Instalação</a></li>
+                    <li><a href="#downloads" data-i18n="nav_downloads">Transferências</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 data-i18n="footer_resources">Recursos</h5>
+                <ul class="sd-footer-links">
+                    <li><a href="https://github.com/sergiopsilva/solardiverter" target="_blank" rel="noopener"><i class="la la-github"></i> GitHub</a></li>
+                    <li><a href="https://github.com/sergiopsilva/solardiverter/releases" target="_blank" rel="noopener"><i class="la la-code-branch"></i> Releases</a></li>
+                    <li><a href="#"><i class="la la-book"></i> <span data-i18n="footer_docs">Documentação</span></a></li>
+                    <li><a href="https://github.com/sergiopsilva/solardiverter/issues" target="_blank" rel="noopener"><i class="la la-bug"></i> <span data-i18n="footer_issues">Reportar Bug</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 data-i18n="footer_contact_title">Contacto</h5>
+                <ul class="sd-footer-contact-list">
+                    <li><i class="la la-envelope"></i> alternativaiot@gmail.com</li>
+                    <li><i class="la la-map-marker"></i> Portugal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sd-footer-bottom">
+            <p>&copy; <span id="sd-year"></span> AlternativaIOT &middot; SolarDiverter. <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+            <p class="sd-footer-license" data-i18n="footer_license">Uso pessoal livre. A distribuição ou utilização comercial é proibida sem autorização prévia por escrito do autor.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="sd-back-to-top" id="sd-back-to-top" aria-label="Back to top">
+    <i class="la la-angle-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="js/solardiverter.js"></script>
+
+</body>
+</html>
