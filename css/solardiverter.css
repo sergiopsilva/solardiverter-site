@@ -1,14 +1,14 @@
 /* ==========================================================================
    SolarDiverter by AlternativaIOT - Static Site Styles
-   Inspired by FreeDS layout + SolarDiverter firmware color scheme
+   Design: Dark Solar Tech — AlternativaIOT brand identity
    ========================================================================== */
 
 :root {
-    /* Firmware brand colors */
-    --sd-primary: #667eea;
-    --sd-primary-dark: #764ba2;
-    --sd-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --sd-gradient-hover: linear-gradient(135deg, #5a6fd6 0%, #6a4192 100%);
+    /* Brand colors - Solar energy palette */
+    --sd-primary: #f97316;
+    --sd-primary-dark: #ea580c;
+    --sd-gradient: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+    --sd-gradient-hover: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
 
     /* Mode colors from firmware */
     --sd-green: #2e7d32;
@@ -25,13 +25,18 @@
     --sd-warning-bg: #fff3cd;
     --sd-warning-text: #856404;
 
+    /* Dark surface colors */
+    --sd-dark: #0f172a;
+    --sd-dark-2: #1e293b;
+    --sd-dark-3: #334155;
+
     /* Gauge colors */
-    --sd-pv-start: #ffc107;
-    --sd-pv-end: #ff9800;
-    --sd-battery-start: #4caf50;
-    --sd-battery-end: #8bc34a;
-    --sd-diverter-start: #00c853;
-    --sd-diverter-end: #69f0ae;
+    --sd-pv-start: #fbbf24;
+    --sd-pv-end: #f97316;
+    --sd-battery-start: #4ade80;
+    --sd-battery-end: #22c55e;
+    --sd-diverter-start: #34d399;
+    --sd-diverter-end: #10b981;
 
     /* Schedule accent colors */
     --sd-sched-1: #2196f3;
@@ -39,26 +44,26 @@
     --sd-sched-3: #ff9800;
     --sd-sched-4: #e91e63;
 
-    /* Neutrals from firmware */
-    --sd-text: #333;
-    --sd-text-light: #666;
-    --sd-text-muted: #999;
-    --sd-heading: #555;
+    /* Neutrals */
+    --sd-text: #1e293b;
+    --sd-text-light: #475569;
+    --sd-text-muted: #94a3b8;
+    --sd-heading: #0f172a;
     --sd-white: #FFFFFF;
-    --sd-bg: #f5f5f5;
+    --sd-bg: #f8fafc;
     --sd-bg-card: #FFFFFF;
-    --sd-bg-hover: #f8f9ff;
-    --sd-bg-active: #f0f3ff;
-    --sd-border: #ddd;
-    --sd-border-light: #eee;
+    --sd-bg-hover: #fff7ed;
+    --sd-bg-active: #ffedd5;
+    --sd-border: #e2e8f0;
+    --sd-border-light: #f1f5f9;
 
     /* Layout */
     --sd-radius: 8px;
-    --sd-radius-lg: 12px;
-    --sd-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
-    --sd-shadow-lg: 0 8px 30px rgba(102, 126, 234, 0.15);
-    --sd-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --sd-transition: all 0.3s ease;
+    --sd-radius-lg: 14px;
+    --sd-shadow: 0 2px 10px rgba(249, 115, 22, 0.08);
+    --sd-shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.12);
+    --sd-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --sd-transition: all 0.25s ease;
 }
 
 * { box-sizing: border-box; }
@@ -84,15 +89,16 @@ html {
    VERSION RIBBON
    ========================================================================== */
 .sd-version-ribbon {
-    background: var(--sd-gradient);
-    color: var(--sd-white);
+    background: var(--sd-dark);
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
-    padding: 6px 0;
-    font-size: 13px;
+    padding: 7px 0;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.3px;
     position: relative;
     z-index: 10001;
+    border-bottom: 1px solid rgba(249, 115, 22, 0.2);
 }
 
 .sd-ribbon-sparkle {
@@ -101,9 +107,9 @@ html {
 
 .sd-ribbon-beta {
     display: inline-block;
-    background: rgba(255, 165, 0, 0.25);
-    color: #ffc107;
-    border: 1px solid rgba(255, 193, 7, 0.5);
+    background: rgba(249, 115, 22, 0.2);
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.4);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -117,10 +123,8 @@ html {
    NAVBAR
    ========================================================================== */
 .sd-navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--sd-border-light);
+    background: var(--sd-dark);
+    border-bottom: 1px solid rgba(249, 115, 22, 0.15);
     padding: 0;
     position: sticky;
     top: 0;
@@ -129,7 +133,7 @@ html {
 }
 
 .sd-navbar.sd-navbar-scrolled {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .container {
@@ -164,10 +168,8 @@ html {
 .sd-navbar-name {
     font-weight: 700;
     font-size: 18px;
-    background: var(--sd-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--sd-white);
+    letter-spacing: -0.3px;
 }
 
 .sd-navbar-links {
@@ -177,7 +179,7 @@ html {
 }
 
 .sd-navbar-links > a {
-    color: var(--sd-text-light);
+    color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -187,8 +189,8 @@ html {
 }
 
 .sd-navbar-links > a:hover {
-    color: var(--sd-primary);
-    background: var(--sd-bg-active);
+    color: var(--sd-white);
+    background: rgba(249, 115, 22, 0.15);
 }
 
 .sd-nav-lang {
@@ -196,13 +198,13 @@ html {
     gap: 3px;
     margin-left: 16px;
     padding-left: 16px;
-    border-left: 1px solid var(--sd-border-light);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sd-lang-btn {
     background: transparent;
-    border: 1px solid var(--sd-border);
-    color: var(--sd-text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.4);
     padding: 3px 8px;
     font-size: 11px;
     font-weight: 600;
@@ -214,7 +216,7 @@ html {
 
 .sd-lang-btn:hover,
 .sd-lang-btn.active {
-    background: var(--sd-gradient);
+    background: var(--sd-primary);
     border-color: var(--sd-primary);
     color: var(--sd-white);
 }
@@ -234,7 +236,7 @@ html {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--sd-text);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
     transition: var(--sd-transition);
 }
@@ -243,7 +245,7 @@ html {
    HERO SECTION
    ========================================================================== */
 .sd-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5a3d8a 100%);
+    background: var(--sd-dark);
     padding: 100px 0 80px;
     position: relative;
     overflow: hidden;
@@ -266,28 +268,30 @@ html {
 }
 
 .sd-glow-1 {
-    width: 500px;
-    height: 500px;
-    background: #667eea;
-    top: -100px;
-    left: -100px;
+    width: 600px;
+    height: 600px;
+    background: #f97316;
+    top: -150px;
+    left: -150px;
+    opacity: 0.15;
 }
 
 .sd-glow-2 {
     width: 400px;
     height: 400px;
-    background: #a855f7;
-    bottom: -50px;
-    right: -50px;
+    background: #fbbf24;
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.08;
 }
 
 .sd-hero-grid {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+        linear-gradient(rgba(249, 115, 22, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
 }
 
 .sd-hero-content {
@@ -299,19 +303,18 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #fb923c;
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 500;
     margin-bottom: 24px;
-    backdrop-filter: blur(4px);
 }
 
 .sd-hero-badge i {
-    color: #ffc107;
+    color: #fbbf24;
 }
 
 .sd-hero-title {
@@ -319,13 +322,15 @@ html {
 }
 
 .sd-hero-title-main {
-    font-size: 60px;
+    font-size: 62px;
     font-weight: 900;
-    color: var(--sd-white);
-    letter-spacing: -2px;
-    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, #fed7aa 55%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -2.5px;
+    line-height: 1.05;
     display: block;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .sd-hero-subtitle {
@@ -336,11 +341,11 @@ html {
 }
 
 .sd-hero-desc {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.45);
     font-size: 16px;
     max-width: 520px;
     line-height: 1.7;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 }
 
 /* Hero Buttons */
@@ -361,22 +366,21 @@ html {
 }
 
 .sd-btn-primary {
-    background: var(--sd-white);
-    color: var(--sd-primary);
-    border-color: var(--sd-white);
+    background: var(--sd-gradient);
+    color: var(--sd-white);
+    border-color: transparent;
 }
 
 .sd-btn-primary:hover {
-    background: var(--sd-bg-active);
-    border-color: var(--sd-bg-active);
-    color: var(--sd-primary-dark);
+    background: var(--sd-gradient-hover);
+    color: var(--sd-white);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
 }
 
 .sd-btn-glow {
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
 }
 
 .sd-btn-ghost {
@@ -499,8 +503,7 @@ html {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 200, 0, 0.18) 0%, transparent 70%);
-    opacity: 1;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, transparent 70%);
     animation: sd-pulse-ring 3s ease-in-out infinite;
 }
 
@@ -530,13 +533,10 @@ html {
 }
 
 .sd-hero-brand-name {
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    background: var(--sd-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--sd-white);
     margin-bottom: 14px;
 }
 
@@ -568,7 +568,7 @@ html {
 }
 
 .sd-section-dark {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--sd-dark);
 }
 
 .sd-section-dark .sd-section-title {
@@ -580,8 +580,9 @@ html {
 }
 
 .sd-section-dark .sd-section-tag {
-    background: rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.25);
 }
 
 .sd-section-header {
@@ -625,19 +626,20 @@ html {
     padding: 30px 24px;
     height: 100%;
     transition: var(--sd-transition);
+    border-top: 3px solid transparent;
 }
 
 .sd-feature-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--sd-shadow-lg);
-    border-color: var(--sd-primary);
+    border-top-color: var(--sd-primary);
 }
 
 .sd-feature-icon {
     width: 52px;
     height: 52px;
     border-radius: var(--sd-radius);
-    background: var(--sd-gradient);
+    background: var(--sd-bg-active);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -646,7 +648,7 @@ html {
 
 .sd-feature-icon .la {
     font-size: 24px;
-    color: var(--sd-white);
+    color: var(--sd-primary);
 }
 
 .sd-feature-card h3 {
@@ -672,7 +674,7 @@ html {
 }
 
 .sd-feature-list li::before {
-    content: '✓';
+    content: '→';
     position: absolute;
     left: 0;
     color: var(--sd-primary);
@@ -738,9 +740,9 @@ html {
 }
 
 .sd-hw-card:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(249, 115, 22, 0.08);
+    border-color: rgba(249, 115, 22, 0.3);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .sd-hw-badge {
@@ -760,8 +762,8 @@ html {
 }
 
 .sd-hw-badge-new {
-    background: #ffc107;
-    color: #333;
+    background: rgba(249, 115, 22, 0.85);
+    color: #fff;
 }
 
 .sd-hw-icon {
@@ -874,12 +876,12 @@ html {
 .sd-step-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--sd-shadow-lg);
-    border-color: var(--sd-primary);
+    border-bottom: 3px solid var(--sd-primary);
 }
 
 .sd-step-num {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: var(--sd-gradient);
     color: var(--sd-white);
@@ -889,7 +891,7 @@ html {
     align-items: center;
     justify-content: center;
     margin: 0 auto 16px;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
 }
 
 .sd-step-icon {
@@ -970,16 +972,17 @@ html {
 }
 
 .sd-dl-card-latest {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.05);
+    border-top: 3px solid var(--sd-primary);
 }
 
 .sd-dl-card-badge {
     position: absolute;
-    top: -10px;
+    top: -11px;
     right: 20px;
-    background: var(--sd-white);
-    color: var(--sd-primary);
+    background: var(--sd-gradient);
+    color: var(--sd-white);
     padding: 3px 14px;
     border-radius: 20px;
     font-size: 11px;
@@ -1012,9 +1015,9 @@ html {
 
 .sd-beta-badge {
     display: inline-block;
-    background: rgba(255, 193, 7, 0.15);
-    color: #ffc107;
-    border: 1px solid rgba(255, 193, 7, 0.4);
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.35);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1025,9 +1028,9 @@ html {
 }
 
 .sd-beta-notice {
-    background: rgba(255, 193, 7, 0.08);
-    border: 1px solid rgba(255, 193, 7, 0.25);
-    color: rgba(255, 220, 100, 0.9);
+    background: rgba(249, 115, 22, 0.07);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    color: rgba(251, 146, 60, 0.9);
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 13px;
@@ -1037,15 +1040,15 @@ html {
 
 .sd-version-tag {
     color: var(--sd-primary);
-    background: rgba(102, 126, 234, 0.15);
+    background: rgba(249, 115, 22, 0.12);
     padding: 2px 10px;
     border-radius: 6px;
     font-size: 18px;
 }
 
 .sd-dl-card-latest .sd-version-tag {
-    color: var(--sd-gauge-pv-start);
-    background: rgba(255, 193, 7, 0.15);
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.12);
 }
 
 .sd-dl-badge-lite {
@@ -1162,7 +1165,7 @@ html {
 .sd-form-group textarea:focus {
     border-color: var(--sd-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 .sd-form-group textarea {
@@ -1237,14 +1240,14 @@ html {
 
 /* Section dark buttons override */
 .sd-section-dark .sd-btn-primary {
-    background: var(--sd-white);
-    color: var(--sd-primary);
-    border-color: var(--sd-white);
+    background: var(--sd-gradient);
+    color: var(--sd-white);
+    border-color: transparent;
 }
 
 .sd-section-dark .sd-btn-primary:hover {
-    background: var(--sd-bg-active);
-    color: var(--sd-primary-dark);
+    background: var(--sd-gradient-hover);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
 }
 
 /* Contact section button */
@@ -1256,7 +1259,7 @@ html {
 
 .sd-contact .sd-btn-primary:hover {
     background: var(--sd-gradient-hover);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
     transform: translateY(-2px);
 }
 
@@ -1264,9 +1267,10 @@ html {
    FOOTER
    ========================================================================== */
 .sd-footer {
-    background: #1a1a2e;
+    background: #050d1a;
     padding: 60px 0 0;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(249, 115, 22, 0.15);
 }
 
 .sd-footer-brand {
@@ -1322,7 +1326,7 @@ html {
 }
 
 .sd-footer-links a:hover {
-    color: var(--sd-primary);
+    color: #fb923c;
 }
 
 .sd-footer-contact-list {
@@ -1386,7 +1390,7 @@ html {
     opacity: 0;
     visibility: hidden;
     transition: var(--sd-transition);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.35);
     z-index: 999;
 }
 
@@ -1397,7 +1401,7 @@ html {
 
 .sd-back-to-top:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
 }
 
 /* ==========================================================================
@@ -1442,15 +1446,15 @@ html {
     .sd-navbar-links {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 62px;
         left: 0;
         right: 0;
-        background: var(--sd-white);
-        border-bottom: 1px solid var(--sd-border-light);
+        background: var(--sd-dark);
+        border-bottom: 1px solid rgba(249, 115, 22, 0.15);
         flex-direction: column;
         padding: 16px;
         gap: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
     .sd-navbar-links.sd-nav-open {
         display: flex;
@@ -1465,7 +1469,7 @@ html {
         padding-left: 0;
         border-left: none;
         padding-top: 12px;
-        border-top: 1px solid var(--sd-border-light);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         margin-top: 8px;
         justify-content: center;
     }
