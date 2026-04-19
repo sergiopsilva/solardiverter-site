@@ -721,6 +721,204 @@ html {
 }
 
 /* ==========================================================================
+   WEBUI PREVIEW
+   ========================================================================== */
+.sd-webui-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.sd-webui-tab {
+    background: var(--sd-white);
+    border: 2px solid var(--sd-border);
+    color: var(--sd-text-light);
+    border-radius: 50px;
+    padding: 8px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--sd-transition);
+    font-family: inherit;
+}
+
+.sd-webui-tab:hover {
+    border-color: var(--sd-primary);
+    color: var(--sd-primary);
+}
+
+.sd-webui-tab.active {
+    background: var(--sd-gradient);
+    border-color: transparent;
+    color: var(--sd-white);
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+
+/* Browser chrome mockup */
+.sd-webui-browser {
+    background: #1e293b;
+    border-radius: var(--sd-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.sd-webui-browser-bar {
+    background: #2d3748;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sd-webui-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.sd-webui-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+}
+
+.sd-dot-red    { background: #ff5f57; }
+.sd-dot-yellow { background: #febc2e; }
+.sd-dot-green  { background: #28c840; }
+
+.sd-webui-url {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #1a202c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 5px 14px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.sd-webui-url .la {
+    font-size: 12px;
+    color: #28c840;
+}
+
+.sd-webui-bar-spacer {
+    flex-shrink: 0;
+    width: 54px;
+}
+
+/* Screen & panels */
+.sd-webui-screen {
+    position: relative;
+    min-height: 440px;
+    background: #0f172a;
+}
+
+.sd-webui-panel {
+    display: none;
+    width: 100%;
+    min-height: 440px;
+}
+
+.sd-webui-panel.active {
+    display: block;
+    animation: sd-webui-fade 0.3s ease;
+}
+
+@keyframes sd-webui-fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.sd-webui-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Placeholder (removed once screenshots are added) */
+.sd-webui-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 440px;
+    padding: 40px;
+    gap: 14px;
+    border: 2px dashed rgba(249, 115, 22, 0.18);
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(249, 115, 22, 0.025) 18px,
+        rgba(249, 115, 22, 0.025) 36px
+    );
+}
+
+.sd-webui-placeholder .la {
+    font-size: 56px;
+    color: rgba(249, 115, 22, 0.3);
+}
+
+.sd-wp-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sd-wp-tab {
+    font-size: 12px;
+    color: rgba(249, 115, 22, 0.45);
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Caption strip */
+.sd-webui-captions {
+    text-align: center;
+    margin-top: 18px;
+    min-height: 22px;
+}
+
+.sd-webui-caption {
+    display: none;
+    font-size: 14px;
+    color: var(--sd-text-muted);
+    margin: 0;
+}
+
+.sd-webui-caption.active {
+    display: block;
+    animation: sd-webui-fade 0.25s ease;
+}
+
+@media (max-width: 767px) {
+    .sd-webui-browser { border-radius: var(--sd-radius); }
+    .sd-webui-screen,
+    .sd-webui-panel,
+    .sd-webui-placeholder { min-height: 240px; }
+    .sd-webui-bar-spacer { width: 0; }
+    .sd-webui-url { max-width: 160px; font-size: 11px; }
+    .sd-webui-tab { padding: 7px 14px; font-size: 12px; }
+}
+
+/* ==========================================================================
    HARDWARE GRID
    ========================================================================== */
 /* ==========================================================================
@@ -1239,6 +1437,377 @@ html {
 .sd-dl-file .la {
     color: rgba(255, 255, 255, 0.4);
     font-size: 16px;
+}
+
+/* ==========================================================================
+   LICENSE SECTION
+   ========================================================================== */
+.sd-lic-card {
+    background: var(--sd-bg-card);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius-lg);
+    overflow: hidden;
+    height: 100%;
+    box-shadow: var(--sd-shadow-card);
+    transition: var(--sd-transition);
+}
+
+.sd-lic-card:hover {
+    box-shadow: var(--sd-shadow-lg);
+    transform: translateY(-3px);
+}
+
+.sd-lic-card-pro {
+    border-color: rgba(249, 115, 22, 0.25);
+    border-top: 3px solid var(--sd-primary);
+}
+
+.sd-lic-card-header {
+    padding: 24px 28px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sd-lic-lite {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-bottom: 1px solid #bbf7d0;
+}
+
+.sd-lic-pro {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-bottom: 1px solid #fed7aa;
+}
+
+.sd-lic-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 3px 12px;
+    border-radius: 50px;
+    width: fit-content;
+    background: #166534;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.sd-lic-badge-pro {
+    background: var(--sd-gradient);
+}
+
+.sd-lic-card-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--sd-text);
+    margin: 0;
+}
+
+.sd-lic-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sd-text-muted);
+    margin: 0;
+}
+
+.sd-lic-body {
+    padding: 24px 28px;
+}
+
+.sd-lic-body > p {
+    font-size: 14px;
+    color: var(--sd-text-light);
+    margin: 0 0 18px;
+    line-height: 1.6;
+}
+
+.sd-lic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+}
+
+.sd-lic-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--sd-text-light);
+    border-bottom: 1px solid var(--sd-border-light);
+}
+
+.sd-lic-list li:last-child {
+    border-bottom: none;
+}
+
+.sd-lic-yes {
+    color: #16a34a;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.sd-lic-no {
+    color: #dc2626;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.sd-lic-activation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--sd-radius);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #1e40af;
+}
+
+.sd-lic-activation .la {
+    font-size: 18px;
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.sd-lic-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sd-lic-option {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--sd-bg);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius);
+    padding: 14px;
+}
+
+.sd-lic-opt-badge {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: var(--sd-gradient);
+    color: var(--sd-white);
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+}
+
+.sd-lic-option strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sd-text);
+    margin-bottom: 4px;
+}
+
+.sd-lic-option p {
+    font-size: 12px;
+    color: var(--sd-text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Pro key box */
+.sd-lic-key-box {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    background: var(--sd-dark);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-left: 4px solid var(--sd-primary);
+    border-radius: var(--sd-radius-lg);
+    padding: 26px 30px;
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+.sd-lic-key-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: var(--sd-gradient);
+    border-radius: var(--sd-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+    flex-shrink: 0;
+}
+
+.sd-lic-key-icon .la {
+    font-size: 24px;
+    color: var(--sd-white);
+}
+
+.sd-lic-key-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--sd-white);
+    margin: 0 0 14px;
+}
+
+.sd-lic-key-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sd-lic-key-list li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 5px 0 5px 20px;
+    position: relative;
+}
+
+.sd-lic-key-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--sd-primary);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+/* License summary table */
+.sd-lic-table-wrap {
+    background: var(--sd-bg-card);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius-lg);
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--sd-shadow-card);
+}
+
+.sd-lic-table-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--sd-text);
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--sd-primary);
+}
+
+.sd-lic-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+.sd-lic-table th {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sd-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--sd-border-light);
+    background: var(--sd-bg);
+}
+
+.sd-lic-table td {
+    font-size: 13px;
+    color: var(--sd-text-light);
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--sd-border-light);
+    vertical-align: middle;
+}
+
+.sd-lic-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.sd-lic-table tbody tr:hover td {
+    background: var(--sd-bg-hover);
+}
+
+.sd-lic-tbl-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+.sd-lic-tbl-lite {
+    background: rgba(22, 101, 52, 0.1);
+    color: #166534;
+}
+
+.sd-lic-tbl-pro {
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--sd-primary);
+}
+
+.sd-lic-tbl-sub {
+    font-size: 11px;
+    color: var(--sd-text-muted);
+}
+
+.sd-lic-tbl-no {
+    font-size: 12px;
+    font-weight: 600;
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Terms block */
+.sd-lic-terms {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--sd-bg);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius);
+    padding: 22px 26px;
+}
+
+.sd-lic-terms-icon {
+    font-size: 22px;
+    color: var(--sd-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sd-lic-terms p {
+    font-size: 13px;
+    color: var(--sd-text-light);
+    margin: 0 0 6px;
+    line-height: 1.7;
+}
+
+.sd-lic-terms p:last-child {
+    margin: 0;
+}
+
+.sd-lic-copyright {
+    font-size: 12px !important;
+    color: var(--sd-text-muted) !important;
+}
+
+@media (max-width: 767px) {
+    .sd-lic-card-header,
+    .sd-lic-body { padding: 18px 20px; }
+    .sd-lic-key-box { flex-direction: column; gap: 14px; padding: 18px 20px; }
+    .sd-lic-table-wrap { padding: 18px; }
+    .sd-lic-terms { gap: 12px; padding: 16px; }
 }
 
 /* ==========================================================================

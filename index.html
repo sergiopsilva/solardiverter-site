@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarDiverter - Gestor de Excedentes Fotovoltaicos para ESP32 | AlternativaIOT</title>
-    <meta name="description" content="SolarDiverter transforma o seu termoacumulador convencional num cilindro inteligente. Gestor de excedentes fotovoltaicos para ESP32 — gratuito, até 4 canais PWM, 25+ inversores, MQTT, Home Assistant.">
+    <meta name="description" content="SolarDiverter transforma o seu termoacumulador convencional num cilindro inteligente. Gestor de excedentes fotovoltaicos para ESP32 — gratuito, até 4 canais PWM, 27+ inversores, MQTT, Home Assistant.">
     <meta name="author" content="AlternativaIOT">
     <meta name="keywords" content="solar diverter, gestor excedentes fotovoltaicos, termoacumulador inteligente, cilindro inteligente solar, desvio excedente solar, autoconsumo solar, ESP32, PWM, MQTT, Home Assistant, AlternativaIOT, excedente solar, diverter solar Portugal">
 
@@ -42,7 +42,7 @@
 <!-- Version Ribbon -->
 <div class="sd-version-ribbon">
     <span class="sd-ribbon-sparkle">&#10024;</span>
-    <span data-i18n="ribbon_version">Versão 1.0.3 - Março 2026</span>
+    <span data-i18n="ribbon_version">Versão 1.1.1 - Abril 2026</span>
     <span class="sd-ribbon-beta">&#9881; BETA</span>
 </div>
 
@@ -58,6 +58,7 @@
         </button>
         <div class="sd-navbar-links" id="sd-nav-links">
             <a href="#features" data-i18n="nav_features">Funcionalidades</a>
+            <a href="#webui" data-i18n="nav_webui">WebUI</a>
             <a href="#hardware" data-i18n="nav_hardware">Hardware</a>
             <a href="#getting-started" data-i18n="nav_started">Instalação</a>
             <a href="#downloads" data-i18n="nav_downloads">Transferências</a>
@@ -90,7 +91,7 @@
                     <span class="sd-hero-title-main">SolarDiverter</span>
                 </h1>
                 <p class="sd-hero-subtitle" data-i18n="hero_subtitle">Gestor de excedentes fotovoltaicos que transforma o seu termoacumulador convencional num cilindro inteligente</p>
-                <p class="sd-hero-desc" data-i18n="hero_desc">Controlo automático de <strong>cargas resistivas</strong> (termoacumuladores, esquentadores elétricos) com energia solar excedente. Compatível com +25 inversores/medidores, Home Assistant e MQTT.</p>
+                <p class="sd-hero-desc" data-i18n="hero_desc">Controlo automático de <strong>cargas resistivas</strong> (termoacumuladores, esquentadores elétricos) com energia solar excedente. Compatível com +27 inversores/medidores, Home Assistant e MQTT.</p>
                 <div class="sd-hero-buttons">
                     <!-- TODO: Substituir "#" pelos links de download definitivos -->
                     <a href="#downloads" class="sd-btn sd-btn-primary sd-btn-glow">
@@ -104,12 +105,12 @@
                 </div>
                 <div class="sd-hero-stats">
                     <div class="sd-stat">
-                        <span class="sd-stat-value">25+</span>
+                        <span class="sd-stat-value">27+</span>
                         <span class="sd-stat-label" data-i18n="stat_inverters">INVERSORES</span>
                     </div>
                     <div class="sd-stat-divider"></div>
                     <div class="sd-stat">
-                        <span class="sd-stat-value">v1.0.3</span>
+                        <span class="sd-stat-value">v1.1.1</span>
                         <span class="sd-stat-label" data-i18n="stat_version">ÚLTIMA VERSÃO</span>
                     </div>
                     <div class="sd-stat-divider"></div>
@@ -163,8 +164,8 @@
     <div class="container">
         <div class="sd-section-header">
             <span class="sd-section-tag" data-i18n="features_tag">FUNCIONALIDADES</span>
-            <h2 class="sd-section-title" data-i18n="features_title">Novidades da Versão 1.0.3</h2>
-            <p class="sd-section-subtitle" data-i18n="features_subtitle">Lançada em Março de 2026</p>
+            <h2 class="sd-section-title" data-i18n="features_title">Novidades da Versão 1.1.1</h2>
+            <p class="sd-section-subtitle" data-i18n="features_subtitle">Lançada em Abril de 2026</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
@@ -288,13 +289,100 @@
     </div>
 </section>
 
+<!-- WebUI Preview Section -->
+<section id="webui" class="sd-section sd-section-alt">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="webui_tag">INTERFACE WEB</span>
+            <h2 class="sd-section-title" data-i18n="webui_title">Interface Web v1.1.1</h2>
+            <p class="sd-section-subtitle" data-i18n="webui_subtitle">Configuração e monitorização completa a partir do browser — sem apps, sem cloud.</p>
+        </div>
+
+        <!-- Tab bar -->
+        <div class="sd-webui-tabs" role="tablist">
+            <button class="sd-webui-tab active" role="tab" data-tab="dashboard" data-i18n="webui_tab_dashboard">Dashboard</button>
+            <button class="sd-webui-tab" role="tab" data-tab="config" data-i18n="webui_tab_config">Configuração</button>
+            <button class="sd-webui-tab" role="tab" data-tab="schedules" data-i18n="webui_tab_schedules">Agendamentos</button>
+            <button class="sd-webui-tab" role="tab" data-tab="mqtt" data-i18n="webui_tab_mqtt">MQTT / HA</button>
+            <button class="sd-webui-tab" role="tab" data-tab="modbus" data-i18n="webui_tab_modbus">Modbus</button>
+        </div>
+
+        <!-- Browser mockup -->
+        <div class="sd-webui-browser">
+            <div class="sd-webui-browser-bar">
+                <div class="sd-webui-dots">
+                    <span class="sd-webui-dot sd-dot-red"></span>
+                    <span class="sd-webui-dot sd-dot-yellow"></span>
+                    <span class="sd-webui-dot sd-dot-green"></span>
+                </div>
+                <div class="sd-webui-url">
+                    <i class="la la-lock"></i>
+                    <span>solardiverter.local</span>
+                </div>
+                <div class="sd-webui-bar-spacer"></div>
+            </div>
+            <div class="sd-webui-screen">
+                <div class="sd-webui-panel active" data-panel="dashboard">
+                    <!-- TODO: substituir por <img src="img/webui-dashboard.png" alt="Dashboard"> -->
+                    <div class="sd-webui-placeholder">
+                        <i class="la la-chart-bar"></i>
+                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
+                        <p class="sd-wp-tab" data-i18n="webui_tab_dashboard">Dashboard</p>
+                    </div>
+                </div>
+                <div class="sd-webui-panel" data-panel="config">
+                    <!-- TODO: substituir por <img src="img/webui-config.png" alt="Configuração"> -->
+                    <div class="sd-webui-placeholder">
+                        <i class="la la-cog"></i>
+                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
+                        <p class="sd-wp-tab" data-i18n="webui_tab_config">Configuração</p>
+                    </div>
+                </div>
+                <div class="sd-webui-panel" data-panel="schedules">
+                    <!-- TODO: substituir por <img src="img/webui-schedules.png" alt="Agendamentos"> -->
+                    <div class="sd-webui-placeholder">
+                        <i class="la la-calendar-alt"></i>
+                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
+                        <p class="sd-wp-tab" data-i18n="webui_tab_schedules">Agendamentos</p>
+                    </div>
+                </div>
+                <div class="sd-webui-panel" data-panel="mqtt">
+                    <!-- TODO: substituir por <img src="img/webui-mqtt.png" alt="MQTT / HA"> -->
+                    <div class="sd-webui-placeholder">
+                        <i class="la la-home"></i>
+                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
+                        <p class="sd-wp-tab" data-i18n="webui_tab_mqtt">MQTT / HA</p>
+                    </div>
+                </div>
+                <div class="sd-webui-panel" data-panel="modbus">
+                    <!-- TODO: substituir por <img src="img/webui-modbus.png" alt="Modbus"> -->
+                    <div class="sd-webui-placeholder">
+                        <i class="la la-server"></i>
+                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
+                        <p class="sd-wp-tab" data-i18n="webui_tab_modbus">Modbus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caption -->
+        <div class="sd-webui-captions">
+            <p class="sd-webui-caption active" data-caption="dashboard" data-i18n="webui_cap_dashboard">Monitorização em tempo real · métricas de energia · alertas</p>
+            <p class="sd-webui-caption" data-caption="config" data-i18n="webui_cap_config">Wizard de configuração · seletor de inversor · WiFi · fuso horário</p>
+            <p class="sd-webui-caption" data-caption="schedules" data-i18n="webui_cap_schedules">Agendamentos por dia da semana · bandas de temperatura · boost</p>
+            <p class="sd-webui-caption" data-caption="mqtt" data-i18n="webui_cap_mqtt">HA Discovery automático · tópicos custom · comandos remotos</p>
+            <p class="sd-webui-caption" data-caption="modbus" data-i18n="webui_cap_modbus">Modbus Scanner · Modbus Universal JSON · perfis de inversor</p>
+        </div>
+    </div>
+</section>
+
 <!-- Hardware Compatible Section -->
 <section id="hardware" class="sd-section sd-section-dark">
     <div class="container">
         <div class="sd-section-header">
             <span class="sd-section-tag" data-i18n="hw_tag">COMPATIBILIDADE</span>
             <h2 class="sd-section-title" data-i18n="hw_title">Hardware Compatível</h2>
-            <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 25 inversores e medidores diferentes</p>
+            <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 27 inversores e medidores diferentes</p>
         </div>
 
         <div class="sd-hw-stats">
@@ -510,13 +598,13 @@
                 <div class="sd-dl-card">
                     <div class="sd-dl-card-badge sd-dl-badge-lite">LITE</div>
                     <h3>SolarDiverter <span class="sd-version-tag">LITE</span></h3>
-                    <p class="sd-dl-version">v1.0.3 <span class="sd-beta-badge">BETA</span></p>
+                    <p class="sd-dl-version">v1.1.1 <span class="sd-beta-badge">BETA</span></p>
                     <p class="sd-dl-desc" data-i18n="dl_lite_desc">Ideal para uma única carga resistiva. Interface completa com wizard de configuração e atualizações OTA.</p>
                     <ul class="sd-dl-features">
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1pwm">1 Canal PWM</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_pwm80">PWM Auto: 80% máx.</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1schedule">1 Agendamento (sem temp.)</span></li>
-                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">25+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">27+ Medidores suportados</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_webfull">Interface Web completa + Wizard</span></li>
@@ -535,7 +623,7 @@
                         <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
                     </div>
                     <!-- TODO: link download LITE -->
-                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.0.3-lite-beta" class="sd-btn sd-btn-outline-light sd-btn-block" target="_blank" rel="noopener">
+                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.1.1-lite-beta" class="sd-btn sd-btn-outline-light sd-btn-block" target="_blank" rel="noopener">
                         <i class="la la-download"></i>
                         <span data-i18n="dl_btn_lite">Transferir LITE (.zip)</span>
                     </a>
@@ -546,11 +634,11 @@
                 <div class="sd-dl-card sd-dl-card-latest">
                     <div class="sd-dl-card-badge" data-i18n="dl_recommended">Recomendado</div>
                     <h3>SolarDiverter <span class="sd-version-tag">PRO</span></h3>
-                    <p class="sd-dl-version">v1.0.3 <span class="sd-beta-badge">BETA</span></p>
+                    <p class="sd-dl-version">v1.1.1 <span class="sd-beta-badge">BETA</span></p>
                     <p class="sd-dl-desc" data-i18n="dl_pro_desc">Para múltiplas cargas com controlo avançado. Phase shift, Modbus estendido e partição expandida de 3MB.</p>
                     <ul class="sd-dl-features">
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_4pwm">4 Canais PWM independentes</span></li>
-                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">25+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">27+ Medidores suportados</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_schedules">4 Agendamentos c/ temperatura</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
@@ -570,7 +658,7 @@
                         <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
                     </div>
                     <!-- TODO: link download PRO -->
-                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.0.3-pro-beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
+                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.1.1-pro-beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
                         <i class="la la-download"></i>
                         <span data-i18n="dl_btn_pro">Transferir PRO (.zip)</span>
                     </a>
@@ -584,6 +672,152 @@
                 <i class="la la-book"></i>
                 <span data-i18n="dl_btn_docs">Ver Documentação</span>
             </a>
+        </div>
+    </div>
+</section>
+
+<!-- License Section -->
+<section id="license" class="sd-section">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="lic_tag">LICENCIAMENTO</span>
+            <h2 class="sd-section-title" data-i18n="lic_title">Modelo de Licenciamento</h2>
+            <p class="sd-section-subtitle" data-i18n="lic_subtitle">Uso pessoal livre &mdash; desenvolvimento sust&eacute;ntavel</p>
+        </div>
+
+        <!-- LITE vs PRO -->
+        <div class="row g-4 mb-4">
+            <!-- LITE -->
+            <div class="col-lg-6">
+                <div class="sd-lic-card">
+                    <div class="sd-lic-card-header sd-lic-lite">
+                        <span class="sd-lic-badge">LITE</span>
+                        <h3 data-i18n="lic_lite_title">SolarDiverter Lite</h3>
+                        <p class="sd-lic-price" data-i18n="lic_lite_price">Gratuito</p>
+                    </div>
+                    <div class="sd-lic-body">
+                        <p data-i18n="lic_lite_desc">Vers&atilde;o gratuita destinada exclusivamente a uso pessoal e n&atilde;o comercial. Inclui o firmware completo com algumas funcionalidades avan&ccedil;adas desativadas.</p>
+                        <ul class="sd-lic-list">
+                            <li><i class="la la-check sd-lic-yes"></i><span data-i18n="lic_lite_f1">Firmware completo com funcionalidades limitadas</span></li>
+                            <li><i class="la la-check sd-lic-yes"></i><span data-i18n="lic_lite_f2">Ativa&ccedil;&atilde;o gratuita por email</span></li>
+                            <li><i class="la la-check sd-lic-yes"></i><span data-i18n="lic_lite_f3">Uso pessoal e privado</span></li>
+                            <li><i class="la la-times sd-lic-no"></i><span data-i18n="lic_lite_f4">Redistribui&ccedil;&atilde;o proibida</span></li>
+                            <li><i class="la la-times sd-lic-no"></i><span data-i18n="lic_lite_f5">Sem suporte obrigat&oacute;rio</span></li>
+                        </ul>
+                        <div class="sd-lic-activation">
+                            <i class="la la-envelope"></i>
+                            <span data-i18n="lic_lite_activation">Ativa&ccedil;&atilde;o gratuita mediante pedido direto por email</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PRO -->
+            <div class="col-lg-6">
+                <div class="sd-lic-card sd-lic-card-pro">
+                    <div class="sd-lic-card-header sd-lic-pro">
+                        <span class="sd-lic-badge sd-lic-badge-pro">PRO</span>
+                        <h3 data-i18n="lic_pro_title">SolarDiverter Pro</h3>
+                        <p class="sd-lic-price" data-i18n="lic_pro_price">Licen&ccedil;a paga</p>
+                    </div>
+                    <div class="sd-lic-body">
+                        <p data-i18n="lic_pro_desc">Desbloqueia todas as funcionalidades avan&ccedil;adas. Licen&ccedil;a digital associada ao chipID &mdash; n&atilde;o transfer&iacute;vel.</p>
+                        <div class="sd-lic-options">
+                            <div class="sd-lic-option">
+                                <span class="sd-lic-opt-badge">A</span>
+                                <div>
+                                    <strong data-i18n="lic_pro_a_title">Hardware plug&#8209;and&#8209;play</strong>
+                                    <p data-i18n="lic_pro_a_desc">Dispositivo enviado com licen&ccedil;a Pro j&aacute; ativada. Sem necessidade de ativa&ccedil;&atilde;o.</p>
+                                </div>
+                            </div>
+                            <div class="sd-lic-option">
+                                <span class="sd-lic-opt-badge">B</span>
+                                <div>
+                                    <strong data-i18n="lic_pro_b_title">Kit DIY com ESP inclu&iacute;do</strong>
+                                    <p data-i18n="lic_pro_b_desc">Kit com ESP32 identificado. Chave gerada antes do envio &mdash; firmware arranca em modo Pro.</p>
+                                </div>
+                            </div>
+                            <div class="sd-lic-option">
+                                <span class="sd-lic-opt-badge">C</span>
+                                <div>
+                                    <strong data-i18n="lic_pro_c_title">Ativa&ccedil;&atilde;o em hardware pr&oacute;prio</strong>
+                                    <p data-i18n="lic_pro_c_desc">Forne&ccedil;a o chipID do seu ESP32 e adquira a chave Pro. Licen&ccedil;a v&aacute;lida para um &uacute;nico dispositivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pro Key info -->
+        <div class="sd-lic-key-box">
+            <div class="sd-lic-key-icon"><i class="la la-lock"></i></div>
+            <div class="sd-lic-key-content">
+                <h4 data-i18n="lic_key_title">Sobre a Chave Pro</h4>
+                <ul class="sd-lic-key-list">
+                    <li data-i18n="lic_key_1">Digital e associada a um chipID &uacute;nico</li>
+                    <li data-i18n="lic_key_2">N&atilde;o pode ser transferida para outro dispositivo</li>
+                    <li data-i18n="lic_key_3">N&atilde;o pode ser copiada, partilhada ou redistribu&iacute;da</li>
+                    <li data-i18n="lic_key_4">Tentativas de engenharia reversa ou bypass s&atilde;o proibidas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Summary table -->
+        <div class="sd-lic-table-wrap">
+            <h4 class="sd-lic-table-title" data-i18n="lic_table_title">Resumo do Modelo de Licenciamento</h4>
+            <div class="table-responsive">
+                <table class="sd-lic-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="lic_th_version">Vers&atilde;o</th>
+                            <th data-i18n="lic_th_price">Pre&ccedil;o</th>
+                            <th data-i18n="lic_th_activation">Ativa&ccedil;&atilde;o</th>
+                            <th data-i18n="lic_th_use">Uso</th>
+                            <th data-i18n="lic_th_redistrib">Redistribui&ccedil;&atilde;o</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="sd-lic-tbl-badge sd-lic-tbl-lite">LITE</span></td>
+                            <td data-i18n="lic_row_lite_price">Gratuita</td>
+                            <td data-i18n="lic_row_lite_act">Por email</td>
+                            <td data-i18n="lic_row_use">Pessoal</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="lic_row_no">Proibida</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sd-lic-tbl-badge sd-lic-tbl-pro">PRO</span> <span class="sd-lic-tbl-sub" data-i18n="lic_row_pro_hw">hardware</span></td>
+                            <td data-i18n="lic_row_pro_price">Paga</td>
+                            <td data-i18n="lic_row_pro_act_hw">J&aacute; ativada</td>
+                            <td data-i18n="lic_row_use">Pessoal</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="lic_row_no">Proibida</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sd-lic-tbl-badge sd-lic-tbl-pro">PRO</span> <span class="sd-lic-tbl-sub" data-i18n="lic_row_pro_kit">kit</span></td>
+                            <td data-i18n="lic_row_pro_price">Paga</td>
+                            <td data-i18n="lic_row_pro_act_hw">J&aacute; ativada</td>
+                            <td data-i18n="lic_row_use">Pessoal</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="lic_row_no">Proibida</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="sd-lic-tbl-badge sd-lic-tbl-pro">PRO</span> <span class="sd-lic-tbl-sub" data-i18n="lic_row_pro_key">chave</span></td>
+                            <td data-i18n="lic_row_pro_price">Paga</td>
+                            <td data-i18n="lic_row_pro_act_key">Por chipID</td>
+                            <td data-i18n="lic_row_use">Pessoal</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="lic_row_no">Proibida</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Terms -->
+        <div class="sd-lic-terms">
+            <i class="la la-file-alt sd-lic-terms-icon"></i>
+            <div>
+                <p data-i18n="lic_terms">O SolarDiverter &eacute; disponibilizado para uso pessoal e privado. Qualquer forma de utiliza&ccedil;&atilde;o comercial, revenda, redistribui&ccedil;&atilde;o, modifica&ccedil;&atilde;o ou integra&ccedil;&atilde;o em produtos destinados &agrave; venda &eacute; proibida sem autoriza&ccedil;&atilde;o pr&eacute;via por escrito.</p>
+                <p class="sd-lic-copyright">&copy; 2026 AlternativaIOT &mdash; <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+            </div>
         </div>
     </div>
 </section>
@@ -717,9 +951,11 @@
                 <h5 data-i18n="footer_nav">Navegação</h5>
                 <ul class="sd-footer-links">
                     <li><a href="#features" data-i18n="nav_features">Funcionalidades</a></li>
+                    <li><a href="#webui" data-i18n="nav_webui">WebUI</a></li>
                     <li><a href="#hardware" data-i18n="nav_hardware">Hardware</a></li>
                     <li><a href="#getting-started" data-i18n="nav_started">Instalação</a></li>
                     <li><a href="#downloads" data-i18n="nav_downloads">Transferências</a></li>
+                    <li><a href="#license" data-i18n="nav_license">Licenciamento</a></li>
                     <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
                 </ul>
             </div>
