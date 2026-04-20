@@ -58,7 +58,7 @@
         </button>
         <div class="sd-navbar-links" id="sd-nav-links">
             <a href="#features" data-i18n="nav_features">Funcionalidades</a>
-            <a href="#webui" data-i18n="nav_webui">WebUI</a>
+            <a href="#screenshots" data-i18n="nav_screenshots">Galeria</a>
             <a href="#hardware" data-i18n="nav_hardware">Hardware</a>
             <a href="#getting-started" data-i18n="nav_started">Instalação</a>
             <a href="#downloads" data-i18n="nav_downloads">Transferências</a>
@@ -153,6 +153,46 @@
                         <div class="sd-hero-brand-name">SolarDiverter</div>
                         <p class="sd-hero-brand-tagline">Controlador inteligente de desvio de energia solar para cargas resistivas</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="sd-section sd-section-alt">
+    <div class="container">
+        <div class="sd-section-header">
+            <span class="sd-section-tag" data-i18n="about_tag">O QUE É O SOLARDIVERTER?</span>
+            <h2 class="sd-section-title" data-i18n="about_title">Mais do que um simples desvio de energia solar</h2>
+            <p class="sd-section-subtitle" data-i18n="about_subtitle">Controlo inteligente da sua energia — desde o excedente solar até ao aquecimento eficiente de água por horários e tarifários</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-sun"></i>
+                    </div>
+                    <h3 class="sd-feature-title" data-i18n="about_solar_title">Controlo do Excedente Solar</h3>
+                    <p class="sd-feature-text" data-i18n="about_solar_text">Deteta em tempo real a energia solar excedente e desvia-a para cargas controláveis (resistência de termoacumulador, termossifão, resistências de apoio a bombas de calor, aquecedores a óleo), maximizando o autoconsumo e evitando a injeção na rede.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-thermometer-half"></i>
+                    </div>
+                    <h3 class="sd-feature-title" data-i18n="about_temp_title">Aquecimento por Horários e Temperatura</h3>
+                    <p class="sd-feature-text" data-i18n="about_temp_text">Com sonda de temperatura, o SolarDiverter monitoriza e controla o aquecimento da água com base em horários e dias definidos. Define temperaturas mínimas e máximas e garante conforto sem desperdício.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="sd-feature-card">
+                    <div class="sd-feature-icon">
+                        <i class="la la-coins"></i>
+                    </div>
+                    <h3 class="sd-feature-title" data-i18n="about_tariff_title">Gestão Inteligente por Tarifário</h3>
+                    <p class="sd-feature-text" data-i18n="about_tariff_text">Suporta tarifários bi-horários e tri-horários. Configure o seu sistema de acordo com o período tarifário mais económico e ativa automaticamente o aquecimento na hora certa — solar quando possível, elétrico na tarifa mais baixa.</p>
                 </div>
             </div>
         </div>
@@ -289,92 +329,213 @@
     </div>
 </section>
 
-<!-- WebUI Preview Section -->
-<section id="webui" class="sd-section sd-section-alt">
+<!-- Screenshots Gallery Section -->
+<section id="screenshots" class="sd-section">
     <div class="container">
         <div class="sd-section-header">
-            <span class="sd-section-tag" data-i18n="webui_tag">INTERFACE WEB</span>
-            <h2 class="sd-section-title" data-i18n="webui_title">Interface Web v1.1.1</h2>
-            <p class="sd-section-subtitle" data-i18n="webui_subtitle">Configuração e monitorização completa a partir do browser — sem apps, sem cloud.</p>
+            <span class="sd-section-tag" data-i18n="screenshots_tag">CAPTURAS DE ECRÃ</span>
+            <h2 class="sd-section-title" data-i18n="screenshots_title">Galeria de Funcionalidades</h2>
+            <p class="sd-section-subtitle" data-i18n="screenshots_subtitle">Explore todas as funcionalidades do SolarDiverter através da interface Web.</p>
         </div>
 
-        <!-- Tab bar -->
-        <div class="sd-webui-tabs" role="tablist">
-            <button class="sd-webui-tab active" role="tab" data-tab="dashboard" data-i18n="webui_tab_dashboard">Dashboard</button>
-            <button class="sd-webui-tab" role="tab" data-tab="config" data-i18n="webui_tab_config">Configuração</button>
-            <button class="sd-webui-tab" role="tab" data-tab="schedules" data-i18n="webui_tab_schedules">Agendamentos</button>
-            <button class="sd-webui-tab" role="tab" data-tab="mqtt" data-i18n="webui_tab_mqtt">MQTT / HA</button>
-            <button class="sd-webui-tab" role="tab" data-tab="modbus" data-i18n="webui_tab_modbus">Modbus</button>
-        </div>
-
-        <!-- Browser mockup -->
-        <div class="sd-webui-browser">
-            <div class="sd-webui-browser-bar">
-                <div class="sd-webui-dots">
-                    <span class="sd-webui-dot sd-dot-red"></span>
-                    <span class="sd-webui-dot sd-dot-yellow"></span>
-                    <span class="sd-webui-dot sd-dot-green"></span>
-                </div>
-                <div class="sd-webui-url">
-                    <i class="la la-lock"></i>
-                    <span>solardiverter.local</span>
-                </div>
-                <div class="sd-webui-bar-spacer"></div>
-            </div>
-            <div class="sd-webui-screen">
-                <div class="sd-webui-panel active" data-panel="dashboard">
-                    <!-- TODO: substituir por <img src="img/webui-dashboard.png" alt="Dashboard"> -->
-                    <div class="sd-webui-placeholder">
-                        <i class="la la-chart-bar"></i>
-                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
-                        <p class="sd-wp-tab" data-i18n="webui_tab_dashboard">Dashboard</p>
+        <!-- Group: Monitorização -->
+        <p class="sd-gallery-group-label"><i class="la la-chart-bar"></i> <span data-i18n="gallery_group_monitoring">Monitorização</span></p>
+        <div class="sd-gallery">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-status-graficos.jpg" class="sd-gallery-link" data-caption="Status e gráficos de energia e consumo" data-i18n-caption="gallery_cap_status_graficos">
+                            <img src="img/sdiv-status-graficos.jpg" alt="SolarDiverter — Status e gráficos de energia e consumo" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_status_graficos">Status e gráficos de energia e consumo</p>
                     </div>
                 </div>
-                <div class="sd-webui-panel" data-panel="config">
-                    <!-- TODO: substituir por <img src="img/webui-config.png" alt="Configuração"> -->
-                    <div class="sd-webui-placeholder">
-                        <i class="la la-cog"></i>
-                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
-                        <p class="sd-wp-tab" data-i18n="webui_tab_config">Configuração</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-visao-sistema-boost.jpg" class="sd-gallery-link" data-caption="Visão do sistema e modo Boost temporizado (PRO)" data-i18n-caption="gallery_cap_visao_boost">
+                            <img src="img/sdiv-visao-sistema-boost.jpg" alt="SolarDiverter — Visão do sistema e modo Boost temporizado na versão Pro" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_visao_boost">Visão do sistema e modo Boost temporizado (PRO)</p>
                     </div>
                 </div>
-                <div class="sd-webui-panel" data-panel="schedules">
-                    <!-- TODO: substituir por <img src="img/webui-schedules.png" alt="Agendamentos"> -->
-                    <div class="sd-webui-placeholder">
-                        <i class="la la-calendar-alt"></i>
-                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
-                        <p class="sd-wp-tab" data-i18n="webui_tab_schedules">Agendamentos</p>
-                    </div>
-                </div>
-                <div class="sd-webui-panel" data-panel="mqtt">
-                    <!-- TODO: substituir por <img src="img/webui-mqtt.png" alt="MQTT / HA"> -->
-                    <div class="sd-webui-placeholder">
-                        <i class="la la-home"></i>
-                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
-                        <p class="sd-wp-tab" data-i18n="webui_tab_mqtt">MQTT / HA</p>
-                    </div>
-                </div>
-                <div class="sd-webui-panel" data-panel="modbus">
-                    <!-- TODO: substituir por <img src="img/webui-modbus.png" alt="Modbus"> -->
-                    <div class="sd-webui-placeholder">
-                        <i class="la la-server"></i>
-                        <p class="sd-wp-label" data-i18n="webui_placeholder">Screenshots em breve</p>
-                        <p class="sd-wp-tab" data-i18n="webui_tab_modbus">Modbus</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-boost-temporizado.jpg" class="sd-gallery-link" data-caption="Modo Boost temporizado na versão Pro" data-i18n-caption="gallery_cap_boost_temporizado">
+                            <img src="img/sdiv-boost-temporizado.jpg" alt="SolarDiverter — Modo Boost temporizado na versão Pro" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_boost_temporizado">Modo Boost temporizado na versão Pro</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Caption -->
-        <div class="sd-webui-captions">
-            <p class="sd-webui-caption active" data-caption="dashboard" data-i18n="webui_cap_dashboard">Monitorização em tempo real · métricas de energia · alertas</p>
-            <p class="sd-webui-caption" data-caption="config" data-i18n="webui_cap_config">Wizard de configuração · seletor de inversor · WiFi · fuso horário</p>
-            <p class="sd-webui-caption" data-caption="schedules" data-i18n="webui_cap_schedules">Agendamentos por dia da semana · bandas de temperatura · boost</p>
-            <p class="sd-webui-caption" data-caption="mqtt" data-i18n="webui_cap_mqtt">HA Discovery automático · tópicos custom · comandos remotos</p>
-            <p class="sd-webui-caption" data-caption="modbus" data-i18n="webui_cap_modbus">Modbus Scanner · Modbus Universal JSON · perfis de inversor</p>
+        <!-- Group: Configuração de Potência -->
+        <p class="sd-gallery-group-label"><i class="la la-bolt"></i> <span data-i18n="gallery_group_power">Configuração de Potência</span></p>
+        <div class="sd-gallery">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-4canais-pwm.jpg" class="sd-gallery-link" data-caption="4 canais PWM independentes (PRO)" data-i18n-caption="gallery_cap_4canais_pwm">
+                            <img src="img/sdiv-4canais-pwm.jpg" alt="SolarDiverter — 4 canais PWM independentes" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_4canais_pwm">4 canais PWM independentes (PRO)</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-agendamentos-tarifarios.jpg" class="sd-gallery-link" data-caption="Até 4 agendamentos horários e funções para tarifários (PRO)" data-i18n-caption="gallery_cap_agendamentos_tarifarios">
+                            <img src="img/sdiv-agendamentos-tarifarios.jpg" alt="SolarDiverter — Até 4 agendamentos horários e funções para tarifários de energia" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_agendamentos_tarifarios">Até 4 agendamentos horários e funções para tarifários (PRO)</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-config-tarifarios.jpg" class="sd-gallery-link" data-caption="Configuração de tarifários de energia" data-i18n-caption="gallery_cap_config_tarifarios">
+                            <img src="img/sdiv-config-tarifarios.jpg" alt="SolarDiverter — Configuração de tarifários de energia" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_config_tarifarios">Configuração de tarifários de energia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group: Modbus -->
+        <p class="sd-gallery-group-label"><i class="la la-server"></i> <span data-i18n="gallery_group_modbus">Modbus &amp; Fonte de Dados</span></p>
+        <div class="sd-gallery">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-fonte-dados.jpg" class="sd-gallery-link" data-caption="Seleção da fonte de dados" data-i18n-caption="gallery_cap_fonte_dados">
+                            <img src="img/sdiv-fonte-dados.jpg" alt="SolarDiverter — Seleção da fonte de dados" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_fonte_dados">Seleção da fonte de dados</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-modbus-config.jpg" class="sd-gallery-link" data-caption="Configurações ModBus na versão Pro com Modbus Scan" data-i18n-caption="gallery_cap_modbus_config">
+                            <img src="img/sdiv-modbus-config.jpg" alt="SolarDiverter — Configurações por ModBus na versão Pro com Modbus Scan" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_modbus_config">Configurações ModBus na versão Pro com Modbus Scan</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-modbus-scan.jpg" class="sd-gallery-link" data-caption="Modbus Scan — auto-discovery de dispositivos" data-i18n-caption="gallery_cap_modbus_scan">
+                            <img src="img/sdiv-modbus-scan.jpg" alt="SolarDiverter — Modbus Scan auto-discovery" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_modbus_scan">Modbus Scan — auto-discovery de dispositivos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group: MQTT & Rede -->
+        <p class="sd-gallery-group-label"><i class="la la-wifi"></i> <span data-i18n="gallery_group_mqtt">MQTT, Home Assistant &amp; Rede</span></p>
+        <div class="sd-gallery">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-mqtt.jpg" class="sd-gallery-link" data-caption="Configuração MQTT" data-i18n-caption="gallery_cap_mqtt">
+                            <img src="img/sdiv-mqtt.jpg" alt="SolarDiverter — Configuração MQTT" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_mqtt">Configuração MQTT</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-mqtt-homeassistant.jpg" class="sd-gallery-link" data-caption="MQTT Discovery e comandos no Home Assistant" data-i18n-caption="gallery_cap_mqtt_ha">
+                            <img src="img/sdiv-mqtt-homeassistant.jpg" alt="SolarDiverter — MQTT Discovery e comandos no Home Assistant" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_mqtt_ha">MQTT Discovery e comandos no Home Assistant</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-ha-comandos.jpg" class="sd-gallery-link" data-caption="Comandos no Home Assistant" data-i18n-caption="gallery_cap_ha_comandos">
+                            <img src="img/sdiv-ha-comandos.jpg" alt="SolarDiverter — Comandos no Home Assistant" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_ha_comandos">Comandos no Home Assistant</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-wifi-dual.jpg" class="sd-gallery-link" data-caption="Duas redes WiFi suportadas, uma de fallback" data-i18n-caption="gallery_cap_wifi_dual">
+                            <img src="img/sdiv-wifi-dual.jpg" alt="SolarDiverter — Duas redes WiFi suportadas, uma de fallback" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_wifi_dual">Duas redes WiFi suportadas, uma de fallback</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group: Sistema -->
+        <p class="sd-gallery-group-label"><i class="la la-cog"></i> <span data-i18n="gallery_group_system">Sistema &amp; Configuração</span></p>
+        <div class="sd-gallery">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-temperaturas-seguranca.jpg" class="sd-gallery-link" data-caption="Temperaturas de segurança — água e TRIAC (requer sonda junto ao TRIAC)" data-i18n-caption="gallery_cap_temperaturas_seguranca">
+                            <img src="img/sdiv-temperaturas-seguranca.jpg" alt="SolarDiverter — Temperaturas de segurança para água e contra sobreaquecimento de hardware" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_temperaturas_seguranca">Temperaturas de segurança — água e TRIAC (requer sonda junto ao TRIAC)</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-guardar-configuracoes.jpg" class="sd-gallery-link" data-caption="Guardar e upload de configurações" data-i18n-caption="gallery_cap_guardar_config">
+                            <img src="img/sdiv-guardar-configuracoes.jpg" alt="SolarDiverter — Guardar e upload de configurações" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_guardar_config">Guardar e upload de configurações</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sd-gallery-item">
+                        <a href="img/sdiv-idioma.jpg" class="sd-gallery-link" data-caption="Seleção de idioma da interface" data-i18n-caption="gallery_cap_idioma">
+                            <img src="img/sdiv-idioma.jpg" alt="SolarDiverter — Seleção de idioma" loading="lazy">
+                            <div class="sd-gallery-overlay"><i class="la la-search-plus"></i></div>
+                        </a>
+                        <p class="sd-gallery-caption" data-i18n="gallery_cap_idioma">Seleção de idioma da interface</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Lightbox Modal -->
+<div class="sd-lightbox" id="sd-lightbox">
+    <button class="sd-lightbox-close" id="sd-lightbox-close" aria-label="Fechar">&times;</button>
+    <button class="sd-lightbox-prev" id="sd-lightbox-prev" aria-label="Anterior">&#10094;</button>
+    <button class="sd-lightbox-next" id="sd-lightbox-next" aria-label="Seguinte">&#10095;</button>
+    <div class="sd-lightbox-zoom-controls">
+        <button class="sd-lbz-btn" id="sd-lbz-in" title="Ampliar"><i class="la la-search-plus"></i></button>
+        <button class="sd-lbz-btn" id="sd-lbz-out" title="Reduzir"><i class="la la-search-minus"></i></button>
+        <button class="sd-lbz-btn" id="sd-lbz-reset" title="Repor"><i class="la la-compress"></i></button>
+    </div>
+    <div class="sd-lightbox-content" id="sd-lightbox-content">
+        <div class="sd-lightbox-img-wrap" id="sd-lightbox-img-wrap">
+            <img src="" alt="" id="sd-lightbox-img">
+        </div>
+    </div>
+    <p class="sd-lightbox-caption" id="sd-lightbox-caption"></p>
+</div>
 
 <!-- Hardware Compatible Section -->
 <section id="hardware" class="sd-section sd-section-dark">
@@ -658,7 +819,7 @@
                         <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
                     </div>
                     <!-- TODO: link download PRO -->
-                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.1.1-pro-beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
+                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.0.3-pro-beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
                         <i class="la la-download"></i>
                         <span data-i18n="dl_btn_pro">Transferir PRO (.zip)</span>
                     </a>
@@ -966,7 +1127,6 @@
                 <h5 data-i18n="footer_nav">Navegação</h5>
                 <ul class="sd-footer-links">
                     <li><a href="#features" data-i18n="nav_features">Funcionalidades</a></li>
-                    <li><a href="#webui" data-i18n="nav_webui">WebUI</a></li>
                     <li><a href="#hardware" data-i18n="nav_hardware">Hardware</a></li>
                     <li><a href="#getting-started" data-i18n="nav_started">Instalação</a></li>
                     <li><a href="#downloads" data-i18n="nav_downloads">Transferências</a></li>

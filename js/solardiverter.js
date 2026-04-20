@@ -33,6 +33,15 @@
             stat_channels: 'CANAIS PWM',
             stat_free: 'GRATUITO',
             scroll_text: 'SCROLL',
+            about_tag: 'O QUE É O SOLARDIVERTER?',
+            about_title: 'Mais do que um simples desvio de energia solar',
+            about_subtitle: 'Controlo inteligente da sua energia — desde o excedente solar até ao aquecimento eficiente de água por horários e tarifários',
+            about_solar_title: 'Controlo do Excedente Solar',
+            about_solar_text: 'Deteta em tempo real a energia solar excedente e desvia-a para cargas controláveis (resistência de termoacumulador, termossifão, resistências de apoio a bombas de calor, aquecedores a óleo), maximizando o autoconsumo e evitando a injeção na rede.',
+            about_temp_title: 'Aquecimento por Horários e Temperatura',
+            about_temp_text: 'Com sonda de temperatura, o SolarDiverter monitoriza e controla o aquecimento da água com base em horários e dias definidos. Define temperaturas mínimas e máximas e garante conforto sem desperdício.',
+            about_tariff_title: 'Gestão Inteligente por Tarifário',
+            about_tariff_text: 'Suporta tarifários bi-horários e tri-horários. Configure o seu sistema de acordo com o período tarifário mais económico e ativa automaticamente o aquecimento na hora certa — solar quando possível, elétrico na tarifa mais baixa.',
             features_tag: 'FUNCIONALIDADES',
             features_title: 'Novidades da Versão 1.1.1',
             features_subtitle: 'Lançada em Abril de 2026',
@@ -169,17 +178,19 @@
             webui_tag: 'INTERFACE WEB',
             webui_title: 'Interface Web v1.1.1',
             webui_subtitle: 'Configuração e monitorização completa a partir do browser — sem apps, sem cloud.',
-            webui_tab_dashboard: 'Dashboard',
-            webui_tab_config: 'Configuração',
-            webui_tab_schedules: 'Agendamentos',
-            webui_tab_mqtt: 'MQTT / HA',
-            webui_tab_modbus: 'Modbus',
+            webui_tab_dashboard: 'Status',
+            webui_tab_config: 'Medidores',
+            webui_tab_schedules: 'Potência PWM',
+            webui_tab_mqtt: 'Agendamentos',
+            webui_tab_modbus: 'Temperatura',
+            webui_tab_network: 'Rede',
             webui_placeholder: 'Screenshots em breve',
-            webui_cap_dashboard: 'Monitorização em tempo real · métricas de energia · alertas',
-            webui_cap_config: 'Wizard de configuração · seletor de inversor · WiFi · fuso horário',
-            webui_cap_schedules: 'Agendamentos por dia da semana · bandas de temperatura · boost',
-            webui_cap_mqtt: 'HA Discovery automático · tópicos custom · comandos remotos',
-            webui_cap_modbus: 'Modbus Scanner · Modbus Universal JSON · perfis de inversor',
+            webui_cap_dashboard: 'Estado do sistema · fluxo de energia · gráficos históricos · modo BOOST',
+            webui_cap_config: 'Seleção de marca/modelo · 27+ inversores · Modbus Scanner (PRO)',
+            webui_cap_schedules: 'Modo AUTO/MANUAL/BOOST · 4 canais PWM independentes · prioridade bateria',
+            webui_cap_mqtt: '4 agendamentos semanais · bandas de temperatura · tarifário horário',
+            webui_cap_modbus: '4 sondas DS18B20 · proteção TRIAC · anti-legionella · termostato saturado',
+            webui_cap_network: 'WiFi principal + rede backup · DHCP ou IP estático · NTP · fuso horário',
             nav_license: 'Licenciamento',
             lic_tag: 'LICENCIAMENTO',
             lic_title: 'Modelo de Licenciamento',
@@ -232,7 +243,32 @@
             lic_row_pro_kit: 'kit',
             lic_row_pro_key: 'chave',
             lic_row_pro_act_key: 'Por chipID',
-            lic_terms: 'O SolarDiverter \u00e9 disponibilizado para uso pessoal e privado. Qualquer forma de utiliza\u00e7\u00e3o comercial, revenda, redistribui\u00e7\u00e3o, modifica\u00e7\u00e3o ou integra\u00e7\u00e3o em produtos destinados \u00e0 venda \u00e9 proibida sem autoriza\u00e7\u00e3o pr\u00e9via por escrito.'
+            lic_terms: 'O SolarDiverter \u00e9 disponibilizado para uso pessoal e privado. Qualquer forma de utiliza\u00e7\u00e3o comercial, revenda, redistribui\u00e7\u00e3o, modifica\u00e7\u00e3o ou integra\u00e7\u00e3o em produtos destinados \u00e0 venda \u00e9 proibida sem autoriza\u00e7\u00e3o pr\u00e9via por escrito.',
+            nav_screenshots: 'Galeria',
+            screenshots_tag: 'CAPTURAS DE ECR\u00c3',
+            screenshots_title: 'Galeria de Funcionalidades',
+            screenshots_subtitle: 'Explore todas as funcionalidades do SolarDiverter atrav\u00e9s da interface Web.',
+            gallery_group_monitoring: 'Monitoriza\u00e7\u00e3o',
+            gallery_group_power: 'Configura\u00e7\u00e3o de Pot\u00eancia',
+            gallery_group_modbus: 'Modbus &amp; Fonte de Dados',
+            gallery_group_mqtt: 'MQTT, Home Assistant &amp; Rede',
+            gallery_group_system: 'Sistema &amp; Configura\u00e7\u00e3o',
+            gallery_cap_status_graficos: 'Status e gr\u00e1ficos de energia e consumo',
+            gallery_cap_visao_boost: 'Vis\u00e3o do sistema e modo Boost temporizado (PRO)',
+            gallery_cap_boost_temporizado: 'Modo Boost temporizado na vers\u00e3o Pro',
+            gallery_cap_4canais_pwm: '4 canais PWM independentes (PRO)',
+            gallery_cap_agendamentos_tarifarios: 'At\u00e9 4 agendamentos hor\u00e1rios e fun\u00e7\u00f5es para tarif\u00e1rios (PRO)',
+            gallery_cap_config_tarifarios: 'Configura\u00e7\u00e3o de tarif\u00e1rios de energia',
+            gallery_cap_fonte_dados: 'Sele\u00e7\u00e3o da fonte de dados',
+            gallery_cap_modbus_config: 'Configura\u00e7\u00f5es ModBus na vers\u00e3o Pro com Modbus Scan',
+            gallery_cap_modbus_scan: 'Modbus Scan \u2014 auto-discovery de dispositivos',
+            gallery_cap_mqtt: 'Configura\u00e7\u00e3o MQTT',
+            gallery_cap_mqtt_ha: 'MQTT Discovery e comandos no Home Assistant',
+            gallery_cap_wifi_dual: 'Duas redes WiFi suportadas, uma de fallback',
+            gallery_cap_temperaturas_seguranca: 'Temperaturas de seguran\u00e7a \u2014 \u00e1gua e TRIAC (requer sonda junto ao TRIAC)',
+            gallery_cap_guardar_config: 'Guardar e upload de configurações',
+            gallery_cap_ha_comandos: 'Comandos no Home Assistant',
+            gallery_cap_idioma: 'Seleção de idioma da interface'
         },
         en: {
             ribbon_version: 'Version 1.1.1 - April 2026 · BETA',
@@ -252,6 +288,15 @@
             stat_channels: 'PWM CHANNELS',
             stat_free: 'FREE',
             scroll_text: 'SCROLL',
+            about_tag: 'WHAT IS SOLARDIVERTER?',
+            about_title: 'More than just a solar energy diverter',
+            about_subtitle: 'Intelligent energy control — from surplus solar power to efficient water heating by schedules and tariffs',
+            about_solar_title: 'Surplus Solar Control',
+            about_solar_text: 'Detects surplus solar energy in real time and diverts it to controllable loads (immersion heater, thermosiphon, heat pump backup heaters, oil-filled radiators), maximising self-consumption and avoiding grid injection.',
+            about_temp_title: 'Heating by Schedule and Temperature',
+            about_temp_text: 'With a temperature probe, SolarDiverter monitors and controls water heating based on defined schedules and days. Set minimum and maximum temperatures and ensure comfort without waste.',
+            about_tariff_title: 'Smart Tariff Management',
+            about_tariff_text: 'Supports dual-rate and tri-rate tariffs. Configure your system according to the most economical tariff period and automatically activate heating at the right time — solar when possible, electric at the lowest rate.',
             features_tag: 'FEATURES',
             features_title: 'What\'s New in Version 1.1.1',
             features_subtitle: 'Released April 2026',
@@ -388,17 +433,19 @@
             webui_tag: 'WEB INTERFACE',
             webui_title: 'Web Interface v1.1.1',
             webui_subtitle: 'Full configuration and monitoring from the browser — no apps, no cloud.',
-            webui_tab_dashboard: 'Dashboard',
-            webui_tab_config: 'Configuration',
-            webui_tab_schedules: 'Schedules',
-            webui_tab_mqtt: 'MQTT / HA',
-            webui_tab_modbus: 'Modbus',
+            webui_tab_dashboard: 'Status',
+            webui_tab_config: 'Meters',
+            webui_tab_schedules: 'Power Settings',
+            webui_tab_mqtt: 'Schedules',
+            webui_tab_modbus: 'Temperature',
+            webui_tab_network: 'Network',
             webui_placeholder: 'Screenshots coming soon',
-            webui_cap_dashboard: 'Real-time monitoring · energy metrics · alerts',
-            webui_cap_config: 'Setup wizard · inverter selector · WiFi · timezone',
-            webui_cap_schedules: 'Weekly schedules · temperature bands · boost',
-            webui_cap_mqtt: 'Auto HA Discovery · custom topics · remote commands',
-            webui_cap_modbus: 'Modbus Scanner · Universal Modbus JSON · inverter profiles',
+            webui_cap_dashboard: 'System status · energy flow · historical charts · BOOST mode',
+            webui_cap_config: 'Brand/model selector · 27+ inverters · Modbus Scanner (PRO)',
+            webui_cap_schedules: 'AUTO/MANUAL/BOOST · 4 independent PWM channels · battery priority',
+            webui_cap_mqtt: '4 weekly schedules · temperature bands · time-of-use tariff',
+            webui_cap_modbus: '4 DS18B20 probes · TRIAC protection · anti-legionella · saturated thermostat',
+            webui_cap_network: 'Main + backup WiFi · DHCP or static IP · NTP · timezone',
             nav_license: 'Licence',
             lic_tag: 'LICENSING',
             lic_title: 'Licensing Model',
@@ -451,7 +498,32 @@
             lic_row_pro_kit: 'kit',
             lic_row_pro_key: 'key',
             lic_row_pro_act_key: 'By chipID',
-            lic_terms: 'SolarDiverter is provided for personal and private use. Any commercial use, resale, redistribution, modification or integration into products for sale is prohibited without prior written authorisation.'
+            lic_terms: 'SolarDiverter is provided for personal and private use. Any commercial use, resale, redistribution, modification or integration into products for sale is prohibited without prior written authorisation.',
+            nav_screenshots: 'Gallery',
+            screenshots_tag: 'SCREENSHOTS',
+            screenshots_title: 'Feature Gallery',
+            screenshots_subtitle: 'Explore all SolarDiverter features through the Web interface.',
+            gallery_group_monitoring: 'Monitoring',
+            gallery_group_power: 'Power Configuration',
+            gallery_group_modbus: 'Modbus &amp; Data Source',
+            gallery_group_mqtt: 'MQTT, Home Assistant &amp; Network',
+            gallery_group_system: 'System &amp; Settings',
+            gallery_cap_status_graficos: 'Status and energy/consumption charts',
+            gallery_cap_visao_boost: 'System overview and timed Boost mode (PRO)',
+            gallery_cap_boost_temporizado: 'Timed Boost mode in Pro version',
+            gallery_cap_4canais_pwm: '4 independent PWM channels (PRO)',
+            gallery_cap_agendamentos_tarifarios: 'Up to 4 time schedules and tariff functions (PRO)',
+            gallery_cap_config_tarifarios: 'Energy tariff configuration',
+            gallery_cap_fonte_dados: 'Data source selection',
+            gallery_cap_modbus_config: 'ModBus settings in Pro version with Modbus Scan',
+            gallery_cap_modbus_scan: 'Modbus Scan \u2014 device auto-discovery',
+            gallery_cap_mqtt: 'MQTT Configuration',
+            gallery_cap_mqtt_ha: 'MQTT Discovery and commands in Home Assistant',
+            gallery_cap_wifi_dual: 'Two WiFi networks supported, one as fallback',
+            gallery_cap_temperaturas_seguranca: 'Safety temperatures \u2014 water and TRIAC (probe near TRIAC required)',
+            gallery_cap_guardar_config: 'Save and upload settings',
+            gallery_cap_ha_comandos: 'Commands in Home Assistant',
+            gallery_cap_idioma: 'Interface language selection'
         },
         fr: {
             ribbon_version: 'Version 1.1.1 - Avril 2026 · BETA',
@@ -471,6 +543,15 @@
             stat_channels: 'CANAUX PWM',
             stat_free: 'GRATUIT',
             scroll_text: 'DÉFILER',
+            about_tag: 'QU\'EST-CE QUE SOLARDIVERTER ?',
+            about_title: 'Plus qu\'un simple déviateur d\'énergie solaire',
+            about_subtitle: 'Contrôle intelligent de votre énergie — du surplus solaire au chauffage efficace de l\'eau par horaires et tarifs',
+            about_solar_title: 'Contrôle du Surplus Solaire',
+            about_solar_text: 'Détecte en temps réel l\'énergie solaire excédentaire et la dévie vers des charges contrôlables (résistance de cumulus, thermosiphon, résistances d\'appoint pour pompes à chaleur, radiateurs à huile), maximisant l\'autoconsommation et évitant l\'injection réseau.',
+            about_temp_title: 'Chauffage par Horaires et Température',
+            about_temp_text: 'Avec une sonde de température, SolarDiverter surveille et contrôle le chauffage de l\'eau selon des horaires et jours définis. Définissez des températures minimales et maximales et garantissez le confort sans gaspillage.',
+            about_tariff_title: 'Gestion Intelligente par Tarif',
+            about_tariff_text: 'Prend en charge les tarifs bi-horaires et tri-horaires. Configurez votre système selon la période tarifaire la plus économique et activez automatiquement le chauffage au bon moment — solaire si possible, électrique au tarif le plus bas.',
             features_tag: 'FONCTIONNALITÉS',
             features_title: 'Nouveautés de la Version 1.1.1',
             features_subtitle: 'Sortie en Avril 2026',
@@ -607,17 +688,19 @@
             webui_tag: 'INTERFACE WEB',
             webui_title: 'Interface Web v1.1.1',
             webui_subtitle: 'Configuration et surveillance complètes depuis le navigateur — sans app, sans cloud.',
-            webui_tab_dashboard: 'Tableau de bord',
-            webui_tab_config: 'Configuration',
-            webui_tab_schedules: 'Programmations',
-            webui_tab_mqtt: 'MQTT / HA',
-            webui_tab_modbus: 'Modbus',
+            webui_tab_dashboard: 'État',
+            webui_tab_config: 'Compteurs',
+            webui_tab_schedules: 'Puissance PWM',
+            webui_tab_mqtt: 'Programmations',
+            webui_tab_modbus: 'Température',
+            webui_tab_network: 'Réseau',
             webui_placeholder: "Captures d'écran à venir",
-            webui_cap_dashboard: "Surveillance en temps réel · métriques d'énergie · alertes",
-            webui_cap_config: "Assistant de configuration · sélecteur d'onduleur · WiFi · fuseau horaire",
-            webui_cap_schedules: 'Programmations par jour · plages de température · boost',
-            webui_cap_mqtt: 'HA Discovery auto · topics custom · commandes distantes',
-            webui_cap_modbus: 'Modbus Scanner · Modbus Universal JSON · profils onduleur',
+            webui_cap_dashboard: "État du système · flux d'énergie · graphiques historiques · mode BOOST",
+            webui_cap_config: "Sélecteur de marque/modèle · 27+ onduleurs · Modbus Scanner (PRO)",
+            webui_cap_schedules: 'Mode AUTO/MANUEL/BOOST · 4 canaux PWM · priorité batterie',
+            webui_cap_mqtt: '4 programmations hebdomadaires · plages de température · tarif horaire',
+            webui_cap_modbus: '4 sondes DS18B20 · protection TRIAC · anti-légionelle · thermostat saturé',
+            webui_cap_network: 'WiFi principal + backup · DHCP ou IP fixe · NTP · fuseau horaire',
             nav_license: 'Licence',
             lic_tag: 'LICENCES',
             lic_title: 'Mod\u00e8le de Licence',
@@ -670,7 +753,32 @@
             lic_row_pro_kit: 'kit',
             lic_row_pro_key: 'cl\u00e9',
             lic_row_pro_act_key: 'Par chipID',
-            lic_terms: "SolarDiverter est mis \u00e0 disposition pour un usage personnel et priv\u00e9. Toute forme d'utilisation commerciale, revente, redistribution, modification ou int\u00e9gration dans des produits destin\u00e9s \u00e0 la vente est interdite sans autorisation \u00e9crite pr\u00e9alable."
+            lic_terms: "SolarDiverter est mis \u00e0 disposition pour un usage personnel et priv\u00e9. Toute forme d'utilisation commerciale, revente, redistribution, modification ou int\u00e9gration dans des produits destin\u00e9s \u00e0 la vente est interdite sans autorisation \u00e9crite pr\u00e9alable.",
+            nav_screenshots: 'Galerie',
+            screenshots_tag: "CAPTURES D'\u00c9CRAN",
+            screenshots_title: 'Galerie de Fonctionnalit\u00e9s',
+            screenshots_subtitle: "Explorez toutes les fonctionnalit\u00e9s de SolarDiverter via l'interface Web.",
+            gallery_group_monitoring: 'Surveillance',
+            gallery_group_power: 'Configuration de la Puissance',
+            gallery_group_modbus: 'Modbus &amp; Source de Donn\u00e9es',
+            gallery_group_mqtt: 'MQTT, Home Assistant &amp; R\u00e9seau',
+            gallery_group_system: 'Syst\u00e8me &amp; Param\u00e8tres',
+            gallery_cap_status_graficos: "\u00c9tat et graphiques d'\u00e9nergie et consommation",
+            gallery_cap_visao_boost: 'Vue du syst\u00e8me et mode Boost minut\u00e9 (PRO)',
+            gallery_cap_boost_temporizado: 'Mode Boost minut\u00e9 dans la version Pro',
+            gallery_cap_4canais_pwm: '4 canaux PWM ind\u00e9pendants (PRO)',
+            gallery_cap_agendamentos_tarifarios: "Jusqu'\u00e0 4 programmations horaires et fonctions tarifaires (PRO)",
+            gallery_cap_config_tarifarios: '\u00c9nergie tarif configuration',
+            gallery_cap_fonte_dados: 'S\u00e9lection de la source de donn\u00e9es',
+            gallery_cap_modbus_config: 'Param\u00e8tres ModBus en version Pro avec Modbus Scan',
+            gallery_cap_modbus_scan: 'Modbus Scan \u2014 auto-d\u00e9couverte des appareils',
+            gallery_cap_mqtt: 'Configuration MQTT',
+            gallery_cap_mqtt_ha: 'MQTT Discovery et commandes dans Home Assistant',
+            gallery_cap_wifi_dual: 'Deux r\u00e9seaux WiFi support\u00e9s, un en secours',
+            gallery_cap_temperaturas_seguranca: 'Temp\u00e9ratures de s\u00e9curit\u00e9 \u2014 eau et TRIAC (sonde pr\u00e8s du TRIAC requise)',
+            gallery_cap_guardar_config: 'Enregistrer et importer la configuration',
+            gallery_cap_ha_comandos: 'Commandes dans Home Assistant',
+            gallery_cap_idioma: "Sélection de la langue de l'interface"
         },
         es: {
             ribbon_version: 'Versión 1.1.1 - Abril 2026 · BETA',
@@ -690,6 +798,15 @@
             stat_channels: 'CANALES PWM',
             stat_free: 'GRATUITO',
             scroll_text: 'DESPLAZAR',
+            about_tag: '¿QUÉ ES SOLARDIVERTER?',
+            about_title: 'Más que un simple desviador de energía solar',
+            about_subtitle: 'Control inteligente de su energía — desde el excedente solar hasta la calefacción eficiente del agua por horarios y tarifas',
+            about_solar_title: 'Control del Excedente Solar',
+            about_solar_text: 'Detecta en tiempo real la energía solar excedente y la desvía hacia cargas controlables (resistencia de acumulador, termosifón, resistencias de apoyo a bombas de calor, calefactores de aceite), maximizando el autoconsumo y evitando la inyección a la red.',
+            about_temp_title: 'Calefacción por Horarios y Temperatura',
+            about_temp_text: 'Con sonda de temperatura, SolarDiverter monitoriza y controla el calentamiento del agua según horarios y días definidos. Establezca temperaturas mínimas y máximas y garantice el confort sin desperdicio.',
+            about_tariff_title: 'Gestión Inteligente por Tarifa',
+            about_tariff_text: 'Compatible con tarifas bi-horarias y tri-horarias. Configure su sistema según el período tarifario más económico y active automáticamente la calefacción en el momento adecuado — solar cuando sea posible, eléctrico en la tarifa más baja.',
             features_tag: 'CARACTERÍSTICAS',
             features_title: 'Novedades de la Versión 1.1.1',
             features_subtitle: 'Lanzada en Abril de 2026',
@@ -826,17 +943,19 @@
             webui_tag: 'INTERFAZ WEB',
             webui_title: 'Interfaz Web v1.1.1',
             webui_subtitle: 'Configuración y monitorización completas desde el navegador — sin apps, sin cloud.',
-            webui_tab_dashboard: 'Panel',
-            webui_tab_config: 'Configuración',
-            webui_tab_schedules: 'Programaciones',
-            webui_tab_mqtt: 'MQTT / HA',
-            webui_tab_modbus: 'Modbus',
+            webui_tab_dashboard: 'Estado',
+            webui_tab_config: 'Medidores',
+            webui_tab_schedules: 'Potencia PWM',
+            webui_tab_mqtt: 'Programaciones',
+            webui_tab_modbus: 'Temperatura',
+            webui_tab_network: 'Red',
             webui_placeholder: 'Capturas próximamente',
-            webui_cap_dashboard: 'Monitorización en tiempo real · métricas de energía · alertas',
-            webui_cap_config: 'Asistente de configuración · selector de inversor · WiFi · zona horaria',
-            webui_cap_schedules: 'Programaciones por día · bandas de temperatura · boost',
-            webui_cap_mqtt: 'HA Discovery automático · topics custom · comandos remotos',
-            webui_cap_modbus: 'Modbus Scanner · Modbus Universal JSON · perfiles de inversor',
+            webui_cap_dashboard: 'Estado del sistema · flujo de energía · gráficos históricos · modo BOOST',
+            webui_cap_config: 'Selector de marca/modelo · 27+ inversores · Modbus Scanner (PRO)',
+            webui_cap_schedules: 'Modo AUTO/MANUAL/BOOST · 4 canales PWM independientes · prioridad batería',
+            webui_cap_mqtt: '4 programaciones semanales · bandas de temperatura · tarifa horaria',
+            webui_cap_modbus: '4 sondas DS18B20 · protección TRIAC · anti-legionella · termostato saturado',
+            webui_cap_network: 'WiFi principal + backup · DHCP o IP estática · NTP · zona horaria',
             nav_license: 'Licencia',
             lic_tag: 'LICENCIAMIENTO',
             lic_title: 'Modelo de Licenciamiento',
@@ -889,7 +1008,32 @@
             lic_row_pro_kit: 'kit',
             lic_row_pro_key: 'clave',
             lic_row_pro_act_key: 'Por chipID',
-            lic_terms: 'SolarDiverter se proporciona para uso personal y privado. Cualquier forma de uso comercial, reventa, redistribuci\u00f3n, modificaci\u00f3n o integraci\u00f3n en productos destinados a la venta est\u00e1 prohibida sin autorizaci\u00f3n previa por escrito.'
+            lic_terms: 'SolarDiverter se proporciona para uso personal y privado. Cualquier forma de uso comercial, reventa, redistribuci\u00f3n, modificaci\u00f3n o integraci\u00f3n en productos destinados a la venta est\u00e1 prohibida sin autorizaci\u00f3n previa por escrito.',
+            nav_screenshots: 'Galer\u00eda',
+            screenshots_tag: 'CAPTURAS DE PANTALLA',
+            screenshots_title: 'Galer\u00eda de Funcionalidades',
+            screenshots_subtitle: 'Explore todas las funcionalidades de SolarDiverter a trav\u00e9s de la interfaz Web.',
+            gallery_group_monitoring: 'Monitorizaci\u00f3n',
+            gallery_group_power: 'Configuraci\u00f3n de Potencia',
+            gallery_group_modbus: 'Modbus &amp; Fuente de Datos',
+            gallery_group_mqtt: 'MQTT, Home Assistant &amp; Red',
+            gallery_group_system: 'Sistema &amp; Configuraci\u00f3n',
+            gallery_cap_status_graficos: 'Estado y gr\u00e1ficos de energ\u00eda y consumo',
+            gallery_cap_visao_boost: 'Visi\u00f3n del sistema y modo Boost temporizado (PRO)',
+            gallery_cap_boost_temporizado: 'Modo Boost temporizado en la versi\u00f3n Pro',
+            gallery_cap_4canais_pwm: '4 canales PWM independientes (PRO)',
+            gallery_cap_agendamentos_tarifarios: 'Hasta 4 programaciones horarias y funciones de tarifas (PRO)',
+            gallery_cap_config_tarifarios: 'Configuraci\u00f3n de tarifas de energ\u00eda',
+            gallery_cap_fonte_dados: 'Selecci\u00f3n de la fuente de datos',
+            gallery_cap_modbus_config: 'Configuraciones ModBus en la versi\u00f3n Pro con Modbus Scan',
+            gallery_cap_modbus_scan: 'Modbus Scan \u2014 auto-discovery de dispositivos',
+            gallery_cap_mqtt: 'Configuraci\u00f3n MQTT',
+            gallery_cap_mqtt_ha: 'MQTT Discovery y comandos en Home Assistant',
+            gallery_cap_wifi_dual: 'Dos redes WiFi soportadas, una de respaldo',
+            gallery_cap_temperaturas_seguranca: 'Temperaturas de seguridad \u2014 agua y TRIAC (requiere sonda junto al TRIAC)',
+            gallery_cap_guardar_config: 'Guardar y cargar configuraciones',
+            gallery_cap_ha_comandos: 'Comandos en Home Assistant',
+            gallery_cap_idioma: 'Selección del idioma de la interfaz'
         }
     };
 
@@ -914,6 +1058,14 @@
                 } else {
                     el.innerHTML = t[key];
                 }
+            }
+        });
+
+        // data-caption attribute (gallery lightbox)
+        document.querySelectorAll('[data-i18n-caption]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-caption');
+            if (t[key] !== undefined) {
+                el.setAttribute('data-caption', t[key]);
             }
         });
 
@@ -1172,6 +1324,197 @@
     }
 
     /* ==========================================================================
+       LIGHTBOX GALLERY
+       ========================================================================== */
+    function initLightbox() {
+        var lightbox = document.getElementById('sd-lightbox');
+        var lbImgWrap = document.getElementById('sd-lightbox-img-wrap');
+        var lbImg = document.getElementById('sd-lightbox-img');
+        var lbCaption = document.getElementById('sd-lightbox-caption');
+        var lbClose = document.getElementById('sd-lightbox-close');
+        var lbPrev = document.getElementById('sd-lightbox-prev');
+        var lbNext = document.getElementById('sd-lightbox-next');
+        var lbZoomIn = document.getElementById('sd-lbz-in');
+        var lbZoomOut = document.getElementById('sd-lbz-out');
+        var lbZoomReset = document.getElementById('sd-lbz-reset');
+        if (!lightbox) return;
+
+        var links = document.querySelectorAll('.sd-gallery-link');
+        var currentIndex = 0;
+
+        // Zoom / pan state
+        var scale = 1;
+        var posX = 0;
+        var posY = 0;
+        var MIN_SCALE = 1;
+        var MAX_SCALE = 5;
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragStartY = 0;
+        var dragOriginX = 0;
+        var dragOriginY = 0;
+
+        function applyTransform() {
+            lbImg.style.transform = 'translate(' + posX + 'px,' + posY + 'px) scale(' + scale + ')';
+            lbImgWrap.style.cursor = scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default';
+        }
+
+        function resetZoom() {
+            scale = 1; posX = 0; posY = 0;
+            applyTransform();
+        }
+
+        function clampPos() {
+            var rect = lbImg.getBoundingClientRect();
+            var wrapRect = lbImgWrap.getBoundingClientRect();
+            var overX = Math.max(0, (rect.width - wrapRect.width) / 2);
+            var overY = Math.max(0, (rect.height - wrapRect.height) / 2);
+            posX = Math.min(overX, Math.max(-overX, posX));
+            posY = Math.min(overY, Math.max(-overY, posY));
+        }
+
+        function zoomBy(delta, cx, cy) {
+            var prev = scale;
+            scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale + delta));
+            if (scale !== prev) {
+                // adjust position towards cursor point
+                var ratio = scale / prev - 1;
+                var rect = lbImgWrap.getBoundingClientRect();
+                posX -= (cx - rect.left - rect.width / 2) * ratio;
+                posY -= (cy - rect.top - rect.height / 2) * ratio;
+                clampPos();
+                applyTransform();
+            }
+        }
+
+        function openLightbox(index) {
+            currentIndex = index;
+            var link = links[index];
+            resetZoom();
+            lbImg.src = link.href;
+            lbImg.alt = link.getAttribute('data-caption') || '';
+            lbCaption.textContent = link.getAttribute('data-caption') || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+            resetZoom();
+        }
+
+        function navigate(dir) {
+            currentIndex = (currentIndex + dir + links.length) % links.length;
+            openLightbox(currentIndex);
+        }
+
+        links.forEach(function (link, i) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                openLightbox(i);
+            });
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbPrev.addEventListener('click', function () { if (scale === 1) navigate(-1); });
+        lbNext.addEventListener('click', function () { if (scale === 1) navigate(1); });
+        lbZoomIn.addEventListener('click', function () { zoomBy(0.5, Infinity, Infinity); });
+        lbZoomOut.addEventListener('click', function () { zoomBy(-0.5, Infinity, Infinity); });
+        lbZoomReset.addEventListener('click', resetZoom);
+
+        // Scroll to zoom
+        lbImgWrap.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            var delta = e.deltaY < 0 ? 0.3 : -0.3;
+            zoomBy(delta, e.clientX, e.clientY);
+        }, { passive: false });
+
+        // Drag to pan
+        lbImgWrap.addEventListener('mousedown', function (e) {
+            if (scale <= 1) return;
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            dragOriginX = posX;
+            dragOriginY = posY;
+            applyTransform();
+            e.preventDefault();
+        });
+        document.addEventListener('mousemove', function (e) {
+            if (!isDragging) return;
+            posX = dragOriginX + (e.clientX - dragStartX);
+            posY = dragOriginY + (e.clientY - dragStartY);
+            clampPos();
+            applyTransform();
+        });
+        document.addEventListener('mouseup', function () {
+            if (isDragging) { isDragging = false; applyTransform(); }
+        });
+
+        // Touch pinch-to-zoom + drag
+        var lastTouchDist = null;
+        var lastTouchMidX = 0;
+        var lastTouchMidY = 0;
+        lbImgWrap.addEventListener('touchstart', function (e) {
+            if (e.touches.length === 2) {
+                lastTouchDist = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY);
+                lastTouchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                lastTouchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+            } else if (e.touches.length === 1 && scale > 1) {
+                isDragging = true;
+                dragStartX = e.touches[0].clientX;
+                dragStartY = e.touches[0].clientY;
+                dragOriginX = posX;
+                dragOriginY = posY;
+            }
+        }, { passive: true });
+        lbImgWrap.addEventListener('touchmove', function (e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                var dist = Math.hypot(
+                    e.touches[0].clientX - e.touches[1].clientX,
+                    e.touches[0].clientY - e.touches[1].clientY);
+                var midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+                var midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+                if (lastTouchDist) {
+                    var delta = (dist / lastTouchDist - 1) * scale;
+                    zoomBy(delta, midX, midY);
+                }
+                lastTouchDist = dist;
+                lastTouchMidX = midX;
+                lastTouchMidY = midY;
+            } else if (e.touches.length === 1 && isDragging) {
+                posX = dragOriginX + (e.touches[0].clientX - dragStartX);
+                posY = dragOriginY + (e.touches[0].clientY - dragStartY);
+                clampPos();
+                applyTransform();
+            }
+        }, { passive: false });
+        lbImgWrap.addEventListener('touchend', function (e) {
+            if (e.touches.length < 2) lastTouchDist = null;
+            if (e.touches.length === 0) isDragging = false;
+        }, { passive: true });
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft' && scale === 1) navigate(-1);
+            if (e.key === 'ArrowRight' && scale === 1) navigate(1);
+            if (e.key === '+' || e.key === '=') zoomBy(0.5, Infinity, Infinity);
+            if (e.key === '-') zoomBy(-0.5, Infinity, Infinity);
+            if (e.key === '0') resetZoom();
+        });
+    }
+
+    /* ==========================================================================
        INIT
        ========================================================================== */
     document.addEventListener('DOMContentLoaded', function () {
@@ -1181,6 +1524,7 @@
         initScrollAnimations();
         initContactForm();
         initWebUITabs();
+        initLightbox();
         initYear();
     });
 })();
