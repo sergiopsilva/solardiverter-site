@@ -2681,3 +2681,176 @@ html {
 .sd-animate-delay-2 { animation-delay: 0.2s; }
 .sd-animate-delay-3 { animation-delay: 0.3s; }
 .sd-animate-delay-4 { animation-delay: 0.4s; }
+
+/* ==========================================================================
+   ABOUT — "WHY IS IT DIFFERENT" DIFFERENTIATORS
+   ========================================================================== */
+.sd-diff-block {
+    margin-top: 56px;
+    padding: 36px 28px;
+    background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius-lg);
+    box-shadow: var(--sd-shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.sd-diff-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sd-gradient);
+}
+
+.sd-diff-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.sd-diff-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--sd-primary);
+    background: rgba(249, 115, 22, 0.1);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.sd-diff-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--sd-heading);
+    margin: 0 0 10px;
+    line-height: 1.25;
+}
+
+.sd-diff-sub {
+    font-size: 15px;
+    color: var(--sd-text-light);
+    margin: 0 auto;
+    max-width: 720px;
+    line-height: 1.65;
+}
+
+.sd-diff-sub em {
+    font-style: normal;
+    color: var(--sd-primary);
+    font-weight: 600;
+}
+
+.sd-diff-card {
+    background: var(--sd-bg-card);
+    border: 1px solid var(--sd-border-light);
+    border-radius: var(--sd-radius);
+    padding: 22px 20px;
+    height: 100%;
+    transition: var(--sd-transition);
+}
+
+.sd-diff-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: var(--sd-shadow);
+}
+
+.sd-diff-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sd-gradient);
+    color: var(--sd-white);
+    border-radius: 10px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+}
+
+.sd-diff-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sd-heading);
+    margin: 0 0 8px;
+    line-height: 1.35;
+}
+
+.sd-diff-card p {
+    font-size: 13.5px;
+    color: var(--sd-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .sd-diff-block { padding: 24px 18px; margin-top: 36px; }
+    .sd-diff-title { font-size: 22px; }
+}
+
+/* ==========================================================================
+   LICENSE — DETAILED FEATURE MATRIX
+   ========================================================================== */
+.sd-matrix-intro {
+    font-size: 13.5px;
+    color: var(--sd-text-light);
+    margin: -8px 0 18px;
+    line-height: 1.65;
+}
+
+.sd-matrix-foot {
+    font-size: 12.5px;
+    color: var(--sd-text-muted);
+    margin: 16px 0 0;
+    padding-top: 14px;
+    border-top: 1px dashed var(--sd-border-light);
+    line-height: 1.6;
+}
+
+.sd-matrix-foot a {
+    color: var(--sd-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sd-matrix-foot a:hover { text-decoration: underline; }
+
+.sd-matrix-table th,
+.sd-matrix-table td {
+    text-align: center;
+}
+
+.sd-matrix-table th:first-child,
+.sd-matrix-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--sd-text);
+}
+
+.sd-matrix-yes {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #166534;
+    background: rgba(22, 101, 52, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.sd-matrix-cap {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b45309;
+    background: rgba(245, 158, 11, 0.12);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+

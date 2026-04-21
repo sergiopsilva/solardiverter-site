@@ -196,6 +196,45 @@
                 </div>
             </div>
         </div>
+
+        <!-- Why is it different — README differentiators -->
+        <div class="sd-diff-block">
+            <div class="sd-diff-header">
+                <span class="sd-diff-tag" data-i18n="diff_tag">PORQUE É DIFERENTE</span>
+                <h3 class="sd-diff-title" data-i18n="diff_title">Não é apenas mais um gestor de excedentes</h3>
+                <p class="sd-diff-sub" data-i18n="diff_sub">Transforma cada watt excedente em energia útil — com modulação dinâmica, segura e inteligente. Muito além do simples <em>liga / desliga</em>.</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-6">
+                    <div class="sd-diff-card">
+                        <div class="sd-diff-icon"><i class="la la-sliders-h"></i></div>
+                        <h4 data-i18n="diff_pwm_title">Modulação PWM proporcional</h4>
+                        <p data-i18n="diff_pwm_desc">Ajusta a potência entregue à carga em tempo real, proporcional ao excedente solar disponível. Sem desperdício, sem injeção na rede.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sd-diff-card">
+                        <div class="sd-diff-icon"><i class="la la-thermometer-half"></i></div>
+                        <h4 data-i18n="diff_temp_title">Controlo inteligente por temperatura</h4>
+                        <p data-i18n="diff_temp_desc">Sondas DS18B20 medem a temperatura da água e do TRIAC. Aquece até ao alvo, protege o hardware e evita ciclos desnecessários.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sd-diff-card">
+                        <div class="sd-diff-icon"><i class="la la-clock"></i></div>
+                        <h4 data-i18n="diff_sched_title">Agendamentos por tarifário Bi/Tri</h4>
+                        <p data-i18n="diff_sched_desc">Programações otimizadas para tarifários bi e tri-horários: solar quando há sol, rede só na tarifa vazio. Poupança real na fatura.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sd-diff-card">
+                        <div class="sd-diff-icon"><i class="la la-fire"></i></div>
+                        <h4 data-i18n="diff_boost_title">Modo Boost temporizado</h4>
+                        <p data-i18n="diff_boost_desc">Aquecimento forçado por tempo definido a partir da Web UI ou do Home Assistant — útil em dias nublados ou consumo extra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -937,6 +976,87 @@
                     <li data-i18n="lic_key_4">Tentativas de engenharia reversa ou bypass s&atilde;o proibidas</li>
                 </ul>
             </div>
+        </div>
+
+        <!-- Detailed feature matrix (from README) -->
+        <div class="sd-lic-table-wrap">
+            <h4 class="sd-lic-table-title" data-i18n="matrix_title">Funcionalidades por estado de ativação</h4>
+            <p class="sd-matrix-intro" data-i18n="matrix_intro">O firmware funciona em três estados — antes da ativação (modo restrito), <strong>LITE ativada</strong> (gratuita, mediante pedido por email) e <strong>PRO ativada</strong> (paga, chave por chipID). A tabela abaixo resume o que muda em cada estado.</p>
+            <div class="table-responsive">
+                <table class="sd-lic-table sd-matrix-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="matrix_th_feature">Funcionalidade</th>
+                            <th data-i18n="matrix_th_unactivated">Não ativada</th>
+                            <th><span class="sd-lic-tbl-badge sd-lic-tbl-lite">LITE</span> <span class="sd-lic-tbl-sub" data-i18n="matrix_th_activated">ativada</span></th>
+                            <th><span class="sd-lic-tbl-badge sd-lic-tbl-pro">PRO</span> <span class="sd-lic-tbl-sub" data-i18n="matrix_th_activated">ativada</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="matrix_row_pwm_ch">Canais PWM físicos</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><strong>4</strong></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_pwm_man">PWM manual (slider)</td>
+                            <td><span class="sd-matrix-cap">60%</span></td>
+                            <td><span class="sd-matrix-yes">100%</span></td>
+                            <td><span class="sd-matrix-yes">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_pwm_auto">PWM automático (excedente)</td>
+                            <td><span class="sd-matrix-cap">60%</span></td>
+                            <td><span class="sd-matrix-yes">100%</span></td>
+                            <td><span class="sd-matrix-yes">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_sched">Agendamentos horários</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_disabled">Desativados</span></td>
+                            <td>2</td>
+                            <td><strong>4</strong></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_tariff">Tarifário Bi/Tri-horário</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_temp_water">Sensor água + proteção TRIAC</td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_temp_env">Sensor ambiente / extra</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_modbus">Modbus + Scanner auto-discovery</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_mqtt">MQTT / Home Assistant</td>
+                            <td><span class="sd-matrix-cap" data-i18n="matrix_partial">Parcial</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_full">Completo</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_full">Completo</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="matrix_row_boost">Boost temporizado</td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="sd-matrix-foot" data-i18n="matrix_foot">A versão <strong>LITE</strong> é gratuita mas requer ativação por chave digital — basta pedir através do <a href="#contact">formulário de contacto</a>. A chave <strong>PRO</strong> é gerada com base no Chip ID do ESP32 e válida apenas para esse dispositivo.</p>
         </div>
 
         <!-- Summary table -->
