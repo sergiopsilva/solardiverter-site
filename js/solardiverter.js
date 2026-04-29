@@ -16,7 +16,7 @@
        ========================================================================== */
     var translations = {
         pt: {
-            ribbon_version: 'Versão 1.1.3 - Abril 2026 · BETA',
+            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Abril 2026 · BETA',
             dl_beta_notice: '⚠️ Versões em fase <strong>BETA</strong> — testadas mas em desenvolvimento ativo. Use com precaução e reporte erros.',
             nav_features: 'Funcionalidades',
             nav_hardware: 'Hardware',
@@ -44,6 +44,15 @@
             about_tariff_title: 'Gestão Inteligente por Tarifário',
             about_tariff_text: 'Suporta tarifários bi-horários e tri-horários. Configure o seu sistema de acordo com o período tarifário mais económico e ativa automaticamente o aquecimento na hora certa — solar quando possível, elétrico na tarifa mais baixa.',
 
+            // About — "Without PV" callout
+            nopv_tag: 'SEM FOTOVOLTAICO? TAMBÉM FAZ SENTIDO',
+            nopv_title: 'Transforma o seu cilindro num termoacumulador inteligente',
+            nopv_text: 'Não tem painéis solares? O SolarDiverter continua a poupar-lhe dinheiro. Com sondas de temperatura DS18B20 e até <strong>4 agendamentos independentes</strong> (por dias da semana e bandas horárias), aquece a água apenas quando precisa — e <strong>sempre na tarifa mais barata</strong>. Bi-horário, tri-horário ou tarifa simples: o cilindro liga-se sozinho na hora certa, à temperatura certa, sem desperdício.',
+            nopv_b1: 'Programações por dia da semana (semana / fim-de-semana / dia específico)',
+            nopv_b2: 'Aquecimento só durante a tarifa vazio / super-vazio',
+            nopv_b3: 'Sondas de temperatura — para no alvo, sem ciclos a mais',
+            nopv_b4: 'Sem fotovoltaico hoje? Quando instalar, basta ligar o medidor — zero reconfiguração',
+
             // About — "Why is it different"
             diff_tag: 'PORQUE É DIFERENTE',
             diff_title: 'Não é apenas mais um gestor de excedentes',
@@ -54,7 +63,7 @@
             diff_temp_desc: 'Sondas DS18B20 medem a temperatura da água e do TRIAC. Aquece até ao alvo, protege o hardware e evita ciclos desnecessários.',
             diff_sched_title: 'Agendamentos por tarifário Bi/Tri',
             diff_sched_desc: 'Programações otimizadas para tarifários bi e tri-horários: solar quando há sol, rede só na tarifa vazio. Poupança real na fatura.',
-            diff_boost_title: 'Modo Boost temporizado',
+            diff_boost_title: 'Modo Boost temporizado <span class="sd-pro-only">(PRO)</span>',
             diff_boost_desc: 'Aquecimento forçado por tempo definido a partir da Web UI ou do Home Assistant — útil em dias nublados ou consumo extra.',
 
             // License — feature matrix
@@ -83,7 +92,7 @@
             features_title: 'Novidades da Versão 1.1.3',
             features_subtitle: 'Lançada a 26 de Abril de 2026',
             rn113_title: 'v1.1.3-pro — release de estabilidade (26 Abril 2026):',
-            rn113_body: ' persistência NVS do perfil do inversor (marca/modelo deixa de se perder após reinício); fugas de socket TCP corrigidas em 9 drivers HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy) com timeouts de 2s; modo Prioridade Bateria ativo por defeito de fábrica; UI simplificada (campos Porta/Modbus ID só em protocolos Modbus, Modbus Scanner colapsado, abas Sensores e Rede reorganizadas com sub-secções coloridas). Sem migração necessária — basta clicar Save All.',
+            rn113_body: ' driver SMA WebConnect HTTP reescrito (suporte a firmwares modernos com endpoint /dyn/getValues.json e detecção automática de SMA Energy Meter); persistência NVS do perfil do inversor (marca/modelo deixa de se perder após reinício); fugas de socket TCP corrigidas em 10 drivers HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) com timeouts de 2s; modo Prioridade Bateria ativo por defeito de fábrica; UI simplificada (campos Porta/Modbus ID só em protocolos Modbus, Modbus Scanner colapsado, abas Sensores e Rede reorganizadas com sub-secções coloridas). Sem migração necessária — basta clicar Save All.',
             feat_pwm_title: '4 Canais PWM',
             feat_pwm_1: 'Controlo independente por canal',
             feat_pwm_2: 'Rampa suave configurável',
@@ -118,7 +127,7 @@
             feat_phase_desc: 'Limitação por fase do diverter, potência máxima por fase (3680W default).',
             hw_tag: 'COMPATIBILIDADE',
             hw_title: 'Hardware Compatível',
-            hw_subtitle: 'Compatível com mais de 27 inversores e medidores diferentes',
+            hw_subtitle: 'Compatível com mais de 29 dispositivos: 15 inversores + 9 medidores + 5 integrações',
             hw_mqtt_custom: 'Custom Topics',
             specs_tag: 'ESPECIFICAÇÕES',
             specs_title: 'Hardware ESP32',
@@ -158,12 +167,14 @@
             dl_feat_pwm80: 'PWM Auto limitado',
             dl_feat_1schedule: '1 Agendamento (sem temp.)',
             dl_feat_4pwm: '4 Canais PWM independentes',
-            dl_feat_meters: '27+ Medidores suportados',
+            dl_feat_meters: '29+ dispositivos suportados',
             dl_feat_mqtt: 'MQTT / Home Assistant',
             dl_feat_schedules: '4 Agendamentos c/ temperatura',
             dl_feat_temp: 'Sensores de temperatura',
             dl_feat_webfull: 'Interface Web completa + Wizard',
             dl_feat_ota: 'Atualizações OTA via WiFi',
+            dl_feat_boost: 'Modo Boost temporizado',
+            dl_feat_tariff: 'Tarifário Bi/Tri-horário',
             dl_feat_phase: 'Phase Shift entre canais',
             dl_feat_phase_prot: 'Proteção de fase (Shelly 3EM)',
             dl_feat_modbus_adv: 'Modbus avançado (32 registos, 32-bit)',
@@ -209,7 +220,7 @@
             footer_issues: 'Reportar Bug',
             footer_contact_title: 'Contacto',
             footer_rights: 'Todos os direitos reservados.',
-            donate_title: 'Costumas usar o SolarDiverter e consideras que compensa financeiramente?',
+            donate_title: 'Usa o SolarDiverter no dia-a-dia? Apoie o desenvolvimento.',
             donate_sub: 'O firmware é gratuito e desenvolvido no tempo livre. Se quiseres apoiar o projeto, considera fazer um donativo — qualquer valor ajuda a mantê-lo ativo.',
             donate_btn: 'Fazer Donativo',
             donate_footer: 'Apoiar o Projeto',
@@ -310,7 +321,7 @@
             gallery_cap_idioma: 'Seleção de idioma da interface'
         },
         en: {
-            ribbon_version: 'Version 1.1.3 - April 2026 · BETA',
+            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — April 2026 · BETA',
             dl_beta_notice: '⚠️ Beta versions — tested but in active development. Use with caution and report any issues.',
             nav_features: 'Features',
             nav_hardware: 'Hardware',
@@ -338,6 +349,15 @@
             about_tariff_title: 'Smart Tariff Management',
             about_tariff_text: 'Supports dual-rate and tri-rate tariffs. Configure your system according to the most economical tariff period and automatically activate heating at the right time — solar when possible, electric at the lowest rate.',
 
+            // About — "Without PV" callout
+            nopv_tag: 'NO PHOTOVOLTAICS? STILL WORTH IT',
+            nopv_title: 'Turn your tank into a smart water heater',
+            nopv_text: 'No solar panels? SolarDiverter still saves you money. With DS18B20 temperature probes and up to <strong>4 independent schedules</strong> (per weekday and time band), it heats water only when you need it — and <strong>always at the cheapest tariff</strong>. Dual-rate, tri-rate or flat tariff: the tank turns on by itself at the right time, at the right temperature, without waste.',
+            nopv_b1: 'Schedules per day of week (weekdays / weekend / specific day)',
+            nopv_b2: 'Heat only during off-peak / super-off-peak hours',
+            nopv_b3: 'Temperature probes — stops on target, no extra cycles',
+            nopv_b4: 'No PV today? When you install one, just plug in the meter — zero reconfiguration',
+
             // About — "Why is it different"
             diff_tag: 'WHY IT IS DIFFERENT',
             diff_title: 'Not just another surplus manager',
@@ -348,7 +368,7 @@
             diff_temp_desc: 'DS18B20 probes measure water and TRIAC temperature. Heats to target, protects the hardware and avoids unnecessary cycles.',
             diff_sched_title: 'Bi/Tri-hourly tariff scheduling',
             diff_sched_desc: 'Schedules optimised for dual and tri-rate tariffs: solar when the sun shines, grid only during off-peak. Real savings on the bill.',
-            diff_boost_title: 'Timed Boost mode',
+            diff_boost_title: 'Timed Boost mode <span class="sd-pro-only">(PRO)</span>',
             diff_boost_desc: 'Forced heating for a defined time from the Web UI or Home Assistant — useful on cloudy days or for extra consumption.',
 
             // License — feature matrix
@@ -377,7 +397,7 @@
             features_title: 'What\'s New in Version 1.1.3',
             features_subtitle: 'Released April 26, 2026',
             rn113_title: 'v1.1.3-pro — stability release (April 26, 2026):',
-            rn113_body: ' NVS persistence of the inverter profile (brand/model no longer lost after reboot); TCP socket leaks fixed in 9 HTTP drivers (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy) with 2s timeouts; Battery Priority mode enabled by factory default; simplified UI (Port/Modbus ID fields only for Modbus protocols, Modbus Scanner collapsed by default, Sensors and Network tabs reorganized into color-coded sub-sections). No migration required — just click Save All once.',
+            rn113_body: ' SMA WebConnect HTTP driver rewritten (modern firmware support via /dyn/getValues.json endpoint and SMA Energy Meter auto-detection); NVS persistence of the inverter profile (brand/model no longer lost after reboot); TCP socket leaks fixed in 10 HTTP drivers (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) with 2s timeouts; Battery Priority mode enabled by factory default; simplified UI (Port/Modbus ID fields only for Modbus protocols, Modbus Scanner collapsed by default, Sensors and Network tabs reorganized into color-coded sub-sections). No migration required — just click Save All once.',
             feat_pwm_title: '4 PWM Channels',
             feat_pwm_1: 'Independent control per channel',
             feat_pwm_2: 'Configurable smooth ramp',
@@ -412,7 +432,7 @@
             feat_phase_desc: 'Per-phase diverter limiting, max power per phase (3680W default).',
             hw_tag: 'COMPATIBILITY',
             hw_title: 'Compatible Hardware',
-            hw_subtitle: 'Compatible with over 27 different inverters and meters',
+            hw_subtitle: 'Compatible with over 29 devices: 15 inverters + 9 meters + 5 integrations',
             hw_mqtt_custom: 'Custom Topics',
             specs_tag: 'SPECIFICATIONS',
             specs_title: 'ESP32 Hardware',
@@ -452,12 +472,14 @@
             dl_feat_pwm80: 'Auto PWM limited',
             dl_feat_1schedule: '1 Schedule (no temp. control)',
             dl_feat_4pwm: '4 Independent PWM Channels',
-            dl_feat_meters: '27+ Meters supported',
+            dl_feat_meters: '29+ supported devices',
             dl_feat_mqtt: 'MQTT / Home Assistant',
             dl_feat_schedules: '4 Schedules w/ temperature',
             dl_feat_temp: 'Temperature sensors',
             dl_feat_webfull: 'Full Web Interface + Wizard',
             dl_feat_ota: 'OTA Updates via WiFi',
+            dl_feat_boost: 'Timed Boost mode',
+            dl_feat_tariff: 'Dual/Tri-rate tariff',
             dl_feat_phase: 'Phase Shift between channels',
             dl_feat_phase_prot: 'Phase protection (Shelly 3EM)',
             dl_feat_modbus_adv: 'Advanced Modbus (32 registers, 32-bit)',
@@ -503,7 +525,7 @@
             footer_issues: 'Report Bug',
             footer_contact_title: 'Contact',
             footer_rights: 'All rights reserved.',
-            donate_title: 'Do you use SolarDiverter and find it worthwhile?',
+            donate_title: 'Use SolarDiverter every day? Support the development.',
             donate_sub: 'The firmware is free and developed in spare time. If you\'d like to support the project, consider making a donation — any amount helps keep it going.',
             donate_btn: 'Donate',
             donate_footer: 'Support the Project',
@@ -604,7 +626,7 @@
             gallery_cap_idioma: 'Interface language selection'
         },
         fr: {
-            ribbon_version: 'Version 1.1.3 - Avril 2026 · BETA',
+            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Avril 2026 · BETA',
             dl_beta_notice: '⚠️ Versions en phase <strong>BETA</strong> — testées mais en développement actif. À utiliser avec précaution, signalez les erreurs.',
             nav_features: 'Fonctionnalités',
             nav_hardware: 'Matériel',
@@ -632,6 +654,15 @@
             about_tariff_title: 'Gestion Intelligente par Tarif',
             about_tariff_text: 'Prend en charge les tarifs bi-horaires et tri-horaires. Configurez votre système selon la période tarifaire la plus économique et activez automatiquement le chauffage au bon moment — solaire si possible, électrique au tarif le plus bas.',
 
+            // About — "Without PV" callout
+            nopv_tag: 'PAS DE PHOTOVOLTAÏQUE ? ÇA VAUT QUAND MÊME LE COUP',
+            nopv_title: 'Transformez votre cumulus en chauffe-eau intelligent',
+            nopv_text: 'Pas de panneaux solaires ? SolarDiverter vous fait quand même économiser. Avec des sondes de température DS18B20 et jusqu’à <strong>4 plannings indépendants</strong> (par jour de la semaine et plage horaire), il chauffe l’eau uniquement quand vous en avez besoin — et <strong>toujours au tarif le moins cher</strong>. Bi-horaire, tri-horaire ou tarif simple : le cumulus s’allume tout seul au bon moment, à la bonne température, sans gaspillage.',
+            nopv_b1: 'Plannings par jour de la semaine (semaine / week-end / jour spécifique)',
+            nopv_b2: 'Chauffage uniquement pendant les heures creuses / super-creuses',
+            nopv_b3: 'Sondes de température — s’arrête à la cible, sans cycles inutiles',
+            nopv_b4: 'Pas de PV aujourd’hui ? Quand vous en installerez, branchez le compteur — zéro reconfiguration',
+
             // About — "Why is it different"
             diff_tag: 'POURQUOI C\'EST DIFFÉRENT',
             diff_title: 'Pas juste un autre gestionnaire de surplus',
@@ -642,7 +673,7 @@
             diff_temp_desc: 'Sondes DS18B20 mesurent la température de l\'eau et du TRIAC. Chauffe jusqu\'à la cible, protège le matériel et évite les cycles inutiles.',
             diff_sched_title: 'Programmation tarifs Bi/Tri',
             diff_sched_desc: 'Programmations optimisées pour tarifs bi et tri-horaires : solaire quand il y a du soleil, réseau seulement en heures creuses. Économies réelles sur la facture.',
-            diff_boost_title: 'Mode Boost temporisé',
+            diff_boost_title: 'Mode Boost temporisé <span class="sd-pro-only">(PRO)</span>',
             diff_boost_desc: 'Chauffage forcé pour une durée définie depuis l\'UI Web ou Home Assistant — utile les jours nuageux ou en cas de consommation supplémentaire.',
 
             // License — feature matrix
@@ -671,7 +702,7 @@
             features_title: 'Nouveautés de la Version 1.1.3',
             features_subtitle: 'Sortie le 26 Avril 2026',
             rn113_title: 'v1.1.3-pro — version de stabilité (26 avril 2026):',
-            rn113_body: ' persistance NVS du profil de l’onduleur (la marque/modèle ne se perd plus après redémarrage); fuites de socket TCP corrigées dans 9 pilotes HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy) avec timeouts de 2s; mode Priorité Batterie activé par défaut en usine; UI simplifiée (champs Port/Modbus ID uniquement pour protocoles Modbus, Modbus Scanner replié par défaut, onglets Capteurs et Réseau réorganisés en sous-sections colorées). Aucune migration nécessaire — cliquez simplement Save All.',
+            rn113_body: ' pilote SMA WebConnect HTTP réécrit (prise en charge des firmwares modernes via /dyn/getValues.json et détection automatique du SMA Energy Meter); persistance NVS du profil de l’onduleur (la marque/modèle ne se perd plus après redémarrage); fuites de socket TCP corrigées dans 10 pilotes HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) avec timeouts de 2s; mode Priorité Batterie activé par défaut en usine; UI simplifiée (champs Port/Modbus ID uniquement pour protocoles Modbus, Modbus Scanner replié par défaut, onglets Capteurs et Réseau réorganisés en sous-sections colorées). Aucune migration nécessaire — cliquez simplement Save All.',
             feat_pwm_title: '4 Canaux PWM',
             feat_pwm_1: 'Contrôle indépendant par canal',
             feat_pwm_2: 'Rampe progressive configurable',
@@ -706,7 +737,7 @@
             feat_phase_desc: 'Limitation par phase du déviateur, puissance maximale par phase (3680W défaut).',
             hw_tag: 'COMPATIBILITÉ',
             hw_title: 'Matériel Compatible',
-            hw_subtitle: 'Compatible avec plus de 27 onduleurs et compteurs différents',
+            hw_subtitle: 'Compatible avec plus de 29 appareils : 15 onduleurs + 9 compteurs + 5 intégrations',
             hw_mqtt_custom: 'Topics Custom',
             specs_tag: 'SPÉCIFICATIONS',
             specs_title: 'Matériel ESP32',
@@ -746,12 +777,14 @@
             dl_feat_pwm80: 'PWM Auto limité',
             dl_feat_1schedule: '1 Programmation (sans temp.)',
             dl_feat_4pwm: '4 Canaux PWM indépendants',
-            dl_feat_meters: '27+ Compteurs supportés',
+            dl_feat_meters: '29+ appareils supportés',
             dl_feat_mqtt: 'MQTT / Home Assistant',
             dl_feat_schedules: '4 Programmations avec temp.',
             dl_feat_temp: 'Capteurs de température',
             dl_feat_webfull: 'Interface Web complète + Wizard',
             dl_feat_ota: 'Mises à jour OTA via WiFi',
+            dl_feat_boost: 'Mode Boost temporisé',
+            dl_feat_tariff: 'Tarif bi/tri-horaire',
             dl_feat_phase: 'Phase Shift entre canaux',
             dl_feat_phase_prot: 'Protection de phase (Shelly 3EM)',
             dl_feat_modbus_adv: 'Modbus avancé (32 registres, 32-bit)',
@@ -898,7 +931,7 @@
             gallery_cap_idioma: "Sélection de la langue de l'interface"
         },
         es: {
-            ribbon_version: 'Versión 1.1.3 - Abril 2026 · BETA',
+            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Abril 2026 · BETA',
             dl_beta_notice: '⚠️ Versiones en fase <strong>BETA</strong> — probadas pero en desarrollo activo. Use con precaución y reporte errores.',
             nav_features: 'Características',
             nav_hardware: 'Hardware',
@@ -926,6 +959,15 @@
             about_tariff_title: 'Gestión Inteligente por Tarifa',
             about_tariff_text: 'Compatible con tarifas bi-horarias y tri-horarias. Configure su sistema según el período tarifario más económico y active automáticamente la calefacción en el momento adecuado — solar cuando sea posible, eléctrico en la tarifa más baja.',
 
+            // About — "Without PV" callout
+            nopv_tag: '¿SIN FOTOVOLTAICA? TAMBIÉN TIENE SENTIDO',
+            nopv_title: 'Convierte su termo en un calentador inteligente',
+            nopv_text: '¿No tiene paneles solares? SolarDiverter sigue ahorrándole dinero. Con sondas de temperatura DS18B20 y hasta <strong>4 programaciones independientes</strong> (por días de la semana y franjas horarias), calienta el agua solo cuando lo necesita — y <strong>siempre en la tarifa más barata</strong>. Bi-horaria, tri-horaria o tarifa plana: el termo se enciende solo a la hora correcta, a la temperatura correcta, sin desperdicio.',
+            nopv_b1: 'Programaciones por día de la semana (laborable / fin de semana / día específico)',
+            nopv_b2: 'Calentar solo durante la tarifa valle / super-valle',
+            nopv_b3: 'Sondas de temperatura — se detiene en el objetivo, sin ciclos extra',
+            nopv_b4: '¿Sin FV hoy? Cuando lo instale, basta con conectar el medidor — cero reconfiguración',
+
             // About — "Why is it different"
             diff_tag: 'POR QUÉ ES DIFERENTE',
             diff_title: 'No es solo otro gestor de excedentes',
@@ -936,7 +978,7 @@
             diff_temp_desc: 'Sondas DS18B20 miden la temperatura del agua y del TRIAC. Calienta hasta el objetivo, protege el hardware y evita ciclos innecesarios.',
             diff_sched_title: 'Programación por tarifa Bi/Tri',
             diff_sched_desc: 'Programaciones optimizadas para tarifas bi y tri-horarias: solar cuando hay sol, red solo en horario valle. Ahorro real en la factura.',
-            diff_boost_title: 'Modo Boost temporizado',
+            diff_boost_title: 'Modo Boost temporizado <span class="sd-pro-only">(PRO)</span>',
             diff_boost_desc: 'Calentamiento forzado por tiempo definido desde la Web UI o Home Assistant — útil en días nublados o consumo extra.',
 
             // License — feature matrix
@@ -965,7 +1007,7 @@
             features_title: 'Novedades de la Versión 1.1.3',
             features_subtitle: 'Lanzada el 26 de Abril de 2026',
             rn113_title: 'v1.1.3-pro — versión de estabilidad (26 de abril de 2026):',
-            rn113_body: ' persistencia NVS del perfil del inversor (marca/modelo ya no se pierde tras reinicio); fugas de socket TCP corregidas en 9 controladores HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy) con timeouts de 2s; modo Prioridad Batería activo por defecto de fábrica; UI simplificada (campos Puerto/Modbus ID solo para protocolos Modbus, Modbus Scanner colapsado por defecto, pestañas Sensores y Red reorganizadas en sub-secciones de colores). Sin migración necesaria — basta con hacer clic en Save All.',
+            rn113_body: ' controlador SMA WebConnect HTTP reescrito (soporte para firmwares modernos con endpoint /dyn/getValues.json y detección automática de SMA Energy Meter); persistencia NVS del perfil del inversor (marca/modelo ya no se pierde tras reinicio); fugas de socket TCP corregidas en 10 controladores HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) con timeouts de 2s; modo Prioridad Batería activo por defecto de fábrica; UI simplificada (campos Puerto/Modbus ID solo para protocolos Modbus, Modbus Scanner colapsado por defecto, pestañas Sensores y Red reorganizadas en sub-secciones de colores). Sin migración necesaria — basta con hacer clic en Save All.',
             feat_pwm_title: '4 Canales PWM',
             feat_pwm_1: 'Control independiente por canal',
             feat_pwm_2: 'Rampa suave configurable',
@@ -1000,7 +1042,7 @@
             feat_phase_desc: 'Limitación por fase del desviador, potencia máxima por fase (3680W predeterminado).',
             hw_tag: 'COMPATIBILIDAD',
             hw_title: 'Hardware Compatible',
-            hw_subtitle: 'Compatible con más de 27 inversores y medidores diferentes',
+            hw_subtitle: 'Compatible con más de 29 dispositivos: 15 inversores + 9 medidores + 5 integraciones',
             hw_mqtt_custom: 'Topics Custom',
             specs_tag: 'ESPECIFICACIONES',
             specs_title: 'Hardware ESP32',
@@ -1040,12 +1082,14 @@
             dl_feat_pwm80: 'PWM Auto limitado',
             dl_feat_1schedule: '1 Programación (sin temp.)',
             dl_feat_4pwm: '4 Canales PWM independientes',
-            dl_feat_meters: '27+ Medidores soportados',
+            dl_feat_meters: '29+ dispositivos soportados',
             dl_feat_mqtt: 'MQTT / Home Assistant',
             dl_feat_schedules: '4 Programaciones con temp.',
             dl_feat_temp: 'Sensores de temperatura',
             dl_feat_webfull: 'Interfaz Web completa + Wizard',
             dl_feat_ota: 'Actualizaciones OTA vía WiFi',
+            dl_feat_boost: 'Modo Boost temporizado',
+            dl_feat_tariff: 'Tarifa bi/tri-horaria',
             dl_feat_phase: 'Phase Shift entre canales',
             dl_feat_phase_prot: 'Protección de fase (Shelly 3EM)',
             dl_feat_modbus_adv: 'Modbus avanzado (32 registros, 32-bit)',
@@ -1091,7 +1135,7 @@
             footer_issues: 'Reportar Bug',
             footer_contact_title: 'Contacto',
             footer_rights: 'Todos los derechos reservados.',
-            donate_title: '¿Usas SolarDiverter y lo encuentras rentable?',
+            donate_title: '¿Usas SolarDiverter a diario? Apoya el desarrollo.',
             donate_sub: 'El firmware es gratuito y desarrollado en tiempo libre. Si deseas apoyar el proyecto, considera hacer una donación — cualquier cantidad ayuda a mantenerlo.',
             donate_btn: 'Donar',
             donate_footer: 'Apoyar el Proyecto',
