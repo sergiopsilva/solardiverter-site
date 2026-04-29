@@ -26,7 +26,7 @@
     <link rel="canonical" href="https://sergiopsilva.github.io/solardiverter-site/">
 
     <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YcnS/1nGMV8hL+IFsEGc1b6v0c4k9z2cN1i" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Line Awesome Icons CDN -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/lanern/line-awesome/css/line-awesome.min.css">
@@ -42,7 +42,7 @@
 <!-- Version Ribbon -->
 <div class="sd-version-ribbon">
     <span class="sd-ribbon-sparkle">&#10024;</span>
-    <span data-i18n="ribbon_version">Versão 1.1.1 - Abril 2026</span>
+    <span data-i18n="ribbon_version">PRO v1.1.3 · LITE v1.1.1 — Abril 2026</span>
     <span class="sd-ribbon-beta">&#9881; BETA</span>
 </div>
 
@@ -106,13 +106,13 @@
                 </div>
                 <div class="sd-hero-stats">
                     <div class="sd-stat">
-                        <span class="sd-stat-value">27+</span>
+                        <span class="sd-stat-value">15+</span>
                         <span class="sd-stat-label" data-i18n="stat_inverters">INVERSORES</span>
                     </div>
                     <div class="sd-stat-divider"></div>
                     <div class="sd-stat">
-                        <span class="sd-stat-value">v1.1.1</span>
-                        <span class="sd-stat-label" data-i18n="stat_version">ÚLTIMA VERSÃO</span>
+                        <span class="sd-stat-value">v1.1.3</span>
+                        <span class="sd-stat-label" data-i18n="stat_version">PRO (ÚLTIMA)</span>
                     </div>
                     <div class="sd-stat-divider"></div>
                     <div class="sd-stat">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="sd-stat-divider"></div>
                     <div class="sd-stat">
-                        <span class="sd-stat-value">100%</span>
+                        <span class="sd-stat-value">LITE</span>
                         <span class="sd-stat-label" data-i18n="stat_free">GRATUITO</span>
                     </div>
                 </div>
@@ -198,6 +198,22 @@
             </div>
         </div>
 
+        <!-- No-PV callout: works without photovoltaic too -->
+        <div class="sd-nopv-callout">
+            <div class="sd-nopv-icon"><i class="la la-bolt"></i></div>
+            <div class="sd-nopv-body">
+                <span class="sd-nopv-tag" data-i18n="nopv_tag">SEM FOTOVOLTAICO? TAMBÉM FAZ SENTIDO</span>
+                <h3 class="sd-nopv-title" data-i18n="nopv_title">Transforma o seu cilindro num termoacumulador inteligente</h3>
+                <p class="sd-nopv-text" data-i18n="nopv_text">Não tem painéis solares? O SolarDiverter continua a poupar-lhe dinheiro. Com sondas de temperatura DS18B20 e até <strong>4 agendamentos independentes</strong> (por dias da semana e bandas horárias), aquece a água apenas quando precisa — e <strong>sempre na tarifa mais barata</strong>. Bi-horário, tri-horário ou tarifa simples: o cilindro liga-se sozinho na hora certa, à temperatura certa, sem desperdício.</p>
+                <ul class="sd-nopv-list">
+                    <li><i class="la la-check-circle"></i> <span data-i18n="nopv_b1">Programações por dia da semana (semana / fim-de-semana / dia específico)</span></li>
+                    <li><i class="la la-check-circle"></i> <span data-i18n="nopv_b2">Aquecimento só durante a tarifa vazio / super-vazio</span></li>
+                    <li><i class="la la-check-circle"></i> <span data-i18n="nopv_b3">Sondas de temperatura — para no alvo, sem ciclos a mais</span></li>
+                    <li><i class="la la-check-circle"></i> <span data-i18n="nopv_b4">Sem fotovoltaico hoje? Quando instalar, basta ligar o medidor — zero reconfiguração</span></li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Why is it different — README differentiators -->
         <div class="sd-diff-block">
             <div class="sd-diff-header">
@@ -230,7 +246,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="sd-diff-card">
                         <div class="sd-diff-icon"><i class="la la-fire"></i></div>
-                        <h4 data-i18n="diff_boost_title">Modo Boost temporizado</h4>
+                        <h4 data-i18n="diff_boost_title">Modo Boost temporizado <span class="sd-pro-only">(PRO)</span></h4>
                         <p data-i18n="diff_boost_desc">Aquecimento forçado por tempo definido a partir da Web UI ou do Home Assistant — útil em dias nublados ou consumo extra.</p>
                     </div>
                 </div>
@@ -244,8 +260,15 @@
     <div class="container">
         <div class="sd-section-header">
             <span class="sd-section-tag" data-i18n="features_tag">FUNCIONALIDADES</span>
-            <h2 class="sd-section-title" data-i18n="features_title">Novidades da Versão 1.1.1</h2>
-            <p class="sd-section-subtitle" data-i18n="features_subtitle">Lançada em Abril de 2026</p>
+            <h2 class="sd-section-title" data-i18n="features_title">Novidades da Versão 1.1.3</h2>
+            <p class="sd-section-subtitle" data-i18n="features_subtitle">Lançada a 26 de Abril de 2026</p>
+        </div>
+
+        <!-- v1.1.3 Release Notes Callout -->
+        <div class="sd-beta-notice text-center mx-auto d-block" style="max-width: 920px;">
+            <i class="la la-bug"></i>
+            <strong data-i18n="rn113_title">v1.1.3-pro — release de estabilidade (26 Abril 2026):</strong>
+            <span data-i18n="rn113_body"> driver SMA WebConnect HTTP reescrito (suporte a firmwares modernos com endpoint /dyn/getValues.json e detecção automática de SMA Energy Meter); persistência NVS do perfil do inversor (marca/modelo deixa de se perder após reinício); fugas de socket TCP corrigidas em 10 drivers HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) com timeouts de 2s; modo Prioridade Bateria ativo por defeito de fábrica; UI simplificada (campos Porta/Modbus ID só em protocolos Modbus, Modbus Scanner colapsado, abas Sensores e Rede reorganizadas com sub-secções coloridas). Sem migração necessária — basta clicar Save All.</span>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
@@ -583,7 +606,7 @@
         <div class="sd-section-header">
             <span class="sd-section-tag" data-i18n="hw_tag">COMPATIBILIDADE</span>
             <h2 class="sd-section-title" data-i18n="hw_title">Hardware Compatível</h2>
-            <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 27 inversores e medidores diferentes</p>
+            <p class="sd-section-subtitle" data-i18n="hw_subtitle">Compatível com mais de 29 dispositivos: 15 inversores + 9 medidores + 5 integrações</p>
         </div>
 
         <div class="sd-hw-stats">
@@ -643,6 +666,7 @@
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Huawei SUN2000</span><code class="sd-hw-pr">Modbus TCP</code></li>
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SolarEdge</span><code class="sd-hw-pr">Modbus TCP</code></li>
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">SMA Sunny Boy</span><code class="sd-hw-pr">Modbus TCP</code></li>
+                    <li><span class="sd-hw-badge-ok">✓</span><span class="sd-hw-nm">SMA Sunny Boy WebConnect</span><code class="sd-hw-pr">HTTP</code></li>
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">FoxESS H1/H3</span><code class="sd-hw-pr">Modbus TCP</code></li>
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Growatt SPH/TL</span><code class="sd-hw-pr">Modbus TCP</code></li>
                     <li><span class="sd-hw-badge-new">NEW</span><span class="sd-hw-nm">Victron Cerbo</span><code class="sd-hw-pr">Modbus TCP</code></li>
@@ -805,13 +829,15 @@
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1pwm">1 Canal PWM</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_pwm80">PWM Auto: 80% máx.</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_1schedule">1 Agendamento (sem temp.)</span></li>
-                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">27+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">Medidores HTTP/MQTT (Shelly, EasyHan, MQTT…)</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_webfull">Interface Web completa + Wizard</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_ota">Atualizações OTA via WiFi</span></li>
                         <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_4pwm">4 Canais PWM</span></li>
                         <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_schedules">4 Agendamentos</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_boost">Modo Boost temporizado</span></li>
+                        <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_tariff">Tarifário Bi/Tri-horário</span></li>
                         <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_phase">Phase Shift entre canais</span></li>
                         <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_phase_prot">Proteção de fase (Shelly 3EM)</span></li>
                         <li class="sd-dl-feat-no"><i class="la la-times"></i> <span data-i18n="dl_feat_modbus_adv">Modbus avançado (32 registos)</span></li>
@@ -835,14 +861,16 @@
                 <div class="sd-dl-card sd-dl-card-latest">
                     <div class="sd-dl-card-badge" data-i18n="dl_recommended">Recomendado</div>
                     <h3>SolarDiverter <span class="sd-version-tag">PRO</span></h3>
-                    <p class="sd-dl-version">v1.1.1 <span class="sd-beta-badge">BETA</span></p>
+                    <p class="sd-dl-version">v1.1.3 <span class="sd-beta-badge">BETA</span></p>
                     <p class="sd-dl-desc" data-i18n="dl_pro_desc">Para múltiplas cargas com controlo avançado. Phase shift, Modbus estendido e partição expandida de 3MB.</p>
                     <ul class="sd-dl-features">
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_4pwm">4 Canais PWM independentes</span></li>
-                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">27+ Medidores suportados</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_meters">29+ dispositivos suportados</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_mqtt">MQTT / Home Assistant</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_schedules">4 Agendamentos c/ temperatura</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_temp">Sensores de temperatura</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_boost">Modo Boost temporizado</span></li>
+                        <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_tariff">Tarifário Bi/Tri-horário</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_phase">Phase Shift entre canais</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_phase_prot">Proteção de fase (Shelly 3EM)</span></li>
                         <li class="sd-dl-feat-yes"><i class="la la-check"></i> <span data-i18n="dl_feat_modbus_adv">Modbus avançado (32 registos, 32-bit)</span></li>
@@ -859,7 +887,7 @@
                         <div class="sd-dl-file"><i class="la la-file-archive"></i><span>bootloader.bin + partitions.bin</span></div>
                     </div>
                     <!-- TODO: link download PRO -->
-                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.0.3-pro-beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
+                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.1.3-pro_beta" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
                         <i class="la la-download"></i>
                         <span data-i18n="dl_btn_pro">Transferir PRO (.zip)</span>
                     </a>
@@ -1051,7 +1079,7 @@
                         <tr>
                             <td data-i18n="matrix_row_boost">Boost temporizado</td>
                             <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
-                            <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
+                            <td><span class="sd-lic-tbl-no" data-i18n="matrix_no">Não</span></td>
                             <td><span class="sd-matrix-yes" data-i18n="matrix_yes">Sim</span></td>
                         </tr>
                     </tbody>
@@ -1220,7 +1248,7 @@
             <div class="sd-donate-text">
                 <span class="sd-donate-icon"><i class="la la-heart"></i></span>
                 <div>
-                    <p class="sd-donate-title" data-i18n="donate_title">Costumas usar o SolarDiverter e consideras que compensa financeiramente?</p>
+                    <p class="sd-donate-title" data-i18n="donate_title">Usa o SolarDiverter no dia-a-dia? Apoie o desenvolvimento.</p>
                     <p class="sd-donate-sub" data-i18n="donate_sub">O firmware é gratuito e desenvolvido no tempo livre. Se quiser apoiar o projeto, considera fazer um donativo — qualquer valor ajuda a mantê-lo ativo.</p>
                 </div>
             </div>

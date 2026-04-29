@@ -2873,3 +2873,78 @@ html {
 }
 
 
+
+/* PRO-only label inline tag (used in diff cards) */
+.sd-pro-only { font-size: 0.7em; color: #ff6b00; font-weight: 700; vertical-align: middle; margin-left: 4px; padding: 2px 6px; border: 1px solid #ff6b00; border-radius: 4px; letter-spacing: 0.5px; }
+
+/* No-PV callout (highlights cylinder smart-management without photovoltaic) */
+.sd-nopv-callout {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin: 60px auto 40px;
+    padding: 32px 36px;
+    max-width: 1100px;
+    background: linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(251,191,36,0.06) 100%);
+    border: 1px solid rgba(249,115,22,0.35);
+    border-left: 5px solid #f97316;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+.sd-nopv-icon {
+    flex: 0 0 auto;
+    width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--sd-gradient, linear-gradient(135deg,#f97316,#fbbf24));
+    border-radius: 14px;
+    color: #fff;
+    font-size: 32px;
+    box-shadow: 0 4px 14px rgba(249,115,22,0.4);
+}
+.sd-nopv-body { flex: 1 1 auto; }
+.sd-nopv-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f97316;
+    background: rgba(249,115,22,0.12);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.sd-nopv-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sd-text-strong, #f5f5f5);
+    margin: 0 0 10px;
+}
+.sd-nopv-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 16px;
+    color: var(--sd-text, #cfcfcf);
+}
+.sd-nopv-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 8px 24px;
+}
+.sd-nopv-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.95rem;
+    color: var(--sd-text, #cfcfcf);
+}
+.sd-nopv-list li i {
+    color: #22c55e;
+    flex: 0 0 auto;
+    font-size: 1.1em;
+    margin-top: 2px;
+}
+@media (max-width: 720px) {
+    .sd-nopv-callout { flex-direction: column; padding: 24px; }
+    .sd-nopv-icon { width: 52px; height: 52px; font-size: 26px; }
+    .sd-nopv-title { font-size: 1.25rem; }
+}
