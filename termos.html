@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos e Condições - SolarDiverter</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/solardiverter.css">
+    <style>
+        .terms-container {
+            max-width: 900px;
+            margin: 80px auto 60px;
+            padding: 0 20px;
+        }
+        .terms-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .terms-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--sd-heading);
+            margin-bottom: 12px;
+        }
+        .terms-header .last-updated {
+            font-size: 0.9rem;
+            color: var(--sd-text-light);
+        }
+        .terms-section {
+            margin-bottom: 40px;
+        }
+        .terms-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sd-heading);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+        }
+        .terms-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--sd-heading);
+            margin: 24px 0 12px;
+        }
+        .terms-section p, .terms-section li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--sd-text);
+            margin-bottom: 12px;
+        }
+        .terms-section ul, .terms-section ol {
+            margin-left: 20px;
+        }
+        .terms-warning {
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 4px solid #ef4444;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .terms-highlight {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid #6366f1;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .terms-table th, .terms-table td {
+            padding: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .terms-table th {
+            background: rgba(99, 102, 241, 0.1);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terms-container">
+    <div class="terms-header">
+        <h1>Termos e Condições</h1>
+        <p class="last-updated">Última atualização: 5 de maio de 2026</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>1. Aceitação dos Termos</h2>
+        <p>Ao utilizar o website <strong>SolarDiverter</strong> e ao adquirir licenças de software, concorda com estes Termos e Condições na íntegra. Se não concordar, não utilize os nossos serviços.</p>
+        <p>Estes termos aplicam-se a:</p>
+        <ul>
+            <li>Download e utilização do firmware SolarDiverter</li>
+            <li>Ativação de licenças LITE (gratuitas)</li>
+            <li>Aquisição de licenças PRO (pagas)</li>
+            <li>Consultoria técnica (se aplicável)</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>2. Definições</h2>
+        <ul>
+            <li><strong>Firmware:</strong> Software SolarDiverter para ESP32</li>
+            <li><strong>Licença LITE:</strong> Versão gratuita com funcionalidades limitadas</li>
+            <li><strong>Licença PRO:</strong> Versão paga com todas as funcionalidades</li>
+            <li><strong>Chave de Ativação:</strong> Código digital Ed25519 associado ao Chip ID</li>
+            <li><strong>Chip ID:</strong> Identificador único do ESP32</li>
+            <li><strong>Utilizador:</strong> Pessoa que utiliza o firmware SolarDiverter</li>
+            <li><strong>AlternativaIOT:</strong> Entidade responsável pelo desenvolvimento e distribuição</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>3. Licença de Software</h2>
+        
+        <h3>3.1 Tipo de Licença</h3>
+        <p>O SolarDiverter é distribuído sob licença <strong>proprietária de uso pessoal e não comercial</strong>.</p>
+        
+        <h3>3.2 Direitos Concedidos</h3>
+        <p>É concedido o direito <strong>não exclusivo e intransmissível</strong> de:</p>
+        <ul>
+            <li>Instalar o firmware em dispositivos ESP32 próprios</li>
+            <li>Utilizar o software para fins pessoais e privados</li>
+            <li>Realizar configurações através da interface web</li>
+        </ul>
+
+        <h3>3.3 Restrições</h3>
+        <div class="terms-warning">
+            <p><strong>É EXPRESSAMENTE PROIBIDO:</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li>Engenharia reversa, descompilação ou desmontagem do firmware</li>
+                <li>Modificação, alteração ou criação de obras derivadas</li>
+                <li>Distribuição, revenda ou sublicenciamento</li>
+                <li>Utilização comercial sem autorização prévia por escrito</li>
+                <li>Remoção de avisos de copyright ou marcas de propriedade</li>
+                <li>Partilha de chaves de ativação com terceiros</li>
+                <li>Bypass ou tentativa de contornar o sistema de ativação</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="terms-section">
+        <h2>4. Licenças LITE vs PRO</h2>
+        
+        <table class="terms-table">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>LITE (Gratuita)</th>
+                    <th>PRO (Paga)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Preço</td>
+                    <td>Gratuita</td>
+                    <td>Preço definido no momento da aquisição</td>
+                </tr>
+                <tr>
+                    <td>Ativação</td>
+                    <td>Por pedido via formulário</td>
+                    <td>Por pedido após pagamento</td>
+                </tr>
+                <tr>
+                    <td>Canais PWM</td>
+                    <td>1</td>
+                    <td>4 independentes</td>
+                </tr>
+                <tr>
+                    <td>Agendamentos</td>
+                    <td>2</td>
+                    <td>4 completos</td>
+                </tr>
+                <tr>
+                    <td>Modbus Scanner</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td>Transferibilidade</td>
+                    <td>Não transferível</td>
+                    <td>Não transferível</td>
+                </tr>
+                <tr>
+                    <td>Validade</td>
+                    <td>Permanente</td>
+                    <td>Permanente (para o Chip ID específico)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="terms-section">
+        <h2>5. Aquisição de Licenças PRO</h2>
+        
+        <h3>5.1 Processo de Aquisição</h3>
+        <ol>
+            <li>Utilizador fornece o Chip ID do ESP32 através do formulário de contacto</li>
+            <li>AlternativaIOT fornece informações de pagamento</li>
+            <li>Após confirmação de pagamento, a chave de ativação é gerada</li>
+            <li>Chave enviada por email no prazo de 48 horas úteis</li>
+            <li>Utilizador insere a chave na interface web do dispositivo</li>
+        </ol>
+
+        <h3>5.2 Pagamento</h3>
+        <ul>
+            <li>Pagamento único (não há subscrições recorrentes)</li>
+            <li>Métodos de pagamento: Transferência bancária, PayPal ou outros acordados</li>
+            <li>Preços apresentados incluem IVA quando aplicável</li>
+        </ul>
+
+        <h3>5.3 Chave de Ativação</h3>
+        <div class="terms-highlight">
+            <p><strong>A chave PRO é:</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li>Gerada com base no Chip ID específico do ESP32</li>
+                <li>Válida apenas para esse dispositivo</li>
+                <li>Não transferível para outro ESP32</li>
+                <li>Permanente (não expira)</li>
+                <li>Não reembolsável após envio</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="terms-section">
+        <h2>6. Direito de Revogação (Consumidores UE)</h2>
+        <p>Nos termos da legislação de proteção do consumidor da UE, tem direito a revogar a compra no prazo de <strong>14 dias</strong> a contar da data de aquisição, <strong>EXCETO</strong> nos seguintes casos:</p>
+        <ul>
+            <li>Se a chave de ativação já foi enviada e utilizada</li>
+            <li>Se expressamente renunciou ao direito de revogação para entrega imediata</li>
+        </ul>
+        <p>Para exercer o direito de revogação, contacte-nos através do formulário no prazo de 14 dias.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>7. Garantias e Limitação de Responsabilidade</h2>
+        
+        <h3>7.1 Ausência de Garantias</h3>
+        <div class="terms-warning">
+            <p><strong>O SOFTWARE É FORNECIDO "TAL COMO ESTÁ" (AS IS), SEM GARANTIAS DE QUALQUER TIPO.</strong></p>
+            <p>Não garantimos que:</p>
+            <ul style="margin-bottom: 0;">
+                <li>O software funcionará sem interrupções ou erros</li>
+                <li>Será compatível com todos os inversores ou equipamentos</li>
+                <li>Atenderá às suas necessidades específicas</li>
+                <li>Estará livre de bugs ou vulnerabilidades</li>
+            </ul>
+        </div>
+
+        <h3>7.2 Limitação de Responsabilidade</h3>
+        <p><strong>O autor NÃO se responsabiliza por:</strong></p>
+        <ul>
+            <li>Danos diretos, indiretos, incidentais ou consequenciais</li>
+            <li>Perda de dados, lucros ou poupanças de energia</li>
+            <li>Danos em equipamentos (ESP32, termoacumuladores, inversores)</li>
+            <li>Incêndios, curto-circuitos ou choques elétricos</li>
+            <li>Instalação incorreta ou utilização inadequada</li>
+            <li>Incompatibilidade com equipamentos específicos</li>
+        </ul>
+
+        <h3>7.3 Instalação Profissional Obrigatória</h3>
+        <p class="terms-highlight">
+            <strong>⚠️ AVISO IMPORTANTE:</strong> A instalação elétrica DEVE ser realizada por técnico certificado. O incumprimento pode resultar em:
+        </p>
+        <ul>
+            <li>Perda de garantia de equipamentos</li>
+            <li>Invalidação de seguros habitacionais</li>
+            <li>Risco de incêndio ou choque elétrico</li>
+            <li>Responsabilidade civil e criminal</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>8. Atualizações de Firmware</h2>
+        <ul>
+            <li>Atualizações são fornecidas sem garantia de continuidade</li>
+            <li>Não há obrigação de manter compatibilidade com versões antigas</li>
+            <li>Chaves de ativação válidas funcionam com todas as versões futuras (mesma edição LITE/PRO)</li>
+            <li>Atualizações não criam direito a nova chave ou reembolso</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>9. Suporte Técnico</h2>
+        <h3>9.1 Licenças LITE</h3>
+        <ul>
+            <li>Suporte limitado via GitHub Issues</li>
+            <li>Sem garantia de tempo de resposta</li>
+            <li>Suporte baseado na comunidade</li>
+        </ul>
+
+        <h3>9.2 Licenças PRO</h3>
+        <ul>
+            <li>Suporte por email com resposta em até 72 horas úteis</li>
+            <li>Assistência na configuração básica</li>
+            <li>Não inclui instalação física ou debugging de hardware</li>
+        </ul>
+
+        <h3>9.3 Consultoria Técnica (Opcional)</h3>
+        <p>Serviços adicionais de consultoria técnica podem ser contratados separadamente:</p>
+        <ul>
+            <li>Análise de viabilidade do projeto</li>
+            <li>Suporte à instalação (remoto ou presencial)</li>
+            <li>Configuração avançada de integrações</li>
+        </ul>
+        <p>Preços e condições acordados caso a caso.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>10. Propriedade Intelectual</h2>
+        <ul>
+            <li>Todo o código, documentação e marca "SolarDiverter" são propriedade de AlternativaIOT</li>
+            <li>O logótipo e identidade visual estão protegidos por direitos de autor</li>
+            <li>Não é concedida licença de patentes ou marcas registadas</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>11. Rescisão</h2>
+        <p>Podemos rescindir a sua licença imediatamente se:</p>
+        <ul>
+            <li>Violar qualquer termo deste acordo</li>
+            <li>Tentar fazer engenharia reversa ou bypass do sistema de ativação</li>
+            <li>Utilizar o software para fins comerciais não autorizados</li>
+            <li>Partilhar chaves de ativação</li>
+        </ul>
+        <p>Em caso de rescisão, deve cessar imediatamente a utilização do software. Não haverá reembolso.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>12. Proteção de Dados Pessoais</h2>
+        <p>O tratamento dos seus dados pessoais está regulado pela nossa <a href="privacidade.html">Política de Privacidade</a>, que faz parte integrante destes Termos e Condições.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>13. Legislação Aplicável e Resolução de Litígios</h2>
+        <h3>13.1 Lei Aplicável</h3>
+        <p>Estes Termos e Condições regem-se pela <strong>lei portuguesa</strong>.</p>
+
+        <h3>13.2 Foro Competente</h3>
+        <p>Para resolução de litígios, é competente o tribunal da comarca de residência do consumidor (se aplicável) ou, subsidiariamente, os tribunais de Portugal.</p>
+
+        <h3>13.3 Resolução Alternativa de Litígios</h3>
+        <p>Em caso de litígio de consumo, pode recorrer a entidades de Resolução Alternativa de Litígios (RAL):</p>
+        <ul>
+            <li><strong>Centro de Arbitragem de Conflitos de Consumo:</strong> <a href="https://www.consumidor.pt" target="_blank" rel="noopener">www.consumidor.pt</a></li>
+            <li><strong>Plataforma ODR da UE:</strong> <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>14. Alterações aos Termos</h2>
+        <p>Reservamo-nos o direito de alterar estes Termos e Condições a qualquer momento. Alterações significativas serão notificadas no website.</p>
+        <p>A versão em vigor é a publicada no website com a data de "Última atualização" indicada no topo.</p>
+        <p>A utilização continuada do software após alterações constitui aceitação dos novos termos.</p>
+    </div>
+
+    <div class="terms-section">
+        <h2>15. Disposições Gerais</h2>
+        <ul>
+            <li>Se alguma cláusula for considerada inválida, as restantes permanecem em vigor</li>
+            <li>A não aplicação de algum direito não constitui renúncia</li>
+            <li>Estes termos constituem o acordo completo entre as partes</li>
+        </ul>
+    </div>
+
+    <div class="terms-section">
+        <h2>16. Contacto</h2>
+        <p>Para questões sobre estes Termos e Condições, contacte através do <a href="index.html#contact">formulário de contacto</a> no website.</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.1);">
+        <a href="index.html" class="sd-btn sd-btn-outline">← Voltar ao Website</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="sd-footer" style="margin-top: 80px;">
+    <div class="container">
+        <div class="sd-footer-bottom" style="text-align: center; padding: 30px 0;">
+            <p>&copy; 2026 AlternativaIOT · SolarDiverter. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacidade.html" style="color: rgba(255,255,255,0.7); margin: 0 12px;">Privacidade</a> |
+                <a href="termos.html" style="color: rgba(255,255,255,0.7); margin: 0 12px;">Termos</a> |
+                <a href="index.html#contact" style="color: rgba(255,255,255,0.7); margin: 0 12px;">Contacto</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
