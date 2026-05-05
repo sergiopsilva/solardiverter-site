@@ -16,7 +16,7 @@
        ========================================================================== */
     var translations = {
         pt: {
-            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Abril 2026 · BETA',
+            ribbon_version: 'PRO v1.3.2 · LITE v1.1.2 — Maio 2026',
             dl_beta_notice: '⚠️ Versões em fase <strong>BETA</strong> — testadas mas em desenvolvimento ativo. Use com precaução e reporte erros.',
             nav_features: 'Funcionalidades',
             nav_hardware: 'Hardware',
@@ -321,7 +321,7 @@
             gallery_cap_idioma: 'Seleção de idioma da interface'
         },
         en: {
-            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — April 2026 · BETA',
+            ribbon_version: 'PRO v1.3.2 · LITE v1.1.2 — May 2026',
             dl_beta_notice: '⚠️ Beta versions — tested but in active development. Use with caution and report any issues.',
             nav_features: 'Features',
             nav_hardware: 'Hardware',
@@ -626,7 +626,7 @@
             gallery_cap_idioma: 'Interface language selection'
         },
         fr: {
-            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Avril 2026 · BETA',
+            ribbon_version: 'PRO v1.3.2 · LITE v1.1.2 — Mai 2026',
             dl_beta_notice: '⚠️ Versions en phase <strong>BETA</strong> — testées mais en développement actif. À utiliser avec précaution, signalez les erreurs.',
             nav_features: 'Fonctionnalités',
             nav_hardware: 'Matériel',
@@ -931,7 +931,7 @@
             gallery_cap_idioma: "Sélection de la langue de l'interface"
         },
         es: {
-            ribbon_version: 'PRO v1.1.3 · LITE v1.1.1 — Abril 2026 · BETA',
+            ribbon_version: 'PRO v1.3.2 · LITE v1.1.2 — Mayo 2026',
             dl_beta_notice: '⚠️ Versiones en fase <strong>BETA</strong> — probadas pero en desarrollo activo. Use con precaución y reporte errores.',
             nav_features: 'Características',
             nav_hardware: 'Hardware',
