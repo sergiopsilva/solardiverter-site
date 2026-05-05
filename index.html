@@ -268,8 +268,8 @@
         <!-- v1.3.2 Release Notes Callout -->
         <div class="sd-beta-notice text-center mx-auto d-block" style="max-width: 920px;">
             <i class="la la-bug"></i>
-            <strong data-i18n="rn132_title">v1.3.2-pro — correção crítica SMA (4 Maio 2026):</strong>
-            <span data-i18n="rn132_body"> Driver SMA WebConnect HTTP corrigido para firmwares modernos (Sunny Boy 2.5/3.6): endpoint funcional /dyn/getAllOnlValues.json com fallback para /dyn/getValues.json e /dyn/getDashValues.json; inversor a dormir (à noite) já não conta como falha; body POST simplificado {"destDev":[]} compatível com todos endpoints. Confirmado com Sunny Boy 2.5 IP 192.168.1.108. Firmware 1.18 MB (79% flash), SPIFFS 896 KB, RAM 24.6%. Atualização v1.1.3→v1.3.2: persistência NVS do perfil do inversor corrigida; fugas de socket TCP em 9 drivers HTTP eliminadas; modo Prioridade Bateria ativo por defeito; UI simplificada com 27+ inversores suportados.</span>
+            <strong data-i18n="rn132_title">v1.3.2-pro — inversores SMA agora compatíveis (4 Maio 2026):</strong>
+            <span data-i18n="rn132_body"> Inversores SMA Sunny Boy modernos (2.5/3.6) já funcionam corretamente. Melhorias importantes: inversores offline à noite deixaram de ser reportados como erro, maior estabilidade nas ligações HTTP, prioridade de bateria ativa por defeito, e interface simplificada com suporte para 27+ inversores diferentes. Testado e confirmado com SMA Sunny Boy 2.5.</span>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
