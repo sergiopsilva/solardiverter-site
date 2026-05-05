@@ -965,27 +965,18 @@
                             <li><i class="la la-check sd-lic-yes"></i><span data-i18n="lic_pro_f4">MQTT com HA Discovery e controlos no Home Assistant</span></li>
                             <li><i class="la la-times sd-lic-no"></i><span data-i18n="lic_pro_ota_note">OTA n&atilde;o dispon&iacute;vel (firmware excede limite da parti&ccedil;&atilde;o)</span></li>
                         </ul>
-                        <div class="sd-lic-options">
-                            <div class="sd-lic-option">
-                                <span class="sd-lic-opt-badge">A</span>
-                                <div>
-                                    <strong data-i18n="lic_pro_a_title">Hardware plug&#8209;and&#8209;play</strong>
-                                    <p data-i18n="lic_pro_a_desc">Dispositivo enviado com licen&ccedil;a Pro j&aacute; ativada. Sem necessidade de ativa&ccedil;&atilde;o.</p>
-                                </div>
-                            </div>
-                            <div class="sd-lic-option">
-                                <span class="sd-lic-opt-badge">B</span>
-                                <div>
-                                    <strong data-i18n="lic_pro_b_title">Kit DIY com ESP inclu&iacute;do</strong>
-                                    <p data-i18n="lic_pro_b_desc">Kit com ESP32 identificado. Chave gerada antes do envio &mdash; firmware arranca em modo Pro.</p>
-                                </div>
-                            </div>
-                            <div class="sd-lic-option">
-                                <span class="sd-lic-opt-badge">C</span>
-                                <div>
-                                    <strong data-i18n="lic_pro_c_title">Ativa&ccedil;&atilde;o em hardware pr&oacute;prio</strong>
-                                    <p data-i18n="lic_pro_c_desc">Forne&ccedil;a o chipID do seu ESP32 e adquira a chave Pro. Licen&ccedil;a v&aacute;lida para um &uacute;nico dispositivo.</p>
-                                </div>
+                        <div class="sd-lic-how-to">
+                            <h5 data-i18n="lic_pro_how_title">Como obter a licença PRO:</h5>
+                            <ol class="sd-lic-steps">
+                                <li data-i18n="lic_pro_step1">Monte o seu hardware ESP32 seguindo o guia de instalação</li>
+                                <li data-i18n="lic_pro_step2">Instale o firmware e obtenha o chipID do dispositivo</li>
+                                <li data-i18n="lic_pro_step3">Contacte através do formulário fornecendo o chipID</li>
+                                <li data-i18n="lic_pro_step4">Receberá a chave de ativação digital por email</li>
+                                <li data-i18n="lic_pro_step5">Insira a chave na interface web para ativar o modo PRO</li>
+                            </ol>
+                            <div class="sd-lic-note">
+                                <i class="la la-info-circle"></i>
+                                <p data-i18n="lic_pro_consulting"><strong>Precisa de ajuda?</strong> Disponibilizamos consultoria técnica para viabilidade do projeto e suporte à instalação. Contacte para mais informações.</p>
                             </div>
                         </div>
                     </div>
@@ -1308,6 +1299,7 @@
         <div class="sd-footer-bottom">
             <p>&copy; <span id="sd-year"></span> AlternativaIOT &middot; SolarDiverter. <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
             <p class="sd-footer-license" data-i18n="footer_license">Uso pessoal livre. A distribuição ou utilização comercial é proibida sem autorização prévia por escrito do autor.</p>
+            <p class="sd-footer-disclaimer" style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 12px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.6;"><strong>⚠️ Aviso:</strong> Projeto DIY (faça-você-mesmo). O autor não se responsabiliza por danos. A instalação elétrica deve ser efetuada por técnico certificado. Não comercializamos hardware — apenas licenças de software e consultoria técnica.</p>
         </div>
     </div>
 </footer>
