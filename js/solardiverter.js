@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SolarDiverter - Static Site JS
  * Language Switcher (PT, EN, FR, ES), Contact Form (Formspree), Anti-spam, Navbar, Animations
  */
@@ -91,8 +91,8 @@
             features_tag: 'FUNCIONALIDADES',
             features_title: 'Novidades da Versão 1.3.3',
             features_subtitle: 'Lançada a 10 de Maio de 2026',
-            rn133_title: 'v1.3.3-pro — correções MQTT, BOOST e modo OFF (10 Maio 2026):',
-            rn133_body: ' Corrigidos múltiplos bugs: sensores binários MQTT sempre OFF, percentagem do BOOST inconsistente entre canais, modo Boost bloqueado quando global OFF, bypass indevido da proteção térmica TRIAC durante Boost, e PWM a mostrar 100% no estado após desligar. Histórico de SOC da bateria agora persiste entre reboots.',
+            rn133_title: 'v1.3.3-pro — correções MQTT, BOOST, modo OFF e sensores NVS (11 Maio 2026):',
+            rn133_body: ' Corrigidos múltiplos bugs: sensores binários MQTT sempre OFF, percentagem do BOOST inconsistente entre canais, modo Boost bloqueado quando global OFF, bypass indevido da proteção térmica TRIAC durante Boost, e PWM a mostrar 100% no estado após desligar. Histórico de SOC da bateria agora persiste entre reboots. Build 6 (11 Maio): IDs dos sensores DS18B20 (água, triac, ambiente, extras 1–5) agora guardados em NVS — sobrevivem a atualizações OTA do SPIFFS sem perda de configuração de sensores.',
             rn113_title: 'v1.1.3-pro — release de estabilidade (26 Abril 2026):',
             rn113_body: ' driver SMA WebConnect HTTP reescrito (suporte a firmwares modernos com endpoint /dyn/getValues.json e detecção automática de SMA Energy Meter); persistência NVS do perfil do inversor (marca/modelo deixa de se perder após reinício); fugas de socket TCP corrigidas em 10 drivers HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) com timeouts de 2s; modo Prioridade Bateria ativo por defeito de fábrica; UI simplificada (campos Porta/Modbus ID só em protocolos Modbus, Modbus Scanner colapsado, abas Sensores e Rede reorganizadas com sub-secções coloridas). Sem migração necessária — basta clicar Save All.',
             feat_pwm_title: '4 Canais PWM',
@@ -398,8 +398,8 @@
             features_tag: 'FEATURES',
             features_title: 'What\'s New in Version 1.3.3',
             features_subtitle: 'Released May 10, 2026',
-            rn133_title: 'v1.3.3-pro — MQTT, BOOST and OFF mode fixes (May 10, 2026):',
-            rn133_body: ' Multiple bugs fixed: binary MQTT sensors always OFF, BOOST percentage inconsistent between channel view and boost panel, Boost mode blocked when global mode was OFF, TRIAC thermal protection bypassed during Boost, and PWM showing 100% in status after turning off. Battery SOC history now persists across reboots.',
+            rn133_title: 'v1.3.3-pro — MQTT, BOOST, OFF mode and sensor NVS fixes (May 11, 2026):',
+            rn133_body: ' Multiple bugs fixed: binary MQTT sensors always OFF, BOOST percentage inconsistent between channel view and boost panel, Boost mode blocked when global mode was OFF, TRIAC thermal protection bypassed during Boost, and PWM showing 100% in status after turning off. Battery SOC history now persists across reboots. Build 6 (May 11): DS18B20 sensor IDs (water, triac, ambient, extras 1–5) now stored in NVS — they survive SPIFFS OTA updates without losing sensor configuration.',
             rn113_title: 'v1.1.3-pro — stability release (April 26, 2026):',
             rn113_body: ' SMA WebConnect HTTP driver rewritten (modern firmware support via /dyn/getValues.json endpoint and SMA Energy Meter auto-detection); NVS persistence of the inverter profile (brand/model no longer lost after reboot); TCP socket leaks fixed in 10 HTTP drivers (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) with 2s timeouts; Battery Priority mode enabled by factory default; simplified UI (Port/Modbus ID fields only for Modbus protocols, Modbus Scanner collapsed by default, Sensors and Network tabs reorganized into color-coded sub-sections). No migration required — just click Save All once.',
             feat_pwm_title: '4 PWM Channels',
@@ -705,7 +705,7 @@
             features_tag: 'FONCTIONNALITÉS',
             features_title: 'Nouveautés de la Version 1.3.3',
             features_subtitle: 'Sortie le 10 Mai 2026',
-            rn133_title: 'v1.3.3-pro — corrections MQTT, BOOST et mode OFF (10 mai 2026):',
+            rn133_title: 'v1.3.3-pro — corrections MQTT, BOOST, mode OFF et capteurs NVS (11 mai 2026):',
             rn133_body: ' Plusieurs bugs corrigés : capteurs binaires MQTT toujours à OFF, pourcentage du BOOST incohérent entre le panneau canal et le panneau boost, mode Boost bloqué lorsque le mode global est OFF, contournement de la protection thermique TRIAC pendant le Boost, et PWM affichant 100 % dans l’état après extinction. L’historique SOC de la batterie est désormais conservé après un redémarrage.',
             rn113_title: 'v1.1.3-pro — version de stabilité (26 avril 2026):',
             rn113_body: ' pilote SMA WebConnect HTTP réécrit (prise en charge des firmwares modernes via /dyn/getValues.json et détection automatique du SMA Energy Meter); persistance NVS du profil de l’onduleur (la marque/modèle ne se perd plus après redémarrage); fuites de socket TCP corrigées dans 10 pilotes HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) avec timeouts de 2s; mode Priorité Batterie activé par défaut en usine; UI simplifiée (champs Port/Modbus ID uniquement pour protocoles Modbus, Modbus Scanner replié par défaut, onglets Capteurs et Réseau réorganisés en sous-sections colorées). Aucune migration nécessaire — cliquez simplement Save All.',
@@ -1012,8 +1012,8 @@
             features_tag: 'CARACTERÍSTICAS',
             features_title: 'Novedades de la Versión 1.3.3',
             features_subtitle: 'Lanzada el 10 de Mayo de 2026',
-            rn133_title: 'v1.3.3-pro — correcciones MQTT, BOOST y modo OFF (10 de mayo de 2026):',
-            rn133_body: ' Varios bugs corregidos: sensores binarios MQTT siempre en OFF, porcentaje del BOOST inconsistente entre el panel de canal y el panel de boost, modo Boost bloqueado cuando el modo global era OFF, bypass indebido de la protección térmica del TRIAC durante Boost, y PWM mostrando 100% en el estado tras apagar. El historial SOC de la batería ahora persiste entre reinicios.',
+            rn133_title: 'v1.3.3-pro — correcciones MQTT, BOOST, modo OFF y sensores NVS (11 de mayo de 2026):',
+            rn133_body: ' Varios bugs corregidos: sensores binarios MQTT siempre en OFF, porcentaje del BOOST inconsistente entre el panel de canal y el panel de boost, modo Boost bloqueado cuando el modo global era OFF, bypass indebido de la protección térmica del TRIAC durante Boost, y PWM mostrando 100% en el estado tras apagar. El historial SOC de la batería ahora persiste entre reinicios. Build 6 (11 de mayo): IDs de sensores DS18B20 (agua, triac, ambiente, extras 1–5) ahora guardados en NVS — sobreviven a actualizaciones OTA del SPIFFS sin perder la configuración de sensores.',
             rn113_title: 'v1.1.3-pro — versión de estabilidad (26 de abril de 2026):',
             rn113_body: ' controlador SMA WebConnect HTTP reescrito (soporte para firmwares modernos con endpoint /dyn/getValues.json y detección automática de SMA Energy Meter); persistencia NVS del perfil del inversor (marca/modelo ya no se pierde tras reinicio); fugas de socket TCP corregidas en 10 controladores HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) con timeouts de 2s; modo Prioridad Batería activo por defecto de fábrica; UI simplificada (campos Puerto/Modbus ID solo para protocolos Modbus, Modbus Scanner colapsado por defecto, pestañas Sensores y Red reorganizadas en sub-secciones de colores). Sin migración necesaria — basta con hacer clic en Save All.',
             feat_pwm_title: '4 Canales PWM',

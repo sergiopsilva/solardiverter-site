@@ -268,8 +268,8 @@
         <!-- v1.3.3 Release Notes Callout -->
         <div class="sd-beta-notice text-center mx-auto d-block" style="max-width: 920px;">
             <i class="la la-check-circle"></i>
-            <strong data-i18n="rn133_title">v1.3.3-pro — correções MQTT, BOOST e modo OFF (10 Maio 2026):</strong>
-            <span data-i18n="rn133_body"> Corrigidos múltiplos bugs: sensores binários MQTT sempre OFF, percentagem do BOOST inconsistente entre canais, modo Boost bloqueado quando global OFF, bypass indevido da proteção térmica TRIAC durante Boost, e PWM a mostrar 100% no estado após desligar. Histórico de SOC da bateria agora persiste entre reboots.</span>
+            <strong data-i18n="rn133_title">v1.3.3-pro — correções MQTT, BOOST, modo OFF e sensores NVS (11 Maio 2026):</strong>
+            <span data-i18n="rn133_body"> Corrigidos múltiplos bugs: sensores binários MQTT sempre OFF, percentagem do BOOST inconsistente entre canais, modo Boost bloqueado quando global OFF, bypass indevido da proteção térmica TRIAC durante Boost, e PWM a mostrar 100% no estado após desligar. Histórico de SOC da bateria agora persiste entre reboots. Build 6 (11 Maio): IDs dos sensores DS18B20 (água, triac, ambiente, extras 1–5) agora guardados em NVS — sobrevivem a atualizações OTA do SPIFFS sem perda de configuração de sensores.</span>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6">
@@ -883,7 +883,7 @@
                         <div class="sd-dl-file"><i class="la la-file-archive"></i><span>v1.3.3-pro.zip (firmware + SPIFFS + flash.bat)</span></div>
                     </div>
                     <!-- TODO: link download PRO -->
-                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.3.3_pro" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
+                    <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.3.3-pro" class="sd-btn sd-btn-primary sd-btn-block" target="_blank" rel="noopener">
                         <i class="la la-download"></i>
                         <span data-i18n="dl_btn_pro">Transferir PRO (.zip)</span>
                     </a>
