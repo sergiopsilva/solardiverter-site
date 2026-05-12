@@ -776,6 +776,49 @@
             <h2 class="sd-section-title" data-i18n="started_title">Primeiros Passos</h2>
             <p class="sd-section-subtitle" data-i18n="started_subtitle">Do flash ao funcionamento em minutos</p>
         </div>
+
+        <!-- Compatible boards callout -->
+        <div class="sd-started-boards">
+            <div class="sd-boards-header">
+                <i class="la la-microchip"></i>
+                <strong data-i18n="boards_title">Placas Compatíveis (DevKit ESP32)</strong>
+            </div>
+            <div class="row g-3 mt-2">
+                <div class="col-md-4">
+                    <div class="sd-board-card">
+                        <div class="sd-board-icon"><i class="la la-broadcast-tower"></i></div>
+                        <div>
+                            <strong>ESP32-WROOM DevKit U</strong>
+                            <p data-i18n="board_u_desc">Antena externa IPEX — melhor alcance WiFi. Ideal quando o ESP32 está em caixa metálica.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="sd-board-card">
+                        <div class="sd-board-icon"><i class="la la-microchip"></i></div>
+                        <div>
+                            <strong>ESP32-WROOM DevKit D</strong>
+                            <p data-i18n="board_d_desc">Antena PCB integrada — solução mais compacta para instalação standard.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="sd-board-card">
+                        <div class="sd-board-icon"><i class="la la-desktop"></i></div>
+                        <div>
+                            <strong>ESP32 DevKit + OLED</strong>
+                            <p data-i18n="board_oled_desc">Com display OLED integrado — mostra estado do sistema, temperaturas e modo de operação em tempo real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sd-boards-warning">
+                <i class="la la-exclamation-triangle"></i>
+                <span data-i18n="boards_warning">Atenção na seleção da placa: existem modelos idênticos <strong>sem os pinos PWM</strong> e outros projetados para redes <strong>LoRa</strong> — esses não são compatíveis com este projeto. Confirme sempre o pinout antes de adquirir.</span>
+            </div>
+        </div>
+
+        <!-- Steps -->
         <div class="sd-steps">
             <div class="sd-steps-line"></div>
             <div class="row g-4">
@@ -783,41 +826,65 @@
                     <div class="sd-step-card">
                         <div class="sd-step-num">1</div>
                         <div class="sd-step-icon"><i class="la la-download"></i></div>
-                        <h3 data-i18n="step1_title">Flash do Firmware</h3>
-                        <p data-i18n="step1_desc">Extraia o ZIP, ligue o ESP32 via USB e execute o <code>flash.bat</code> (Windows) incluído no pacote. O script usa o <code>esptool.exe</code> para gravar firmware + SPIFFS automaticamente.</p>
+                        <h3 data-i18n="step1_title">Transferir</h3>
+                        <p data-i18n="step1_desc">Transfira o ZIP da versão mais recente na secção <a href="#downloads">Transferências</a> e extraia para uma pasta local.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="sd-step-card">
                         <div class="sd-step-num">2</div>
-                        <div class="sd-step-icon"><i class="la la-wifi"></i></div>
-                        <h3 data-i18n="step2_title">Ligar ao WiFi</h3>
-                        <p data-i18n="step2_desc">Ligue-se à rede WiFi "SolarDiverter-Setup" (sem password) e abra 192.168.4.1</p>
+                        <div class="sd-step-icon"><i class="la la-usb"></i></div>
+                        <h3 data-i18n="step2_title">Ligar e Identificar COM</h3>
+                        <p data-i18n="step2_desc">Ligue o ESP32 via USB. Abra o <strong>Gestor de Dispositivos</strong> → <em>Portas (COM e LPT)</em> e anote o número da porta (ex: COM4). Se não aparecer, instale os <a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads" target="_blank" rel="noopener">drivers SiLabs CP210x</a>. Atenção: use um cabo USB com dados (não apenas de carga).</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="sd-step-card">
                         <div class="sd-step-num">3</div>
-                        <div class="sd-step-icon"><i class="la la-sliders-h"></i></div>
-                        <h3 data-i18n="step3_title">Configurar</h3>
-                        <p data-i18n="step3_desc">Configure a rede WiFi doméstica, selecione o medidor de energia e ajuste a potência nominal.</p>
+                        <div class="sd-step-icon"><i class="la la-terminal"></i></div>
+                        <h3 data-i18n="step3_title">Flash via flash.bat</h3>
+                        <p data-i18n="step3_desc">Na pasta extraída, clique na barra de endereços do Explorador de Ficheiros, escreva <code>cmd</code> e prima Enter. Na consola escreva <code>flash.bat COM4</code> (substitua COM4 pelo número anotado) e prima Enter. Se solicitado, pressione o botão <strong>BOOT</strong> do ESP32 alguns segundos para entrar em modo flash e aguarde a conclusão.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="sd-step-card">
                         <div class="sd-step-num">4</div>
-                        <div class="sd-step-icon"><i class="la la-sun"></i></div>
-                        <h3 data-i18n="step4_title">Desviar Energia</h3>
-                        <p data-i18n="step4_desc">O sistema monitoriza o excedente solar e ajusta automaticamente a potência PWM em tempo real.</p>
+                        <div class="sd-step-icon"><i class="la la-wifi"></i></div>
+                        <h3 data-i18n="step4_title">Configurar e Ativar</h3>
+                        <p data-i18n="step4_desc">Ligue-se à rede WiFi <strong>"SolarDiverter-Setup"</strong> (password: <code>12345678</code>) e abra <strong>192.168.4.1</strong>. Configure a rede doméstica, medidor e potência nominal. Insira a chave de ativação recebida por email para desbloquear o firmware.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="sd-started-tip">
-            <div class="sd-tip-icon"><i class="la la-lightbulb"></i></div>
+
+        <!-- Tips row -->
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="sd-started-tip">
+                    <div class="sd-tip-icon"><i class="la la-lightbulb"></i></div>
+                    <div>
+                        <strong data-i18n="tip_reset_title">Reset de Fábrica:</strong>
+                        <span data-i18n="tip_reset_desc">Pressione o botão GPIO0 durante 10 segundos no arranque para repor as definições de fábrica.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="sd-started-tip sd-started-tip-key">
+                    <div class="sd-tip-icon"><i class="la la-key"></i></div>
+                    <div>
+                        <strong data-i18n="tip_key_title">Chave de Ativação:</strong>
+                        <span data-i18n="tip_key_desc">A chave está vinculada ao Chip ID único do seu ESP32 — guarde-a em local seguro. Caso atualize o SPIFFS via OTA, a chave NVS é preservada.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety warning -->
+        <div class="sd-safety-warning">
+            <div class="sd-safety-icon"><i class="la la-exclamation-triangle"></i></div>
             <div>
-                <strong data-i18n="tip_reset_title">Reset de Fábrica:</strong>
-                <span data-i18n="tip_reset_desc">Pressione o botão GPIO0 durante 10 segundos no arranque para repor as definições de fábrica.</span>
+                <strong data-i18n="safety_title">Aviso de Segurança e Responsabilidade</strong>
+                <p data-i18n="safety_desc">Este equipamento é um <strong>protótipo de desenvolvimento</strong>, podendo exigir conhecimentos técnicos avançados para a sua correta instalação e utilização. A responsabilidade pela sua utilização recai inteiramente sobre o utilizador. Caso não tenha experiência em eletricidade, automação ou sistemas de energia, <strong>procure apoio de um profissional certificado</strong> antes de proceder à instalação ou operação.</p>
             </div>
         </div>
     </div>
