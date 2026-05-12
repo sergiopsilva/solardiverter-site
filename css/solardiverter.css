@@ -1360,36 +1360,39 @@ html {
 
 /* Safety warning */
 .sd-safety-warning {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    background: rgba(220, 38, 38, 0.08);
-    border: 1px solid rgba(220, 38, 38, 0.3);
-    border-left: 4px solid #dc2626;
+    background: rgba(180, 130, 40, 0.07);
+    border: 1px solid rgba(180, 130, 40, 0.25);
+    border-left: 3px solid #b48228;
     border-radius: var(--sd-radius);
-    padding: 20px 24px;
+    padding: 14px 20px;
     margin-top: 28px;
-    font-size: 14px;
-    color: var(--sd-text);
+    font-size: 13.5px;
+    color: var(--sd-text-muted);
+    line-height: 1.6;
+}
+
+.sd-safety-warning .sd-safety-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
 }
 
 .sd-safety-icon .la {
-    font-size: 28px;
-    color: #dc2626;
+    font-size: 16px;
+    color: #b48228;
     flex-shrink: 0;
 }
 
 .sd-safety-warning strong {
-    display: block;
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 700;
-    color: #dc2626;
-    margin-bottom: 6px;
+    color: #b48228;
 }
 
 .sd-safety-warning p {
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--sd-text-muted);
 }
 
