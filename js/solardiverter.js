@@ -170,7 +170,7 @@
             tip_key_title: 'Chave de Ativação:',
             tip_key_desc: 'A chave está vinculada ao Chip ID único do seu ESP32 — guarde-a em local seguro. Caso atualize o SPIFFS via OTA, a chave NVS é preservada.',
             safety_title: 'Aviso de Segurança e Responsabilidade',
-            safety_desc: 'Este equipamento é um <strong>protótipo de desenvolvimento</strong>, podendo exigir conhecimentos técnicos avançados para a sua correta instalação e utilização. A responsabilidade pela sua utilização recai inteiramente sobre o utilizador. Caso não tenha experiência em eletricidade, automação ou sistemas de energia, <strong>procure apoio de um profissional certificado</strong> antes de proceder à instalação ou operação.'
+            safety_desc: 'A montagem deste equipamento exige conhecimentos técnicos avançados para a sua correta instalação e utilização. A responsabilidade pela sua utilização recai inteiramente sobre o utilizador. Caso não tenha experiência em eletricidade, automação ou sistemas de energia, <strong>procure apoio de um profissional certificado</strong> antes de proceder à instalação ou operação.'
             dl_tag: 'TRANSFERÊNCIAS',
             dl_title: 'Pronto para Começar?',
             dl_subtitle: 'Descarregue a versão que melhor se adapta ao seu projeto. Ambas são gratuitas.',
@@ -488,7 +488,7 @@
             tip_key_title: 'Activation Key:',
             tip_key_desc: 'The key is tied to the unique Chip ID of your ESP32 — keep it in a safe place. SPIFFS OTA updates do not erase the NVS key.',
             safety_title: 'Safety & Liability Notice',
-            safety_desc: 'This device is a <strong>development prototype</strong> that may require advanced technical knowledge for correct installation and use. Responsibility for its use rests entirely with the user. If you have no experience in electrical, automation or energy systems, <strong>seek advice from a certified professional</strong> before proceeding with installation or operation.'
+            safety_desc: 'Installing this equipment requires advanced technical knowledge for correct installation and use. Responsibility for its use rests entirely with the user. If you have no experience in electrical, automation or energy systems, <strong>seek advice from a certified professional</strong> before proceeding with installation or operation.'
             dl_tag: 'DOWNLOADS',
             dl_title: 'Ready to Get Started?',
             dl_subtitle: 'Download the version that best fits your project. Both are free.',
@@ -804,7 +804,7 @@
             tip_key_title: 'Clé d\'Activation:',
             tip_key_desc: 'La clé est liée au Chip ID unique de votre ESP32 — conservez-la en lieu sûr.',
             safety_title: 'Avertissement de Sécurité et Responsabilité',
-            safety_desc: 'Cet équipement est un <strong>prototype de développement</strong> pouvant nécessiter des connaissances techniques avancées. La responsabilité incombe entièrement à l\'utilisateur. En cas de doute, <strong>consultez un professionnel certifié</strong> avant l\'installation.',
+            safety_desc: 'Le montage de cet équipement exige des connaissances techniques avancées pour une installation et une utilisation correctes. La responsabilité incombe entièrement à l\'utilisateur. En cas de doute, <strong>consultez un professionnel certifié</strong> avant de procéder à l\'installation ou à l\'utilisation.',
             dl_tag: 'TÉLÉCHARGEMENTS',
             dl_title: 'Prêt à Commencer?',
             dl_subtitle: 'Téléchargez la version qui correspond le mieux à votre projet. Les deux sont gratuites.',
@@ -1120,7 +1120,7 @@
             tip_key_title: 'Clave de Activación:',
             tip_key_desc: 'La clave está vinculada al Chip ID único de su ESP32 — guárdela en lugar seguro.',
             safety_title: 'Aviso de Seguridad y Responsabilidad',
-            safety_desc: 'Este equipo es un <strong>prototipo de desarrollo</strong> que puede requerir conocimientos técnicos avanzados. La responsabilidad recae íntegramente sobre el usuario. Si no tiene experiencia en electricidad o sistemas de energía, <strong>consulte un profesional certificado</strong> antes de la instalación.',
+            safety_desc: 'El montaje de este equipo exige conocimientos técnicos avanzados para su correcta instalación y uso. La responsabilidad recae íntegramente sobre el usuario. Si no tiene experiencia en electricidad, automatización o sistemas de energía, <strong>consulte un profesional certificado</strong> antes de proceder a la instalación o uso.',
             dl_tag: 'DESCARGAS',
             dl_title: '¿Listo para Empezar?',
             dl_subtitle: 'Descargue la versión que mejor se adapte a su proyecto. Ambas son gratuitas.',
