@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarDiverter LITE — Shelly Contest Entry | AlternativaIOT</title>
+    <meta name="description" content="SolarDiverter LITE: ESP32 firmware that uses Shelly devices as energy meters to intelligently divert solar surplus to resistive loads.">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Line Awesome -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/lanern/line-awesome/css/line-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/AlternativaIOT_logo.png">
+
+    <style>
+        :root {
+            --sd-primary: #f97316;
+            --sd-primary-dark: #ea580c;
+            --sd-secondary: #fbbf24;
+            --sd-bg: #0f172a;
+            --sd-bg-card: #1e293b;
+            --sd-bg-card2: #162032;
+            --sd-border: rgba(255,255,255,0.08);
+            --sd-text: #e2e8f0;
+            --sd-text-muted: #94a3b8;
+            --sd-shelly: #14b8a6;
+            --sd-shelly-dark: #0f766e;
+            --sd-green: #22c55e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--sd-bg);
+            color: var(--sd-text);
+            line-height: 1.65;
+        }
+
+        /* --- HEADER --- */
+        .sc-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1a2744 50%, #0f2a1a 100%);
+            border-bottom: 1px solid var(--sd-border);
+            padding: 48px 0 40px;
+            text-align: center;
+        }
+        .sc-header-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .sc-logo-badge {
+            background: var(--sd-bg-card);
+            border: 1px solid var(--sd-border);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--sd-primary);
+            letter-spacing: 0.02em;
+        }
+        .sc-x { font-size: 1.5rem; color: var(--sd-text-muted); font-weight: 300; }
+        .sc-shelly-badge {
+            background: var(--sd-shelly-dark);
+            border: 1px solid var(--sd-shelly);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .sc-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .sc-title .hl { color: var(--sd-primary); }
+        .sc-subtitle {
+            font-size: 1.15rem;
+            color: var(--sd-text-muted);
+            max-width: 680px;
+            margin: 0 auto 24px;
+        }
+        .sc-pills {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .sc-pill {
+            background: rgba(20,184,166,0.15);
+            border: 1px solid var(--sd-shelly);
+            color: var(--sd-shelly);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .sc-pill.orange {
+            background: rgba(249,115,22,0.15);
+            border-color: var(--sd-primary);
+            color: var(--sd-primary);
+        }
+        .sc-pill.green {
+            background: rgba(34,197,94,0.15);
+            border-color: var(--sd-green);
+            color: var(--sd-green);
+        }
+
+        /* --- SECTION --- */
+        section { padding: 60px 0; }
+        section:nth-child(even) { background: var(--sd-bg-card2); }
+        .sc-section-tag {
+            display: inline-block;
+            background: rgba(249,115,22,0.15);
+            border: 1px solid rgba(249,115,22,0.4);
+            color: var(--sd-primary);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .sc-section-tag.teal {
+            background: rgba(20,184,166,0.12);
+            border-color: rgba(20,184,166,0.4);
+            color: var(--sd-shelly);
+        }
+        h2.sc-h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .sc-lead {
+            color: var(--sd-text-muted);
+            font-size: 1.05rem;
+            max-width: 720px;
+        }
+
+        /* --- CARD --- */
+        .sc-card {
+            background: var(--sd-bg-card);
+            border: 1px solid var(--sd-border);
+            border-radius: 16px;
+            padding: 28px;
+            height: 100%;
+        }
+        .sc-card-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        .sc-card-icon.orange { background: rgba(249,115,22,0.15); }
+        .sc-card-icon.teal   { background: rgba(20,184,166,0.15); }
+        .sc-card-icon.green  { background: rgba(34,197,94,0.15); }
+        .sc-card-icon.blue   { background: rgba(59,130,246,0.15); }
+        .sc-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .sc-card p  { font-size: 0.9rem; color: var(--sd-text-muted); margin: 0; }
+
+        /* --- DIAGRAM --- */
+        .sc-diagram {
+            background: var(--sd-bg-card);
+            border: 1px solid var(--sd-border);
+            border-radius: 16px;
+            padding: 32px 24px;
+        }
+        .sc-diagram-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--sd-text-muted);
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .sc-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            row-gap: 12px;
+        }
+        .sc-node {
+            background: var(--sd-bg);
+            border: 2px solid var(--sd-border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-align: center;
+            min-width: 110px;
+        }
+        .sc-node.shelly {
+            border-color: var(--sd-shelly);
+            background: rgba(20,184,166,0.08);
+        }
+        .sc-node.esp32 {
+            border-color: var(--sd-primary);
+            background: rgba(249,115,22,0.08);
+        }
+        .sc-node.load {
+            border-color: var(--sd-green);
+            background: rgba(34,197,94,0.08);
+        }
+        .sc-node-icon { font-size: 1.6rem; display: block; }
+        .sc-node-label { font-size: 0.72rem; font-weight: 600; margin-top: 4px; letter-spacing: 0.03em; }
+        .sc-node-sub { font-size: 0.65rem; color: var(--sd-text-muted); margin-top: 2px; }
+        .sc-node-badge {
+            display: inline-block;
+            margin-top: 6px;
+            background: var(--sd-shelly-dark);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 8px;
+            letter-spacing: 0.04em;
+        }
+        .sc-node-badge.orange { background: var(--sd-primary-dark); }
+        .sc-node-badge.green  { background: #15803d; }
+        .sc-arrow {
+            color: var(--sd-text-muted);
+            font-size: 1.3rem;
+            padding: 0 4px;
+            flex-shrink: 0;
+        }
+        .sc-arrow.up { transform: rotate(-90deg); }
+        .sc-arrow-label {
+            font-size: 0.6rem;
+            color: var(--sd-shelly);
+            display: block;
+            text-align: center;
+            margin-top: -8px;
+            margin-bottom: 2px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .sc-flow-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- METER ROLES TABLE --- */
+        .sc-meter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .sc-meter-card {
+            background: var(--sd-bg-card);
+            border: 1px solid var(--sd-border);
+            border-radius: 14px;
+            padding: 22px;
+        }
+        .sc-meter-card.role-grid  { border-top: 3px solid #3b82f6; }
+        .sc-meter-card.role-pv    { border-top: 3px solid var(--sd-secondary); }
+        .sc-meter-card.role-load  { border-top: 3px solid var(--sd-green); }
+        .sc-meter-role-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .sc-meter-role-tag.blue   { color: #3b82f6; }
+        .sc-meter-role-tag.yellow { color: var(--sd-secondary); }
+        .sc-meter-role-tag.green  { color: var(--sd-green); }
+        .sc-meter-card h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+        .sc-meter-card p  { font-size: 0.83rem; color: var(--sd-text-muted); margin: 0; }
+        .sc-meter-devices {
+            margin-top: 10px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .sc-dev-tag {
+            background: rgba(20,184,166,0.12);
+            border: 1px solid rgba(20,184,166,0.3);
+            color: var(--sd-shelly);
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* --- FEATURE LIST --- */
+        .sc-feat-list { list-style: none; padding: 0; margin: 0; }
+        .sc-feat-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--sd-border);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .sc-feat-list li:last-child { border-bottom: none; }
+        .sc-feat-list .icon { color: var(--sd-shelly); flex-shrink: 0; margin-top: 2px; }
+        .sc-feat-list .icon.orange { color: var(--sd-primary); }
+        .sc-feat-list .icon.green  { color: var(--sd-green); }
+
+        /* --- CTA --- */
+        .sc-cta {
+            background: linear-gradient(135deg, rgba(20,184,166,0.12) 0%, rgba(249,115,22,0.08) 100%);
+            border: 1px solid rgba(20,184,166,0.25);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        .sc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .sc-btn-primary {
+            background: var(--sd-primary);
+            color: #fff;
+        }
+        .sc-btn-primary:hover { background: var(--sd-primary-dark); color: #fff; }
+        .sc-btn-outline {
+            background: transparent;
+            border: 2px solid var(--sd-shelly);
+            color: var(--sd-shelly);
+        }
+        .sc-btn-outline:hover { background: rgba(20,184,166,0.12); color: var(--sd-shelly); }
+
+        /* --- BACK LINK --- */
+        .sc-back {
+            position: fixed;
+            top: 16px; left: 16px;
+            background: var(--sd-bg-card);
+            border: 1px solid var(--sd-border);
+            border-radius: 8px;
+            padding: 7px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--sd-text-muted);
+            text-decoration: none;
+            z-index: 999;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .sc-back:hover { color: var(--sd-text); border-color: rgba(255,255,255,0.2); }
+
+        /* --- CODE BLOCK --- */
+        .sc-code {
+            background: #0a0f1a;
+            border: 1px solid var(--sd-border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: #a5f3fc;
+            overflow-x: auto;
+            line-height: 1.7;
+        }
+        .sc-code .c { color: #64748b; }
+        .sc-code .k { color: var(--sd-secondary); }
+        .sc-code .s { color: #86efac; }
+        .sc-code .v { color: #f9a8d4; }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .sc-flow { flex-direction: column; align-items: center; }
+            .sc-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="sc-back">
+    <i class="la la-arrow-left"></i> Back to site
+</a>
+
+<!-- HEADER -->
+<header class="sc-header">
+    <div class="container">
+        <div class="sc-header-logos">
+            <div class="sc-logo-badge">⚡ SolarDiverter LITE</div>
+            <div class="sc-x">×</div>
+            <div class="sc-shelly-badge">🐚 Shelly Contest</div>
+        </div>
+        <h1 class="sc-title">
+            Turn a <span class="hl">Shelly</span> into the Brain<br>of your Solar Diverter
+        </h1>
+        <p class="sc-subtitle">
+            SolarDiverter LITE is a free, open ESP32 firmware that uses Shelly smart meters as its energy sensing layer — reading grid power, PV production, and real load consumption to divert solar surplus into resistive loads.
+        </p>
+        <div class="sc-pills">
+            <span class="sc-pill orange">ESP32 · Free Firmware</span>
+            <span class="sc-pill">Shelly EM · 3EM · Plug · 1PM</span>
+            <span class="sc-pill green">LITE v1.1.3 · June 2026</span>
+        </div>
+    </div>
+</header>
+
+<!-- WHAT IT DOES -->
+<section>
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <span class="sc-section-tag">THE PROJECT</span>
+                <h2 class="sc-h2">What is SolarDiverter LITE?</h2>
+                <p class="sc-lead mb-4">
+                    SolarDiverter LITE is firmware for the <strong>ESP32</strong> microcontroller that intelligently diverts excess solar energy to resistive loads — typically water heaters, immersion heaters, or thermosiphons — using PWM modulation.
+                </p>
+                <p style="color:var(--sd-text-muted); font-size:0.92rem; margin-bottom:16px;">
+                    Instead of injecting unused solar power back into the grid at low feed-in tariffs, SolarDiverter modulates a TRIAC-controlled load in real time to absorb exactly the amount of surplus being produced.
+                </p>
+                <p style="color:var(--sd-text-muted); font-size:0.92rem;">
+                    The key ingredient is <strong>accurate energy sensing</strong> — and that's where <strong>Shelly</strong> comes in.
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <div class="sc-diagram">
+                    <p class="sc-diagram-title">System Architecture — Shelly meters as sensing layer</p>
+                    <div class="sc-flow">
+                        <!-- Grid meter -->
+                        <div class="sc-flow-col">
+                            <div class="sc-node shelly">
+                                <span class="sc-node-icon">⚡</span>
+                                <span class="sc-node-label">Grid Meter</span>
+                                <span class="sc-node-sub">Main panel</span>
+                                <span class="sc-node-badge">Shelly EM / 3EM</span>
+                            </div>
+                        </div>
+                        <div class="sc-flow-col">
+                            <span class="sc-arrow-label">HTTP/JSON</span>
+                            <span class="sc-arrow">→</span>
+                        </div>
+                        <!-- ESP32 -->
+                        <div class="sc-flow-col">
+                            <div class="sc-node esp32">
+                                <span class="sc-node-icon">🤖</span>
+                                <span class="sc-node-label">ESP32</span>
+                                <span class="sc-node-sub">SolarDiverter LITE</span>
+                                <span class="sc-node-badge orange">PWM Control</span>
+                            </div>
+                        </div>
+                        <div class="sc-flow-col">
+                            <span class="sc-arrow-label">PWM signal</span>
+                            <span class="sc-arrow">→</span>
+                        </div>
+                        <!-- Load -->
+                        <div class="sc-flow-col">
+                            <div class="sc-node load">
+                                <span class="sc-node-icon">♨️</span>
+                                <span class="sc-node-label">Load</span>
+                                <span class="sc-node-sub">Water heater</span>
+                                <span class="sc-node-badge green">TRIAC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="border-color:var(--sd-border); margin: 24px 0 20px;">
+                    <!-- Load meter row -->
+                    <div class="sc-flow">
+                        <div class="sc-flow-col">
+                            <div class="sc-node shelly">
+                                <span class="sc-node-icon">🔌</span>
+                                <span class="sc-node-label">Load Meter</span>
+                                <span class="sc-node-sub">In series with load</span>
+                                <span class="sc-node-badge">Shelly Plug / 1PM</span>
+                            </div>
+                        </div>
+                        <div class="sc-flow-col">
+                            <span class="sc-arrow-label">real power</span>
+                            <span class="sc-arrow">→</span>
+                        </div>
+                        <div class="sc-flow-col">
+                            <div class="sc-node esp32" style="opacity:0.6;">
+                                <span class="sc-node-icon">🤖</span>
+                                <span class="sc-node-label">ESP32</span>
+                                <span class="sc-node-sub">closes the loop</span>
+                            </div>
+                        </div>
+                        <div style="flex:1; max-width:200px; padding: 0 12px; font-size:0.78rem; color:var(--sd-text-muted); line-height:1.5;">
+                            The load meter provides the <strong style="color:var(--sd-green)">real consumed power</strong>, replacing the PWM-estimated value. Visible as a <strong style="color:#43a047">REAL</strong> badge in the energy flow UI.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THREE SHELLY ROLES -->
+<section>
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="sc-section-tag teal">SHELLY INTEGRATION</span>
+            <h2 class="sc-h2">Three Shelly roles — one smart system</h2>
+            <p class="sc-lead mx-auto">
+                SolarDiverter LITE supports up to three independent Shelly devices, each playing a distinct role in the energy measurement chain.
+            </p>
+        </div>
+        <div class="sc-meter-grid">
+
+            <!-- ROLE 1: Grid Meter -->
+            <div class="sc-meter-card role-grid">
+                <div class="sc-meter-role-tag blue">Role 1 — Grid / Surplus Source</div>
+                <h5>🔌 Grid Meter</h5>
+                <p>
+                    Measures the power imported or exported at the main electrical panel. SolarDiverter reads <strong>grid_power</strong> (positive = import, negative = export) and uses it as the primary input to compute how much solar surplus is available.
+                </p>
+                <p style="margin-top:8px;">
+                    When grid power is negative (exporting to grid), the firmware activates PWM proportionally to absorb that surplus in the load.
+                </p>
+                <div class="sc-meter-devices">
+                    <span class="sc-dev-tag">Shelly EM</span>
+                    <span class="sc-dev-tag">Shelly 3EM</span>
+                    <span class="sc-dev-tag">Shelly EM Gen3</span>
+                </div>
+                <p style="font-size:0.72rem; color:var(--sd-text-muted); margin-top:10px;">
+                    Supports Gen1 (<code>/status</code>) and Gen2/Gen3 (<code>/rpc/Shelly.GetStatus</code>) auto-detected.
+                </p>
+            </div>
+
+            <!-- ROLE 2: PV Meter -->
+            <div class="sc-meter-card role-pv">
+                <div class="sc-meter-role-tag yellow">Role 2 — PV Production (optional)</div>
+                <h5>☀️ PV Meter</h5>
+                <p>
+                    A separate Shelly installed at the PV inverter output measures raw solar production. This provides the <strong>pv_power</strong> reading, enabling accurate energy flow display: PV → House → Diverter → Grid.
+                </p>
+                <p style="margin-top:8px;">
+                    Without a dedicated PV meter, SolarDiverter estimates PV production from grid and load data. With it, the UI shows the full picture.
+                </p>
+                <div class="sc-meter-devices">
+                    <span class="sc-dev-tag">Shelly EM</span>
+                    <span class="sc-dev-tag">Shelly 1PM</span>
+                    <span class="sc-dev-tag">Any Gen1/2/3</span>
+                </div>
+                <p style="font-size:0.72rem; color:var(--sd-text-muted); margin-top:10px;">
+                    Configured as a secondary data source. Polled independently from the grid meter.
+                </p>
+            </div>
+
+            <!-- ROLE 3: Load Meter -->
+            <div class="sc-meter-card role-load">
+                <div class="sc-meter-role-tag green">Role 3 — Load Meter (new in v1.1.3)</div>
+                <h5>♨️ Load Meter</h5>
+                <p>
+                    A <strong>Shelly Plug or 1PM</strong> placed <em>in series with the resistive load</em> (water heater, immersion heater) measures the <strong>real power actually consumed</strong> — instead of relying on the PWM duty-cycle estimate.
+                </p>
+                <p style="margin-top:8px;">
+                    This closes the feedback loop: the ESP32 can see in real time how many watts are reaching the load, compensating for TRIAC non-linearity, load resistance variation, and voltage fluctuations.
+                </p>
+                <div class="sc-meter-devices">
+                    <span class="sc-dev-tag">Shelly Plug S</span>
+                    <span class="sc-dev-tag">Shelly 1PM</span>
+                    <span class="sc-dev-tag">Shelly Plug Plus</span>
+                </div>
+                <p style="font-size:0.72rem; color:var(--sd-text-muted); margin-top:10px;">
+                    When active, the WebUI shows a <strong style="color:#43a047">REAL</strong> badge in the energy flow and a live power card in the configuration tab.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FIRMWARE FEATURES -->
+<section>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <span class="sc-section-tag">FIRMWARE — LITE v1.1.3</span>
+                <h2 class="sc-h2">What LITE includes</h2>
+                <ul class="sc-feat-list mt-4">
+                    <li><i class="la la-check-circle icon"></i><span>1 PWM channel — TRIAC-controlled resistive load</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>Proportional AUTO mode: PWM tracks surplus in real time</span></li>
+                    <li><i class="la la-check-circle icon"></i><span><strong>Shelly EM / 3EM / EM Gen3</strong> as primary grid meter (Gen1 &amp; Gen2/Gen3 auto-detected)</span></li>
+                    <li><i class="la la-check-circle icon green"></i><span><strong>NEW: Shelly Plug / 1PM as Load Meter</strong> — reads real consumed power, replaces PWM estimate</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>MQTT integration + Home Assistant MQTT Discovery</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>DS18B20 temperature sensors (water + TRIAC protection)</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>1 weekly schedule (time band + day of week)</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>OTA updates via WiFi (no USB after first flash)</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>Setup wizard + dual WiFi (main + fallback)</span></li>
+                    <li><i class="la la-check-circle icon"></i><span>Web UI in 6 languages (PT, EN, ES, FR, DE, IT)</span></li>
+                    <li><i class="la la-check-circle icon orange"></i><span>Free for personal use — activation by email request</span></li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <span class="sc-section-tag teal">LOAD METER — DEEP DIVE</span>
+                <h2 class="sc-h2">How the Load Meter works</h2>
+                <p style="color:var(--sd-text-muted); font-size:0.9rem; margin: 16px 0;">
+                    PWM-controlled TRIACs are inherently non-linear. A 50% duty cycle does not deliver exactly 50% of rated power — it depends on load resistance, mains voltage, and TRIAC characteristics. The Load Meter solves this:
+                </p>
+                <div class="sc-code">
+<span class="c">// Simplified logic in system_core.cpp</span>
+<span class="k">if</span> (cfg.load_meter_enabled &amp;&amp; shellyReachable) {
+    state.load_power_from_meter = <span class="k">true</span>;
+    state.load_power = <span class="v">shellyPlugin.power_w</span>; <span class="c">// real watts</span>
+} <span class="k">else</span> {
+    state.load_power_from_meter = <span class="k">false</span>;
+    state.load_power = <span class="v">rated_load_w</span> * (pwm / <span class="s">100.0f</span>); <span class="c">// estimate</span>
+}
+                </div>
+                <p style="color:var(--sd-text-muted); font-size:0.83rem; margin-top:16px;">
+                    The real reading is exposed via <code>/api/status</code> as <code>load_power</code> and <code>load_power_from_meter: true</code>. The WebUI shows a green <strong>REAL</strong> badge in the energy flow diagram whenever the meter is active and reachable.
+                </p>
+                <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); border-left:4px solid #22c55e; border-radius:8px; padding:14px 16px; margin-top:16px;">
+                    <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:#86efac; margin-bottom:4px;">Result</div>
+                    <div style="font-size:1rem; font-weight:700; color:#22c55e;">Accurate surplus tracking — watt by watt.</div>
+                    <div style="font-size:0.82rem; color:var(--sd-text-muted); margin-top:4px;">The system always knows exactly how much power the load is consuming, not just an estimate.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HARDWARE SETUP -->
+<section>
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="sc-section-tag teal">HARDWARE SETUP</span>
+            <h2 class="sc-h2">Typical installation</h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="sc-card">
+                    <div class="sc-card-icon blue"><i class="la la-bolt" style="color:#3b82f6;"></i></div>
+                    <h4>1. Shelly EM at Main Panel</h4>
+                    <p>Install current clamps on the grid feed. Shelly EM connects to your WiFi and exposes real-time import/export power via HTTP JSON.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="sc-card">
+                    <div class="sc-card-icon orange"><i class="la la-microchip" style="color:var(--sd-primary);"></i></div>
+                    <h4>2. ESP32 + TRIAC board</h4>
+                    <p>Flash SolarDiverter LITE, configure WiFi and Shelly IP. The ESP32 reads grid power every 2–5 seconds and adjusts PWM output.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="sc-card">
+                    <div class="sc-card-icon green"><i class="la la-plug" style="color:var(--sd-green);"></i></div>
+                    <h4>3. Shelly Plug on the Load</h4>
+                    <p>Plug the Shelly Plug between the TRIAC output and the water heater. Enable "Load Meter" in the WebUI and enter the Shelly's IP.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="sc-card">
+                    <div class="sc-card-icon teal"><i class="la la-sun" style="color:var(--sd-shelly);"></i></div>
+                    <h4>4. Ready — surplus goes to hot water</h4>
+                    <p>Solar surplus is absorbed by the water heater instead of being exported. The WebUI shows real power, temperature, and energy flow live.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section>
+    <div class="container">
+        <div class="sc-cta">
+            <h2 style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">Free · Open · ESP32 · Shelly-ready</h2>
+            <p style="color:var(--sd-text-muted); max-width:560px; margin:0 auto 28px;">
+                SolarDiverter LITE v1.1.3 is available now. Flash it to your ESP32, connect your Shelly EM, and start harvesting your solar surplus.
+            </p>
+            <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://github.com/sergiopsilva/solardiverter/releases/tag/v1.1.3-lite" class="sc-btn sc-btn-primary" target="_blank" rel="noopener">
+                    <i class="la la-download"></i> Download LITE v1.1.3
+                </a>
+                <a href="index.html#features" class="sc-btn sc-btn-outline">
+                    <i class="la la-info-circle"></i> Full Feature List
+                </a>
+                <a href="index.html#contact" class="sc-btn sc-btn-outline">
+                    <i class="la la-envelope"></i> Request Activation Key
+                </a>
+            </div>
+            <p style="font-size:0.75rem; color:var(--sd-text-muted); margin-top:20px;">
+                Free for personal use · Activation key by email request · No cloud required · Local WiFi only
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer style="background:var(--sd-bg-card); border-top:1px solid var(--sd-border); padding:24px 0; text-align:center;">
+    <div class="container">
+        <p style="font-size:0.82rem; color:var(--sd-text-muted); margin:0;">
+            SolarDiverter · AlternativaIOT · <a href="index.html" style="color:var(--sd-primary); text-decoration:none;">solardiverter site</a> · <a href="https://github.com/sergiopsilva/solardiverter" target="_blank" rel="noopener" style="color:var(--sd-shelly); text-decoration:none;">GitHub</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

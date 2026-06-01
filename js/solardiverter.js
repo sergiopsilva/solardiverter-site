@@ -16,7 +16,7 @@
        ========================================================================== */
     var translations = {
         pt: {
-            ribbon_version: 'PRO v1.3.3 · LITE v1.1.2 — Maio 2026',
+            ribbon_version: 'PRO v1.3.3 (build 37) · LITE v1.1.3 — Junho 2026',
             dl_beta_notice: '⚠️ Versões em fase <strong>BETA</strong> — testadas mas em desenvolvimento ativo. Use com precaução e reporte erros.',
             nav_features: 'Funcionalidades',
             nav_hardware: 'Hardware',
@@ -90,9 +90,9 @@
             matrix_foot: 'A versão <strong>LITE</strong> é gratuita mas requer ativação por chave digital — basta pedir através do <a href="#contact">formulário de contacto</a>. A chave <strong>PRO</strong> é gerada com base no Chip ID do ESP32 e válida apenas para esse dispositivo.',
             features_tag: 'FUNCIONALIDADES',
             features_title: 'Novidades da Versão 1.3.3',
-            features_subtitle: 'Última actualização: 12 de Maio de 2026 (build 17)',
-            rn133_title: 'v1.3.3-pro — build 17 publicada (12 Maio 2026):',
-            rn133_body: ' Nova funcionalidade: <strong>Bateria AC Acoplada via Modbus TCP</strong> — suporte para Marstek Venus E v3 (Ethernet nativa, porta 502) e v1/v2 (via conversor RS485→TCP, ex: Elfin-EW11). Permite ligar uma bateria independente do inversor principal; o SOC e potência da bateria AC substituem os valores do inversor nos algoritmos de controlo (prioridade bateria e SOC mínimo actuam automaticamente). Estado ao vivo (SOC%, Potência W, Online/Erro) visível na interface. Adicionada opção "Nenhum" na fonte de dados para funcionar em modo MANUAL ou BOOST sem medidor ligado. Registos Modbus configuráveis para compatibilidade com outros modelos de bateria.',
+            features_subtitle: 'Última actualização: 1 de Junho de 2026 (build 37)',
+            rn133_title: 'v1.3.3-pro — build 36 publicada (20 Maio 2026):',
+            rn133_body: ' <strong>Builds 28–36 (Maio 2026):</strong> <strong>Build 36</strong> — Chaves i18n literais (boost) corrigidas em ES/FR/DE/IT e race condition no carregamento inicial. <strong>Build 35</strong> — Polling Shelly 1000ms→20000ms: WebUI volta a carregar instantaneamente. <strong>Build 34</strong> — Canal 1 não arrancava após reboot; botão OFF por vezes ignorado pelo scheduler. <strong>Build 30</strong> — Polling WebUI 500ms→2000ms: sem timeouts, sem erros no console. <strong>Build 29</strong> — Algoritmo proporcional universal: limiares adaptativos baseados em % da potência nominal (rated_load_w), anti-overshoot garantido, cooldowns reduzidos. <strong>Build 28</strong> — AUTO arranca sem necessidade de OFF→AUTO; interface 5-6× mais rápida (GZIP 82%); dropdown de inversores corrigido após reboot.',
             rn113_title: 'v1.1.3-pro — release de estabilidade (26 Abril 2026):',
             rn113_body: ' driver SMA WebConnect HTTP reescrito (suporte a firmwares modernos com endpoint /dyn/getValues.json e detecção automática de SMA Energy Meter); persistência NVS do perfil do inversor (marca/modelo deixa de se perder após reinício); fugas de socket TCP corrigidas em 10 drivers HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) com timeouts de 2s; modo Prioridade Bateria ativo por defeito de fábrica; UI simplificada (campos Porta/Modbus ID só em protocolos Modbus, Modbus Scanner colapsado, abas Sensores e Rede reorganizadas com sub-secções coloridas). Sem migração necessária — basta clicar Save All.',
             feat_pwm_title: '4 Canais PWM',
@@ -129,6 +129,8 @@
             feat_ac_battery_desc: 'Marstek Venus E v3 (Ethernet nativa) e v1/v2 (RS485→TCP). Leitor de bateria independente do inversor principal — SOC e potência integrados nos algoritmos de desvio solar.',
             feat_phase_title: 'Proteção Trifásica',
             feat_phase_desc: 'Limitação por fase do diverter, potência máxima por fase (3680W default).',
+            feat_load_meter_title: 'Medidor de Carga Externo <span class="sd-pro-only" style="background:#43a047;color:#fff;font-size:0.7em;padding:1px 6px;border-radius:8px;vertical-align:middle;">LITE</span>',
+            feat_load_meter_desc: 'Ligue um Shelly Plug ou 1PM (Gen1/Gen2/Gen3) em série com a carga resistiva para medir a potência real consumida. Substitui a estimativa PWM — badge REAL no fluxo de energia e leitura ao vivo na WebUI.',
             hw_tag: 'COMPATIBILIDADE',
             hw_title: 'Hardware Compatível',
             hw_subtitle: 'Compatível com mais de 31 dispositivos: 15 inversores + 9 medidores + 5 integrações + 2 baterias AC',
@@ -179,6 +181,7 @@
             dl_feat_1pwm: '1 Canal PWM',
             dl_feat_pwm80: 'PWM Auto limitado',
             dl_feat_1schedule: '1 Agendamento (sem temp.)',
+            dl_feat_load_meter: 'Medidor de carga externo (Shelly Plug/1PM)',
             dl_feat_4pwm: '4 Canais PWM independentes',
             dl_feat_meters: '29+ dispositivos suportados',
             dl_feat_mqtt: 'MQTT / Home Assistant',
@@ -334,7 +337,7 @@
             gallery_cap_idioma: 'Seleção de idioma da interface'
         },
         en: {
-            ribbon_version: 'PRO v1.3.3 · LITE v1.1.2 — May 2026',
+            ribbon_version: 'PRO v1.3.3 (build 37) · LITE v1.1.3 — June 2026',
             dl_beta_notice: '⚠️ Beta versions — tested but in active development. Use with caution and report any issues.',
             nav_features: 'Features',
             nav_hardware: 'Hardware',
@@ -408,9 +411,9 @@
             matrix_foot: 'The <strong>LITE</strong> version is free but requires activation via a digital key — just request it through the <a href="#contact">contact form</a>. The <strong>PRO</strong> key is generated from the ESP32 Chip ID and valid only for that device.',
             features_tag: 'FEATURES',
             features_title: 'What\'s New in Version 1.3.3',
-            features_subtitle: 'Latest update: May 12, 2026 (build 17)',
-            rn133_title: 'v1.3.3-pro — build 17 published (May 12, 2026):',
-            rn133_body: ' New feature: <strong>AC-coupled Battery via Modbus TCP</strong> — support for Marstek Venus E v3 (native Ethernet, port 502) and v1/v2 (via RS485→TCP converter, e.g. Elfin-EW11). Allows connecting a battery independently from the main inverter; AC battery SOC and power replace the inverter values in the control algorithms (battery priority and minimum SOC act automatically). Live status (SOC%, Power W, Online/Error) shown directly in the interface. Added "None" source option to run in MANUAL or BOOST mode without any energy meter. Modbus registers are fully configurable for compatibility with other battery models.',
+            features_subtitle: 'Latest update: June 1, 2026 (build 37)',
+            rn133_title: 'v1.3.3-pro — build 36 published (May 20, 2026):',
+            rn133_body: ' <strong>Builds 28–36 (May 2026):</strong> <strong>Build 36</strong> — Literal i18n keys (boost) fixed for ES/FR/DE/IT and race condition on initial load. <strong>Build 35</strong> — Shelly polling 1000ms→20000ms: WebUI loads instantly again. <strong>Build 34</strong> — Channel 1 not starting after reboot; OFF button sometimes ignored by scheduler. <strong>Build 30</strong> — WebUI polling 500ms→2000ms: no timeouts, no console errors. <strong>Build 29</strong> — Universal proportional algorithm: adaptive thresholds based on % of rated power (rated_load_w), guaranteed anti-overshoot, reduced cooldowns. <strong>Build 28</strong> — AUTO starts without OFF→AUTO; interface 5–6× faster (82% GZIP); inverter dropdown fixed after reboot.',
             rn113_title: 'v1.1.3-pro — stability release (April 26, 2026):',
             rn113_body: ' SMA WebConnect HTTP driver rewritten (modern firmware support via /dyn/getValues.json endpoint and SMA Energy Meter auto-detection); NVS persistence of the inverter profile (brand/model no longer lost after reboot); TCP socket leaks fixed in 10 HTTP drivers (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) with 2s timeouts; Battery Priority mode enabled by factory default; simplified UI (Port/Modbus ID fields only for Modbus protocols, Modbus Scanner collapsed by default, Sensors and Network tabs reorganized into color-coded sub-sections). No migration required — just click Save All once.',
             feat_pwm_title: '4 PWM Channels',
@@ -447,6 +450,8 @@
             feat_ac_battery_desc: 'Marstek Venus E v3 (native Ethernet) and v1/v2 (RS485→TCP). Independent battery reader alongside main inverter — SOC and power integrated into the diverter control algorithms.',
             feat_phase_title: 'Three-Phase Protection',
             feat_phase_desc: 'Per-phase diverter limiting, max power per phase (3680W default).',
+            feat_load_meter_title: 'External Load Meter <span class="sd-pro-only" style="background:#43a047;color:#fff;font-size:0.7em;padding:1px 6px;border-radius:8px;vertical-align:middle;">LITE</span>',
+            feat_load_meter_desc: 'Connect a Shelly Plug or 1PM (Gen1/Gen2/Gen3) in series before the SolarDiverter to measure real consumed power. Replaces PWM estimate — REAL badge in energy flow and live reading in WebUI.',
             hw_tag: 'COMPATIBILITY',
             hw_title: 'Compatible Hardware',
             hw_subtitle: 'Compatible with over 31 devices: 15 inverters + 9 meters + 5 integrations + 2 AC batteries',
@@ -497,6 +502,7 @@
             dl_feat_1pwm: '1 PWM Channel',
             dl_feat_pwm80: 'Auto PWM limited',
             dl_feat_1schedule: '1 Schedule (no temp. control)',
+            dl_feat_load_meter: 'External load meter (Shelly Plug/1PM)',
             dl_feat_4pwm: '4 Independent PWM Channels',
             dl_feat_meters: '29+ supported devices',
             dl_feat_mqtt: 'MQTT / Home Assistant',
@@ -652,7 +658,7 @@
             gallery_cap_idioma: 'Interface language selection'
         },
         fr: {
-            ribbon_version: 'PRO v1.3.3 · LITE v1.1.2 — Mai 2026',
+            ribbon_version: 'PRO v1.3.3 (build 37) · LITE v1.1.3 — Juin 2026',
             dl_beta_notice: '⚠️ Versions en phase <strong>BETA</strong> — testées mais en développement actif. À utiliser avec précaution, signalez les erreurs.',
             nav_features: 'Fonctionnalités',
             nav_hardware: 'Matériel',
@@ -726,9 +732,9 @@
             matrix_foot: 'La version <strong>LITE</strong> est gratuite mais nécessite une activation par clé numérique — il suffit d\'en faire la demande via le <a href="#contact">formulaire de contact</a>. La clé <strong>PRO</strong> est générée à partir du Chip ID de l\'ESP32 et valable uniquement pour cet appareil.',
             features_tag: 'FONCTIONNALITÉS',
             features_title: 'Nouveautés de la Version 1.3.3',
-            features_subtitle: 'Sortie le 11 mai 2026',
-            rn133_title: 'v1.3.3-pro — build 6 publiée (11 mai 2026):',
-            rn133_body: ' Corrections cumulées (builds 4–6) : stabilité du contrôle AUTO avec Shelly 3EM et sources lentes (terme-P et terme-I synchronisés avec le polling réel), descente rapide du PWM lors du passage de MANUEL à AUTO, entités numériques MQTT affichées comme sliders dans Home Assistant, le mode MANUEL via MQTT active désormais correctement le PWM, suffixe Chip ID ajouté au nom de l''appareil, et les IDs de capteurs (eau, TRIAC, ambiant, extras) sont maintenant sauvegardés en NVS — ils survivent aux mises à jour SPIFFS.',
+            features_subtitle: 'Dernière mise à jour : 1er juin 2026 (build 37)',
+            rn133_title: 'v1.3.3-pro — build 36 publiée (20 mai 2026):',
+            rn133_body: ' <strong>Builds 28–36 (mai 2026) :</strong> <strong>Build 36</strong> — Clés i18n littérales (boost) corrigées pour ES/FR/DE/IT et race condition au chargement initial. <strong>Build 35</strong> — Polling Shelly 1000ms→20000ms : la WebUI se charge instantanément. <strong>Build 34</strong> — Canal 1 ne démarrait pas après reboot ; bouton OFF parfois ignoré par le scheduler. <strong>Build 30</strong> — Polling WebUI 500ms→2000ms : sans timeouts ni erreurs console. <strong>Build 29</strong> — Algorithme proportionnel universel : seuils adaptatifs basés sur % de la puissance nominale (rated_load_w), anti-dépassement garanti, cooldowns réduits. <strong>Build 28</strong> — AUTO démarre sans OFF→AUTO ; interface 5–6× plus rapide (GZIP 82%) ; liste déroulante des onduleurs corrigée après reboot.',
             rn113_title: 'v1.1.3-pro — version de stabilité (26 avril 2026):',
             rn113_body: ' pilote SMA WebConnect HTTP réécrit (prise en charge des firmwares modernes via /dyn/getValues.json et détection automatique du SMA Energy Meter); persistance NVS du profil de l’onduleur (la marque/modèle ne se perd plus après redémarrage); fuites de socket TCP corrigées dans 10 pilotes HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) avec timeouts de 2s; mode Priorité Batterie activé par défaut en usine; UI simplifiée (champs Port/Modbus ID uniquement pour protocoles Modbus, Modbus Scanner replié par défaut, onglets Capteurs et Réseau réorganisés en sous-sections colorées). Aucune migration nécessaire — cliquez simplement Save All.',
             feat_pwm_title: '4 Canaux PWM',
@@ -763,6 +769,8 @@
             feat_battery_desc: 'Mode priorité batterie pour onduleurs hybrides avec seuil configurable.',
             feat_phase_title: 'Protection Triphasée',
             feat_phase_desc: 'Limitation par phase du déviateur, puissance maximale par phase (3680W défaut).',
+            feat_load_meter_title: 'Compteur de Charge Externe <span class="sd-pro-only" style="background:#43a047;color:#fff;font-size:0.7em;padding:1px 6px;border-radius:8px;vertical-align:middle;">LITE</span>',
+            feat_load_meter_desc: 'Connectez un Shelly Plug ou 1PM (Gen1/Gen2/Gen3) en série avant le SolarDiverter pour mesurer la puissance réelle consommée. Remplace l\'estimation PWM — badge RÉEL dans le flux d\'énergie et lecture en direct dans la WebUI.',
             hw_tag: 'COMPATIBILITÉ',
             hw_title: 'Matériel Compatible',
             hw_subtitle: 'Compatible avec plus de 29 appareils : 15 onduleurs + 9 compteurs + 5 intégrations',
@@ -813,6 +821,7 @@
             dl_feat_1pwm: '1 Canal PWM',
             dl_feat_pwm80: 'PWM Auto limité',
             dl_feat_1schedule: '1 Programmation (sans temp.)',
+            dl_feat_load_meter: 'Compteur de charge externe (Shelly Plug/1PM)',
             dl_feat_4pwm: '4 Canaux PWM indépendants',
             dl_feat_meters: '29+ appareils supportés',
             dl_feat_mqtt: 'MQTT / Home Assistant',
@@ -968,7 +977,7 @@
             gallery_cap_idioma: "Sélection de la langue de l'interface"
         },
         es: {
-            ribbon_version: 'PRO v1.3.3 · LITE v1.1.2 — Mayo 2026',
+            ribbon_version: 'PRO v1.3.3 (build 37) · LITE v1.1.3 — Junio 2026',
             dl_beta_notice: '⚠️ Versiones en fase <strong>BETA</strong> — probadas pero en desarrollo activo. Use con precaución y reporte errores.',
             nav_features: 'Características',
             nav_hardware: 'Hardware',
@@ -1042,9 +1051,9 @@
             matrix_foot: 'La versión <strong>LITE</strong> es gratuita pero requiere activación mediante clave digital — basta con solicitarla a través del <a href="#contact">formulario de contacto</a>. La clave <strong>PRO</strong> se genera a partir del Chip ID del ESP32 y es válida solo para ese dispositivo.',
             features_tag: 'CARACTERÍSTICAS',
             features_title: 'Novedades de la Versión 1.3.3',
-            features_subtitle: 'Lanzada el 11 de mayo de 2026',
-            rn133_title: 'v1.3.3-pro — build 6 publicada (11 de mayo de 2026):',
-            rn133_body: ' Correcciones acumuladas (builds 4–6): estabilidad del control AUTO con Shelly 3EM y fuentes lentas (término-P e I sincronizados con el polling real), descenso rápido de PWM al cambiar de MANUAL a AUTO, entidades numéricas MQTT mostradas como sliders en Home Assistant, el modo MANUAL vía MQTT ahora activa correctamente el PWM, sufijo Chip ID añadido al nombre del dispositivo, e IDs de sensores (agua, TRIAC, ambiente, extras) ahora guardados en NVS — sobreviven a actualizaciones de SPIFFS.',
+            features_subtitle: 'Última actualización: 1 de junio de 2026 (build 37)',
+            rn133_title: 'v1.3.3-pro — build 36 publicada (20 de mayo de 2026):',
+            rn133_body: ' <strong>Builds 28–36 (mayo 2026):</strong> <strong>Build 36</strong> — Claves i18n literales (boost) corregidas en ES/FR/DE/IT y race condition en la carga inicial. <strong>Build 35</strong> — Polling Shelly 1000ms→20000ms: la WebUI carga instantáneamente. <strong>Build 34</strong> — Canal 1 no arrancaba tras reboot; botón OFF a veces ignorado por el scheduler. <strong>Build 30</strong> — Polling WebUI 500ms→2000ms: sin timeouts ni errores en consola. <strong>Build 29</strong> — Algoritmo proporcional universal: umbrales adaptativos basados en % de la potencia nominal (rated_load_w), anti-overshoot garantizado, cooldowns reducidos. <strong>Build 28</strong> — AUTO arranca sin necesidad de OFF→AUTO; interfaz 5–6× más rápida (GZIP 82%); desplegable de inversores corregido tras reboot.',
             rn113_title: 'v1.1.3-pro — versión de estabilidad (26 de abril de 2026):',
             rn113_body: ' controlador SMA WebConnect HTTP reescrito (soporte para firmwares modernos con endpoint /dyn/getValues.json y detección automática de SMA Energy Meter); persistencia NVS del perfil del inversor (marca/modelo ya no se pierde tras reinicio); fugas de socket TCP corregidas en 10 controladores HTTP (Shelly EM/Gen3/3EM/Pro, Fronius, FreeDS, FreePocket, EasyHan, Enphase Envoy, SMA WebConnect) con timeouts de 2s; modo Prioridad Batería activo por defecto de fábrica; UI simplificada (campos Puerto/Modbus ID solo para protocolos Modbus, Modbus Scanner colapsado por defecto, pestañas Sensores y Red reorganizadas en sub-secciones de colores). Sin migración necesaria — basta con hacer clic en Save All.',
             feat_pwm_title: '4 Canales PWM',
@@ -1079,6 +1088,8 @@
             feat_battery_desc: 'Modo prioridad batería para inversores híbridos con umbral configurable.',
             feat_phase_title: 'Protección Trifásica',
             feat_phase_desc: 'Limitación por fase del desviador, potencia máxima por fase (3680W predeterminado).',
+            feat_load_meter_title: 'Medidor de Carga Externo <span class="sd-pro-only" style="background:#43a047;color:#fff;font-size:0.7em;padding:1px 6px;border-radius:8px;vertical-align:middle;">LITE</span>',
+            feat_load_meter_desc: 'Conecte un Shelly Plug o 1PM (Gen1/Gen2/Gen3) en serie antes del SolarDiverter para medir la potencia real consumida. Sustituye la estimación PWM — badge REAL en el flujo de energía y lectura en vivo en la WebUI.',
             hw_tag: 'COMPATIBILIDAD',
             hw_title: 'Hardware Compatible',
             hw_subtitle: 'Compatible con más de 29 dispositivos: 15 inversores + 9 medidores + 5 integraciones',
@@ -1129,6 +1140,7 @@
             dl_feat_1pwm: '1 Canal PWM',
             dl_feat_pwm80: 'PWM Auto limitado',
             dl_feat_1schedule: '1 Programación (sin temp.)',
+            dl_feat_load_meter: 'Medidor de carga externo (Shelly Plug/1PM)',
             dl_feat_4pwm: '4 Canales PWM independientes',
             dl_feat_meters: '29+ dispositivos soportados',
             dl_feat_mqtt: 'MQTT / Home Assistant',
@@ -1765,7 +1777,7 @@
     /* ==========================================================================
        INIT
        ========================================================================== */
-    document.addEventListener('DOMContentLoaded', function () {
+    function sdInit() {
         initLanguageSwitcher();
         initNavbar();
         initBackToTop();
@@ -1774,5 +1786,14 @@
         initWebUITabs();
         initLightbox();
         initYear();
-    });
+    }
+
+    // Se o DOM ainda está a carregar, espera pelo DOMContentLoaded.
+    // Se já está pronto (readyState != 'loading'), executa imediatamente —
+    // necessário quando o script é carregado no fim do <body> em certos browsers.
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', sdInit);
+    } else {
+        sdInit();
+    }
 })();
